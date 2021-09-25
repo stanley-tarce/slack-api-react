@@ -7,28 +7,25 @@ const apiHooks = () => {
     let contentType = { 'Content-Type': 'application/x-www-form-urlencoded' }
     let client = { 'client': 'TdmPB-prCbBtjStYuOeuCg' }
     const postUserRegistration = async (data) => {
-        data = qs.stringify(data)
         try {
             const response = await axios({
-                method: 'post',
-                url: `${BASE_URL}/api/v1/auth`,
+                method: 'POST',
+                url: `http://${BASE_URL}/api/v1/auth`,
                 headers: { ...contentType },
-                data: data
+                data: qs.stringify(data)
             })
-            const output = response.data
-            return output
+            return console.log(response.data)
         } catch (error) {
             return console.log(error)
         }
     }
     const postCreateUserSession = async (data) => {
-        data = qs.stringify(data)
         try {
             const response = await axios({
                 method: 'post',
-                url: `${BASE_URL}/api/v1/auth/sign_in`,
+                url: `http://${BASE_URL}/api/v1/auth`,
                 headers: { ...contentType },
-                data: data
+                data: qs.stringify(data)
             })
             const output = response.data
             return output
@@ -40,7 +37,7 @@ const apiHooks = () => {
         try {
             const response = await axios({
                 method: 'get',
-                url: `${BASE_URL}/api/v1/users`,
+                url: `http://${BASE_URL}/api/v1/auth`,
                 headers: {
                     'access-token': qs.stringify(accessToken),
                     ...client,
@@ -58,7 +55,7 @@ const apiHooks = () => {
         try {
             const response = await axios({
                 method: 'get',
-                url: `${BASE_URL}/api/v1/channels`,
+                url: `http://${BASE_URL}/api/v1/auth`,
                 headers: {
                     'access-token': qs.stringify(accessToken),
                     ...client,
@@ -76,7 +73,7 @@ const apiHooks = () => {
         try {
             const response = await axios({
                 method: 'get',
-                url: `${BASE_URL}/api/v1/channels`,
+                url: `http://${BASE_URL}/api/v1/auth`,
                 headers: {
                     'access-token': qs.stringify(accessToken),
                     ...client,

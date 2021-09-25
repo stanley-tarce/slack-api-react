@@ -1,5 +1,149 @@
-.root {
+.signUpMain {
   width: 100vw;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  display: grid;
+  grid-template-columns: 0.3fr 0.7fr;
+  grid-template-areas: "pics form";
+}
+.SVG-Photo {
+  grid-area: pics;
+  width: 100%;
+  height: 100vh;
+  background: url("./Assets/SignupVector.svg");
+  background-position: center;
+}
+
+.Main-Signup {
+  grid-area: form;
+  width: 100%;
   height: 100%;
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: block;
+  width: 475px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+/*H1 Edit*/
+form h1 {
+  margin-bottom: 10px;
+  width: max-content;
+  height: 122px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 40px;
+}
+
+/*Labels*/
+form label {
+  width: max-content;
+  height: 35px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+/*Input*/
+form input {
+  width: 475px;
+  height: 45px;
+  background: #f3f3f4;
+  border-radius: 5px;
+  border: 0px;
+  font-size: 20px;
+}
+
+/*Button Edit*/
+form button {
+  background: #ffaf00;
+  border-radius: 8px;
+  width: 220px;
+  height: 45px;
+  color: white;
+  border: 0px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  cursor: pointer;
+}
+
+form button:hover {
+  transition: 0.5s;
+  border: 1px solid #ffaf00;
+  color: #ffaf00;
+  background: white;
+}
+
+/*Forward to Sign in*/
+.ForwardSignIn {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 38px;
+  margin-top: 36px;
+}
+.ForwardSignIn p {
+  margin-right: 9px;
+  width: 148px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 20px;
+}
+
+.ForwardSignIn button {
+  width: 87px;
+  height: 45px;
+  font-weight: 700;
+  font-size: 18px;
+  border: 0px;
+  background: #f3f3f3;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*CheckBox*/
+form .CheckBox {
+  display: flex;
+  flex-direction: row;
+}
+
+form .CheckBox input {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 1px solid #d0d0d0;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+form .CheckBox label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  display: inline;
+  color: #75767b;
+}
+form .CheckBox label #anchor {
+  color: blue;
+  display: inline;
 }
