@@ -29,7 +29,6 @@ function Signup() {
                 <div className={"SVG-Photo"} />
                 <div className={"Main-Signup"}>
                     <div className={"Main-Signup-Form"}>
-
                         <form onSubmit={(e) => onButtonSubmit(e)}>
                             <h1>Sign Up to Slack API</h1>
                             <div>
