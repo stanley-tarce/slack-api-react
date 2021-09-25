@@ -94,7 +94,6 @@ const apiHooks = () => {
         getAllUsers,
         getRetrieveAllChannels,
         getRetrieveChannel
-
     }
 }
 
