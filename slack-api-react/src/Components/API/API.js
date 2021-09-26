@@ -19,16 +19,25 @@ const apiHooks = () => {
             return console.log(error)
         }
     }
-    const postCreateUserSession = async (data) => {
+    const postCreateUserSession = async (dataRef) => {
         try {
             const response = await axios({
                 method: 'post',
-                url: `http://${BASE_URL}/api/v1/auth`,
+                url: `http://${BASE_URL}/api/v1/auth/sign_in`,
                 headers: { ...contentType },
-                data: qs.stringify(data)
+                data: qs.stringify(dataRef)
             })
-            const output = response.data
-            return output
+            const {
+                headers: {
+                    expiry,
+                    uid,
+                    client,
+                    ...others
+                },
+                data }
+                = response
+            let accessToken = others["access-token"]
+            return console.log(expiry, uid, accessToken, client, data)
         } catch (error) {
             return console.log(error)
         }

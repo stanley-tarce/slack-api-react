@@ -1,171 +1,194 @@
- 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
- }
-  
+/*Main Container*/
+.LoginMain {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+}
 
-  .login {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-  } 
-  
-  .login-container{
-    display: flex;
-    width: 100%;
-    height: 100%; 
-    position: relative;
-  }
-  
-  .left-container{
-    background-color: #F1CDD9;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 30%;
-    padding-left: 2%;
-  }
-  
-  
-  .logo{
-    background-color: transparent;
-    height: 8%;
-    width: 10%;
-    padding-top: 10%;
-    margin-bottom: 5%;
-    
-  }
-  
-  .logo-text{
-    width: 90%;
-  }
-  
-  .login-image{
-    margin-top: 5%;
-    height: 50%;
-    width: 100%;
-    background-image: url("../../assets/login/loginimage.jpg");
-    background-size: cover;
-  }
-  
-  .right-container{
-    width: 75%;
-    height: 100%;
-  }
-  
-  .signup{
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 2%;
-    padding-right: 5%;
-  }
-  
-  .signup-link{
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-  }
+/*SVG Photo*/
+.SVG-Photo {
+  width: 30%;
+  height: 100vh;
+  background: url("./Assets/Login\ Vector\ 1.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/*Main DashBoard*/
+.Main-Login {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .login-main{
-      display: flex;
-      flex-direction: column;
-      padding-left: 30%;
-      margin-top: 15%;
-      width: 80%;
-  }
+/*Wrapper*/
+.Wrapper-Main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+/*Title*/
+.Header {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 47px;
+  display: flex;
+  align-items: center;
+  width: 375px;
+  height: 122px;
+}
+/*Google Sign In*/
+.Google-Button {
+  cursor: pointer;
+  width: 210px;
+  height: 45px;
+  background: #100cfc;
+  border-radius: 2.2531px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #100cfc;
+}
 
-  .login-main h1{
-      margin-bottom: 5%;
-  }
+.Google-Img {
+  background: url("./Assets/logo\ googleg\ 48dp.svg");
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 20.28px;
+  background-position: center;
+  min-width: 20%;
+  min-height: 100%;
+  padding: -10px;
+  border-radius: 2.2531px 0 0 2.2531px;
+}
+.Google-Button p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15.7717px;
+  line-height: 18px;
+  margin-right: 18px;
+  color: white;
+}
 
-  .or-line p {
-    text-align: center;
-    max-width: 90%;
-    position: relative;
-    margin: 3% auto;
-    font-style: italic;
-  }
+.Google-Button:hover {
+  background: white;
+  border: 2px solid #100cfc;
+}
+.Google-Button:hover p {
+  color: #100cfc;
+}
 
-  .or-line p:before{
-    content: "";
-    position: absolute;
-    display: block;
-    height: 1%;
-    width: 300px;
-    background-color: #000;
-    left: 0;
-    top: 50%;
-    z-index: -2;
-  }
-  .or-line p:after{
-    content: "";
-    position: absolute;
-    display: block;
-    height: 1%;
-    width: 300px;
-    background: #000;
-    right: 0;
-    top: 50%;
-    z-index: -2;
-    margin-left: 2%;
-  }
+.or-Wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/*Or Line*/
+.or-Wrapper .or {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15.7717px;
+  line-height: 18px;
+  width: 17px;
+  height: 18px;
+  color: #a1a1a1;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.or-Wrapper div {
+  width: 218px;
+  height: 1px;
+  background-color: #a1a1a1;
+}
 
-  .or-line span{
-      background: #fff;
-  }
+/*Form*/
+form {
+  width: 475px;
+}
 
-  .google-login {
-      background-color: blue;
-      height: auto;
-      width: 30%;
-      display: flex;
-      align-items: center;
-      border-color: blue;
-      cursor: pointer;
-      margin-bottom: 5%;
-      border-radius: 1rem;
-  }
+form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
 
-  .google-login img{
-      margin: 2px;
-      border-radius: 1rem;
-  }
+/*H1 Edit*/
+form h1 {
+  margin-bottom: 10px;
+  width: max-content;
+  height: 122px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 40px;
+}
 
-  .google-text{
-      color: white;
-      padding-left: 5%;
+/*Labels*/
+form label {
+  width: max-content;
+  height: 35px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
 
-  }
+/*Input*/
+form input {
+  width: 475px;
+  height: 45px;
+  background: #f3f3f4;
+  border-radius: 5px;
+  border: 0px;
+  font-size: 20px;
+}
 
-  .login-form{
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-  }
+/*Button Edit*/
+form button {
+  background: #f2d2d2;
+  border-radius: 8px;
+  width: 220px;
+  height: 45px;
+  color: white;
+  border: 0px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  cursor: pointer;
+}
 
-  .login-form label{
-      margin-bottom: 5%;
-  }
+form button:hover {
+  transition: 0.5s;
+  border: 1px solid #f2d2d2;
+  color: #f2d2d2;
+  background: white;
+}
 
-  .login-form input{
-    margin-bottom: 5%;
-    width: 60%;
-    padding: 2%;
-    font-size: 1em;
-    border-radius: 1rem;
-    background: #F3F3F4;
+/*FOrward Sign Up*/
+.ForwardSignUp {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 38px;
+  margin-top: 36px;
+}
 
-  }
-
-  .login-form button{
-      width: 25%;
-      padding: 2%;
-      background-color: #ea4c89;
-      color: #FFF;
-      border-radius: 1rem;
-      cursor: pointer;
-  }
+.ForwardSignUp span a {
+  text-decoration: none;
+}

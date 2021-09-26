@@ -2,21 +2,17 @@
   width: 100vw;
   height: 100vh;
   font-family: "Roboto", sans-serif;
-  display: grid;
-  grid-template-columns: 0.3fr 0.7fr;
-  grid-template-areas: "pics form";
+  display: flex;
 }
 .SVG-Photo {
-  grid-area: pics;
-  width: 100%;
+  width: 30%;
   height: 100vh;
   background: url("./Assets/SignupVector.svg");
   background-position: center;
 }
 
 .Main-Signup {
-  grid-area: form;
-  width: 100%;
+  width: 70%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -24,7 +20,6 @@
 }
 
 form {
-  display: block;
   width: 475px;
 }
 
@@ -92,7 +87,9 @@ form button:hover {
 .ForwardSignIn {
   font-family: "Roboto", sans-serif;
   display: flex;
+  align-items: center;
   flex-direction: row;
+  justify-content: center;
   position: absolute;
   top: 0;
   right: 0;
@@ -135,12 +132,13 @@ form .CheckBox input {
   border-radius: 2px;
 }
 form .CheckBox label {
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
   line-height: 18px;
   display: inline;
+  margin-left: 10px;
   color: #75767b;
 }
 form .CheckBox label #anchor {
