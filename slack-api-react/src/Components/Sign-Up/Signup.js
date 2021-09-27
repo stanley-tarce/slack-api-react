@@ -9,10 +9,10 @@ function Signup() {
     const { postUserRegistration } = apiHooks()
     const [checked, setChecked] = useState(false)
     const [button, setButton] = useState(true)
-
-    useEffect(() => {
-        checked ? setButton(false) : setButton(true)
-    }, [checked])
+    if (checked)
+        useEffect(() => {
+            checked ? setButton(false) : setButton(true)
+        }, [checked])
 
     const onButtonSubmit = (event) => {
         event.preventDefault()
