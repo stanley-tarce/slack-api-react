@@ -1,7 +1,8 @@
 import axios from 'axios'
 import qs from 'qs'
 
-
+/**Hello
+ */
 
 
 const apiHooks = () => {
@@ -22,7 +23,6 @@ const apiHooks = () => {
             return console.log(error)
         }
     }
-
     const postCreateUserSession = async (dataRef) => {
         try {
             const response = await axios({
@@ -142,7 +142,7 @@ const apiHooks = () => {
             console.log(error)
         }
     }
-    const getRetrieveAllMessagesInsideChannel = async (headers, CHANNEL_ID, RECEIVER_CLASS) => {
+    const getRetrieveAllMessagesInsideChannel = async (headers, CHANNEL_ID) => {
         const { expiry, uid, accessToken, client } = headers
         try {
             const response = await axios({
