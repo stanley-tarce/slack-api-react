@@ -1,13 +1,19 @@
 import axios from 'axios'
 import qs from 'qs'
 
-/**Hello
- */
 
 
 const apiHooks = () => {
-
-    /* Register User */
+    /** PARAMETERS 
+     * * DEFAULT STATIC HEADERS
+     *  1. BASE_URL 
+     *  2. contentType
+     * ! HEADERS REQUIRED AFTER USER LOG-IN
+     *  1. client
+     *  2. expiry
+     *  3. token ID 
+     *  4. uid -> Email of User
+    */
     let BASE_URL = '206.189.91.54'
     let contentType = { 'Content-Type': 'application/x-www-form-urlencoded' }
     const postUserRegistration = async (dataRef) => {
