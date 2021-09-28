@@ -1,6 +1,7 @@
 .Main-Sidebar {
+  font-family: "Roboto", sans-serif;
   width: 261px;
-  height: 80vh;
+  height: 90vh;
   /*! Not official styile properties*/
   position: absolute;
   bottom: 0;
@@ -8,4 +9,150 @@
   background-color: #fff0d0;
   border-right: 1px solid rgba(161, 161, 161, 35%);
   border-top: 1px solid rgba(161, 161, 161, 35%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Main-Sidebar div {
+  flex: 0 1 auto;
+}
+.Main-Sidebar .SideBar-Title-Name {
+  height: 10%;
+  width: 100%;
+  border-bottom: 1px solid rgba(161, 161, 161, 35%);
+  color: rgba(89, 16, 53, 1);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Main-Sidebar .SideBar-Channel-Container {
+  border-bottom: 1px solid rgba(161, 161, 161, 35%);
+  height: 40%;
+  width: 100%;
+}
+
+.Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+.Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title div {
+  width: 28px;
+  height: 28px;
+  margin-left: 10px;
+  background: url("./Assets/Vector.svg") no-repeat center;
+}
+
+.Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: #591035;
+}
+
+.Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-CreateChannel {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+.Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-CreateChannel p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: rgba(89, 16, 53, 1);
+}
+.Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-CreateChannel div {
+  background: url("./Assets/Plus\ Sign\ Vector.svg") no-repeat center;
+  background-color: rgba(161, 161, 161, 0.35);
+  border-radius: 6px;
+  width: 28px;
+  color: #591035;
+  height: 28px;
+  margin-left: 10px;
+}
+
+.Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Lists {
+  max-height: 80%; /**! IMPORTANT TO MAKE THE SIZING RESPONSIVE */
+  width: 100%;
+  overflow-y: auto;
+}
+
+.Main-Sidebar .SideBar-Message-Container {
+  border-bottom: 1px solid rgba(161, 161, 161, 35%);
+  height: 40%;
+  width: 100%;
+}
+.Main-Sidebar .SideBar-Message-Container .SideBar-Message-Title {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+.Main-Sidebar .SideBar-Message-Container .SideBar-Message-Title div {
+  width: 28px;
+  height: 28px;
+  margin-left: 10px;
+  background: url("./Assets/Vector.svg") no-repeat center;
+}
+
+.Main-Sidebar .SideBar-Message-Container .SideBar-Message-Title p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: #591035;
+}
+
+.Main-Sidebar .SideBar-Message-Container .SideBar-Message-Lists {
+  max-height: 80%; /**! IMPORTANT TO MAKE THE SIZING RESPONSIVE */
+  width: 100%;
+  overflow-y: auto;
+}
+
+.Main-Sidebar .SideBar-Message-Container .SideBar-Message-CreateMessage {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+.Main-Sidebar .SideBar-Message-Container .SideBar-Message-CreateMessage div {
+  background: url("./Assets/Plus\ Sign\ Vector.svg") no-repeat center;
+  background-color: rgba(161, 161, 161, 0.35);
+  border-radius: 6px;
+  width: 28px;
+  color: #591035;
+  height: 28px;
+  margin-left: 10px;
+}
+.Main-Sidebar .SideBar-Message-Container .SideBar-Message-CreateMessage p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: rgba(89, 16, 53, 1);
 }
