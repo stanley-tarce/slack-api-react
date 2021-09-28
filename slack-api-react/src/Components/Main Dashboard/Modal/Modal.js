@@ -3,14 +3,14 @@ import modalLogo from './assets/lock.svg'
 import './Modal.css'
 
 const Modal = () => {
-    
+
     return (
         <div className="modal-bg">
             <div className="modal-main">
                 <div className="modal-header">
                     <div className="modal-title">
                         <img src={modalLogo} className="modal-logo"></img>
-                        <h2 className="modal-channel">batch 11</h2>
+                        <h2 className="modal-channel">batch11</h2>
                     </div>
                     <div className="modal-close"><span>+</span></div>
                 </div>
