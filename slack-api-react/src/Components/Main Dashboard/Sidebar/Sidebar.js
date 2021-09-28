@@ -1,6 +1,7 @@
 import React from 'react'
 import './Sidebar.css'
 import ChannelCard from './ChannelCard/ChannelCard'
+import MessageCard from './MessageCard/MessageCard'
 function Sidebar() {
 	return (
 		<div className={"Main-Sidebar"}>
@@ -37,7 +38,17 @@ function Sidebar() {
 					<div className={"ViewAll"}></div>
 				</div>
 				<div className={'SideBar-Message-Lists'}>
-					<p>Stanley</p>
+					<MessageCard />
+					<MessageCard />
+					<MessageCard />
+					<MessageCard />
+					<MessageCard />
+					<MessageCard />
+					<MessageCard />
+					<MessageCard />
+					<MessageCard />
+					<MessageCard />
+					<MessageCard />
 					{/** 
 					 1. Create a card for mapping channel lists with left margin of 10 px 
 					 2. Map the channel list with the API Data  */}
@@ -46,9 +57,6 @@ function Sidebar() {
 					<div></div>
 					<p>Send Message </p>
 				</div>
-			</div>
-			<div>
-				<button>Hello</button>
 			</div>
 		</div>
 	)

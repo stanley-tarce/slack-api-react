@@ -5,9 +5,16 @@
   margin-left: 10px;
   width: auto;
   height: 40px;
+  gap: 5px;
 }
 .channelCard div {
   background: url("./Assets/Lock-Icon.svg") no-repeat center;
   width: 30px;
   height: 30px;
+}
+.channelCard:hover {
+  background: rgba(255, 175, 0, 0.7);
+}
+.channelCard:active {
+  background: #ffaf00;
 }

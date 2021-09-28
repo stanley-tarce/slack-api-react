@@ -1,0 +1,31 @@
+.messageCard {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+  width: auto;
+  height: 40px;
+  gap: 5px;
+}
+.messageCard div {
+  background: url("./Assets/Usercard.svg") no-repeat center;
+  background-color: #fff0d0;
+  border: 1px solid #591035;
+
+  width: 30px;
+  height: 30px;
+}
+.messageCard:hover {
+  background: rgba(255, 175, 0, 0.7);
+}
+.messageCard:active {
+  background: #ffaf00;
+}
+
+.messageCard .Remove {
+  background: url("./Assets/Exit.svg") no-repeat center;
+  width: 30px;
+  height: 30px;
+  margin-left: 90px;
+  border: 0px;
+}
