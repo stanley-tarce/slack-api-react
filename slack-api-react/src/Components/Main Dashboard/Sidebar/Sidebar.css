@@ -1,0 +1,11 @@
+.Main-Sidebar {
+  width: 261px;
+  height: 80vh;
+  /*! Not official styile properties*/
+  position: absolute;
+  bottom: 0;
+  /*? End of Line*/
+  background-color: #fff0d0;
+  border-right: 1px solid rgba(161, 161, 161, 35%);
+  border-top: 1px solid rgba(161, 161, 161, 35%);
+}
