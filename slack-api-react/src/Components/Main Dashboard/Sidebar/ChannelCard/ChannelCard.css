@@ -1,0 +1,13 @@
+.channelCard {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+  width: auto;
+  height: 40px;
+}
+.channelCard div {
+  background: url("./Assets/Lock-Icon.svg") no-repeat center;
+  width: 30px;
+  height: 30px;
+}

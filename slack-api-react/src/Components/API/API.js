@@ -65,7 +65,11 @@ const apiHooks = () => {
                     'uid': qs.stringify(uid)
                 },
             })
-            return console.log(response)
+            let dataContainer = []
+            response.data.map(data2 => dataContainer = [...dataContainer, { id: data2.id, uid: data2.uid }])
+            dataContainer.sort((a, b) => a.id - b.id || a.uid.localeCompare(b.uid))
+            return dataContainer
+
         } catch (error) {
             return console.log(error)
         }

@@ -8,7 +8,7 @@ import Sidebar from './Components/Main Dashboard/Sidebar/Sidebar';
 function App() {
   return (
     <div className="App">
-      <Sidebar />
+      <Login />
     </div>
   );
 }

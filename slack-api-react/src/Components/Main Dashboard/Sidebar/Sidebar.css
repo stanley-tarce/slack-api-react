@@ -1,7 +1,8 @@
+/**Main Side Bar */
 .Main-Sidebar {
   font-family: "Roboto", sans-serif;
   width: 261px;
-  height: 90vh;
+  height: 95vh;
   /*! Not official styile properties*/
   position: absolute;
   bottom: 0;
@@ -16,6 +17,7 @@
 .Main-Sidebar div {
   flex: 0 1 auto;
 }
+
 .Main-Sidebar .SideBar-Title-Name {
   height: 10%;
   width: 100%;
@@ -30,6 +32,7 @@
   justify-content: center;
   align-items: center;
 }
+/**Side Bar Channel */
 .Main-Sidebar .SideBar-Channel-Container {
   border-bottom: 1px solid rgba(161, 161, 161, 35%);
   height: 40%;
@@ -46,11 +49,18 @@
   gap: 5px;
 }
 
-.Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title div {
+.Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title .DropDown {
   width: 28px;
   height: 28px;
   margin-left: 10px;
   background: url("./Assets/Vector.svg") no-repeat center;
+}
+
+.Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title .ViewAll {
+  width: 28px;
+  height: 28px;
+  margin-left: 10px;
+  background: url("./Assets/View-all.svg") no-repeat center;
 }
 
 .Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title p {
@@ -93,7 +103,7 @@
   width: 100%;
   overflow-y: auto;
 }
-
+/**Side Bar Message */
 .Main-Sidebar .SideBar-Message-Container {
   border-bottom: 1px solid rgba(161, 161, 161, 35%);
   height: 40%;
@@ -108,11 +118,17 @@
   align-items: center;
   gap: 5px;
 }
-.Main-Sidebar .SideBar-Message-Container .SideBar-Message-Title div {
+.Main-Sidebar .SideBar-Message-Container .SideBar-Message-Title .DropDown {
   width: 28px;
   height: 28px;
   margin-left: 10px;
   background: url("./Assets/Vector.svg") no-repeat center;
+}
+.Main-Sidebar .SideBar-Message-Container .SideBar-Message-Title .ViewAll {
+  width: 28px;
+  height: 28px;
+  margin-left: 10px;
+  background: url("./Assets/View-all.svg") no-repeat center;
 }
 
 .Main-Sidebar .SideBar-Message-Container .SideBar-Message-Title p {
