@@ -1,0 +1,38 @@
+.Message-Box { 
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+}
+
+.Message-Box .Avatar-and-Image {
+    display: flex;
+}
+
+.User-Name {
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+color: #000000;
+}
+
+.Image-Avatar {
+    background: url('./assets/avatar.svg')
+}
+
+.Message-Body{ 
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+
+
+color: rgba(1, 1, 1, 0.58);
+}
