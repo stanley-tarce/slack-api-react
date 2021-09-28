@@ -9,7 +9,10 @@ function MessageBox() {
             <div className={"Image-Avatar"}/> 
         </div>
           <p className={"Message-Body"}>Penge ako lumpia</p>  
-  
+        
+        <div className={"Message-Typebox"}>
+            
+        </div>
         </div>
     )
 }
