@@ -1,0 +1,9 @@
+.Message-Container {
+  width: 90%;
+  height: 90vh;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
