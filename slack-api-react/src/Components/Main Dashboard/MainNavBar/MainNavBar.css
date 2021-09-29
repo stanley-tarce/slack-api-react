@@ -1,0 +1,72 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.Main-Nav-Bar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffaf00;
+  border-bottom: 1px solid rgba(161, 161, 161, 35%);
+}
+
+.Search-Container {
+  /* display: flex; */
+  flex-direction: row-reverse;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 100%;
+  width: 30%;
+  background: #dd9800;
+  border: 1px solid #b38d0d;
+}
+
+.searchIcon {
+  padding: 0.5rem;
+}
+
+.navBarSearch {
+  color: #591035;
+}
+
+.search-button {
+  padding: 0.5rem;
+  flex-grow: 1;
+  width: 93%;
+  border: 0px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #591035;
+  background: #dd9800;
+  mix-blend-mode: normal;
+  box-sizing: border-box;
+  border-radius: 9px;
+  outline: none;
+}
+.search-button:focus {
+  outline: none;
+}
+
+.user-image {
+  background: url("./Assets/UserAvatar.svg") no-repeat center;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  position: absolute;
+  margin-right: 10px;
+  right: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.modal-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}

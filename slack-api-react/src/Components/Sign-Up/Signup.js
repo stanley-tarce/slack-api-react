@@ -9,17 +9,17 @@ function Signup() {
     const { postUserRegistration } = apiHooks()
     const [checked, setChecked] = useState(false)
     const [button, setButton] = useState(true)
-    if (checked)
-        useEffect(() => {
-            checked ? setButton(false) : setButton(true)
-        }, [checked])
+
+    useEffect(() => {
+        checked ? setButton(false) : setButton(true)
+    }, [checked])
 
     const onButtonSubmit = (event) => {
         event.preventDefault()
         let data = {
             email: emailInput.current.value,
             password: passwordInput.current.value,
-            password_confirm: confirmPasswordInput.current.value
+            password_confirmation: confirmPasswordInput.current.value
         }
         return postUserRegistration(data)
     }

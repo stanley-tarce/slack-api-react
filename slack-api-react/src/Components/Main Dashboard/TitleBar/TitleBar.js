@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './HeaderSearch.css'
+import './TitleBar.css'
 // ! PROPS FOR THE AVATAR
 // 1. Pass a props with a string value of either user or group. if user -> avatar image else lock
 

@@ -1,15 +1,18 @@
 import React from 'react'
 import Sidebar from './Sidebar/Sidebar'
-import MessageContainer from './MessageContainer/MessageContainer'
-import { Mmain }
+import MainNavBar from './MainNavBar/MainNavBar'
+import MainBody from './MainBody/MainBody'
+import './MainDashBoard.css'
 
 
 function MainDashboard() {
-        return (
-            <div>
-
-            </div>
-        )
-    }
+    return (
+        <div className={"Main-DashBoard"}>
+            <div className={"sidebarHolder"}><Sidebar /></div>
+            <div className={"headerbarHolder"}><MainNavBar /></div>
+            <div className={"MainBodyHolder"}><MainBody /></div>
+        </div>
+    )
+}
 
 export default MainDashboard

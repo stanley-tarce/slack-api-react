@@ -1,0 +1,27 @@
+.Main-DashBoard {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
+  grid-template-rows: 0.05fr 0.95fr;
+  grid-template-areas:
+    "search search"
+    "sidebar main";
+}
+
+.sidebarHolder {
+  grid-area: sidebar;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.MainBodyHolder {
+  grid-area: main;
+  position: relative;
+}
+
+.headerbarHolder {
+  grid-area: search;
+}

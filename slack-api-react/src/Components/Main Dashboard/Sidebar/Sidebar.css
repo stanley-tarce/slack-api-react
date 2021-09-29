@@ -1,11 +1,12 @@
 /**Main Side Bar */
 .Main-Sidebar {
+  grid-area: sidebar;
   font-family: "Roboto", sans-serif;
-  width: 261px;
-  height: 95vh;
+  width: 100%;
+  height: 100%;
   /*! Not official styile properties*/
   position: absolute;
-  bottom: 0;
+
   /*? End of Line*/
   background-color: #fff0d0;
   border-right: 1px solid rgba(161, 161, 161, 35%);
@@ -19,7 +20,7 @@
 }
 
 .Main-Sidebar .SideBar-Title-Name {
-  height: 10%;
+  height: 7%;
   width: 100%;
   border-bottom: 1px solid rgba(161, 161, 161, 35%);
   color: rgba(89, 16, 53, 1);
@@ -47,6 +48,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
+  border-bottom: 1px solid rgba(161, 161, 161, 35%);
 }
 
 .Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title .DropDown {
@@ -117,6 +119,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
+  border-bottom: 1px solid rgba(161, 161, 161, 35%);
 }
 .Main-Sidebar .SideBar-Message-Container .SideBar-Message-Title .DropDown {
   width: 28px;
