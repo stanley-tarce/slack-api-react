@@ -1,0 +1,60 @@
+.inviteChannelModalBackground {
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+
+.inviteChannelModalBackground .inviteChannelContainer {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  width: 236px;
+  height: 267px;
+  background: #ffffff;
+  border: 1px solid #d8dcd7;
+  border-radius: 20px;
+}
+
+p {
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 9px 0px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.inviteChannelModalBackground .inviteChannelContainer .channelContainer {
+  background: rgba(196, 196, 196, 0.21);
+  border: 1px solid #a1a1a1;
+  box-sizing: border-box;
+  width: 174px;
+  height: 161px;
+  overflow-y: auto;
+}
+
+/* Rectangle 33 */
+
+.inviteChannelModalBackground .inviteChannelContainer button {
+  width: 76px;
+  height: 27px;
+  background: #fff0d0;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}

@@ -1,12 +1,13 @@
 
 import './App.css';
 import UserListModal from './Components/Main Dashboard/Modals/UserListModal/UserListModal'
-import MainDashboard from './Components/Main Dashboard/MainDashboard';
+import InviteUserChannel from './Components/Main Dashboard/Modals/InviteUserChannel/InviteUserChannel';
+import Login from './Components/Login/Login'
 
 function App() {
   return (
     <div className="App">
-      <UserListModal />
+      <Login />
     </div>
   );
 }

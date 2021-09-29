@@ -10,7 +10,7 @@ const ChannelListModal = () => {
             <div className="modal-main">
                 <div className="modal-header">
                     <div className="modal-title">
-                        <img src={modalLogo} className="modal-logo"></img>
+                        <img src={modalLogo} className="modal-logo" alt={"lock"}></img>
                         <h2 className="modal-channel">batch11</h2>
                     </div>
                     <div onClick={null} className="modal-close"><span>+</span></div>

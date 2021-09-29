@@ -6,7 +6,9 @@ function Login() {
     const emailInput = useRef()
     const passwordInput = useRef()
     const onButtonSubmit = (event) => {
+
         event.preventDefault()
+        console.log(event.target.dataset.hello)
         let data = {
             email: emailInput.current.value,
             password: passwordInput.current.value
@@ -29,7 +31,7 @@ function Login() {
                             <p className="or">Or</p>
                             <div />
                         </div>
-                        <form onSubmit={(e) => onButtonSubmit(e)}>
+                        <form data-hello={"hello"} onSubmit={(e) => onButtonSubmit(e)}>
                             <div>
                                 <label>Email</label>
                                 <input type={'email'} ref={emailInput} placeholder={"Enter Email Here"} required />
@@ -38,7 +40,7 @@ function Login() {
                                 <label>Password</label>
                                 <input type={'password'} ref={passwordInput} placeholder={"Enter Password Here"} required />
                             </div>
-                            <button disabled={null} onSubmit={(e) => onButtonSubmit(e)}>Sign Up</button>
+                            <button data-hello={'hello'} disabled={null} onSubmit={(e) => onButtonSubmit(e)}>Sign Up</button>
                         </form>
                     </div>
                 </div>
