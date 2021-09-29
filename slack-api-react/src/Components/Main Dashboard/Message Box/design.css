@@ -1,5 +1,5 @@
 .Message-Box {
-  width: 100%;
+  width: 90%;
   max-height: 70px;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@
   gap: 5px;
 }
 
-.Message-Box .Avatar-and-Image .User-Name .Type-Message{
+.Message-Box .Avatar-and-Image .User-Name .Type-Message {
   flex: 0 1 auto;
   font-family: Roboto;
   font-style: normal;
@@ -49,5 +49,3 @@
 
   color: rgba(1, 1, 1, 0.58);
 }
-
-

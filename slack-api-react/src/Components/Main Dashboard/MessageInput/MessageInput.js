@@ -11,33 +11,29 @@ import EmojiIcon from '../../../assets/svg icons/emoji_icon.svg'
 
 import './MessageInput.css'
 
-function MessageInput() { 
+function MessageInput() {
     return (
-        <div className={"Message-Input"}> 
-                <form className={"Message-Input-Form"}>
-                    <input className={"Type-Message"} type={"text"} placeholder={"Write a Message"}/>
+        <div className={"Message-Input"}>
+            <form className={"Message-Input-Form"}>
+                <input className={"Type-Message"} type={"text"} placeholder={"Write a Message"} />
+                <div className={"Command-Icons"}>
+                    <span className={"Font-Format"}>
+                        <img src={BoldFormat} alt="BoldFormat" />
+                        <img src={Italicize} alt="Italicize" />
+                        <img src={Strikethrough} alt="Strikethrough" />
+                    </span>
 
-                    <div className={"Command-Icons"}>
-                        <span className ={"Font-Format"}>
-                            <img src={BoldFormat} alt="BoldFormat" />
-                            <img src={Italicize} alt="Italicize" />
-                            <img src={Strikethrough} alt="Strikethrough" />
-                        </span>
-
-                        <span className ={"Other-Commands"} type>
-                            <img src={FontSize} alt="FontSize" />
-                            <img src={Alternate} alt="Alternate" />
-                            <img src={EmojiIcon} alt="EmojiIcon" />
-                            <img src={AttachFile} alt="AttachFile" />
-                            <button className ={"Send-Button"} type = "submit">
-                                <img src={SendLogo} alt="send logo" />
-                            </button>
-                        </span>
-                    </div>
-
-                   
-                    
-                </form>
+                    <span className={"Other-Commands"} type>
+                        <img src={FontSize} alt="FontSize" />
+                        <img src={Alternate} alt="Alternate" />
+                        <img src={EmojiIcon} alt="EmojiIcon" />
+                        <img src={AttachFile} alt="AttachFile" />
+                        <button className={"Send-Button"} type="submit">
+                            <img src={SendLogo} alt="send logo" />
+                        </button>
+                    </span>
+                </div>
+            </form>
         </div>
     )
 }

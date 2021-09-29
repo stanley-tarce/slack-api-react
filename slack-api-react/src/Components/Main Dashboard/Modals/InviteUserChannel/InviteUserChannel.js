@@ -13,6 +13,7 @@ function InviteUserChannel() {
                     <ChannelCard />
                     <ChannelCard />
                 </div>
+
                 <button>Send Invite</button>
             </div>
         </div>
