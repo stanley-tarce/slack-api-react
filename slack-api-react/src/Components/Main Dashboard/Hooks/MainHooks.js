@@ -25,3 +25,17 @@ import { useState } from "react";
  * ? 3. Create Message in a Channel
  * ? 4. Create Message from a User
  */
+
+import React from 'react'
+
+function MainHooks() {
+    const [openUserListModal, setOpenUserListModal] = useState(false)
+    return {
+        // ? INITIAL STATE
+        openUserListModal,
+        // ? Change of State
+        setOpenUserListModal,
+    }
+}
+
+export default MainHooks

@@ -1,0 +1,30 @@
+.channel-list-card {
+  width: 120%;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.channel-list-card:first-child {
+  margin-top: 10px;
+}
+.channel-list-card .avatar {
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  background: url("./Assets/Avatar.svg") no-repeat center;
+  background-size: cover;
+}
+.channel-list-card .user {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+/**Hover and Focus */
+.channel-list-card:hover {
+  background: rgba(255, 175, 0, 0.7);
+}
