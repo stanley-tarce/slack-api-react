@@ -15,7 +15,7 @@ function MessageInput() {
     return (
         <div className={"Message-Input"}>
             <form className={"Message-Input-Form"}>
-                <input className={"Type-Message"} type={"text"} placeholder={"Write a Message"} />
+                <input className={"Type-Message"} type="text" placeholder={"Write a Message"} />
                 <div className={"Command-Icons"}>
                     <span className={"Font-Format"}>
                         <img src={BoldFormat} alt="BoldFormat" />
