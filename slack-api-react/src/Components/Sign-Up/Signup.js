@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Signup.css'
 import apiHooks from '../API/API'
+import { useHistory } from 'react-router-dom'
 
 function Signup() {
     const emailInput = useRef()
@@ -9,7 +10,7 @@ function Signup() {
     const { postUserRegistration } = apiHooks()
     const [checked, setChecked] = useState(false)
     const [button, setButton] = useState(true)
-
+    const history = useHistory()
     useEffect(() => {
         checked ? setButton(false) : setButton(true)
     }, [checked])
@@ -21,7 +22,12 @@ function Signup() {
             password: passwordInput.current.value,
             password_confirmation: confirmPasswordInput.current.value
         }
-        return postUserRegistration(data)
+        postUserRegistration(data)
+        postUserRegistration(data) ? history.push('/') : alert('error') // ! Edit 
+
+    }
+    const goToLogin = () => {
+        return history.push('/')
     }
     return (
         <>
@@ -54,7 +60,7 @@ function Signup() {
             </div>
             <div className={"ForwardSignIn"}>
                 <p>Already a Member?</p>
-                <button onSubmit={null}>Sign In</button>
+                <button onClick={() => goToLogin()}>Sign In</button>
             </div>
         </>
     )

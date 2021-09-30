@@ -1,9 +1,11 @@
 import axios from 'axios'
 import qs from 'qs'
+import MainHooks from '../Main Dashboard/Hooks/MainHooks'
 
 
 
 const apiHooks = () => {
+
     /** PARAMETERS 
      * * DEFAULT STATIC HEADERS
      *  1. BASE_URL 
@@ -30,26 +32,32 @@ const apiHooks = () => {
         }
     }
     const postCreateUserSession = async (dataRef) => {
-        try {
-            const response = await axios({
-                method: 'post',
-                url: `http://${BASE_URL}/api/v1/auth/sign_in`,
-                headers: { ...contentType },
-                data: qs.stringify(dataRef)
-            })
-            const {
+        return await axios({
+            method: 'post',
+            url: `http://${BASE_URL}/api/v1/auth/sign_in`,
+            headers: { ...contentType },
+            data: qs.stringify(dataRef)
+        }).catch(error => console.log(error))
+
+    }
+    const getAllUsersMain = async (headers) => {
+        const { expiry, uid, accessToken, client } = headers
+        console.log(`access-token: ${accessToken}`)
+        console.log(`uid: ${uid}`)
+        console.log(`expiry: ${expiry}`)
+        console.log(`client: ${client}`)
+        if (Object.values(headers).every(x => typeof x === 'string')) {
+            console.log('All are string!')
+            return await axios({
+                method: 'get',
+                url: `http://${BASE_URL}/api/v1/users`,
                 headers: {
-                    expiry,
-                    uid,
-                    client,
-                    ...others
-                },
-                data }
-                = response
-            let accessToken = others["access-token"]
-            return console.log(expiry, uid, accessToken, client, data)
-        } catch (error) {
-            return console.log(error)
+                    'access-token': accessToken,
+                    'client': client,
+                    'expiry': expiry,
+                    'uid': uid
+                }
+            })
         }
     }
     const getAllUsers = async (headers) => {
@@ -234,6 +242,7 @@ const apiHooks = () => {
         postUserRegistration,
         postCreateUserSession,
         getAllUsers,
+        getAllUsersMain,
         //Channels
         getRetrieveAllChannels,
         getRetrieveChannel,

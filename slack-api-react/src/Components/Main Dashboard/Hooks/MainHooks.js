@@ -26,15 +26,33 @@ import { useState } from "react";
  * ? 4. Create Message from a User
  */
 
-import React from 'react'
 
+
+/** TOP LEVEL HOOKS */
 function MainHooks() {
-    const [openUserListModal, setOpenUserListModal] = useState(false)
+    const [userAccessToken, setAccessToken] = useState('')
+    const [userClient, setClient] = useState('')
+    const [userExpiry, setExpiry] = useState('')
+    const [userUid, setUid] = useState('')
+    const [header, setHeader] = useState({})
+    const [userList, setUserList] = useState([])
+
     return {
         // ? INITIAL STATE
-        openUserListModal,
+        userAccessToken,
+        userClient,
+        userExpiry,
+        userUid,
+        header,
+        userList,
         // ? Change of State
-        setOpenUserListModal,
+        setAccessToken,
+        setClient,
+        setExpiry,
+        setUid,
+        setHeader,
+        setUserList
+
     }
 }
 

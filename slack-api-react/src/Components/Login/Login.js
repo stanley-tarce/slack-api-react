@@ -1,24 +1,59 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import apiHooks from '../API/API'
 import './Login.css'
-function Login() {
+import { useHistory } from 'react-router-dom'
+
+function Login({ setAccessToken,
+    setClient,
+    setExpiry,
+    setUid }) {
+    const history = useHistory()
     const { postCreateUserSession } = apiHooks()
     const emailInput = useRef()
     const passwordInput = useRef()
+    const setLoginStates = async (data) => {
+        const result = await postCreateUserSession(data)
+        const { headers: {
+            expiry,
+            uid,
+            client,
+            ...others
+        } } = result
+        let accessToken = others["access-token"]
+        setAccessToken(accessToken)
+        setClient(client)
+        setExpiry(uid)
+        setUid(expiry)
+    }
     const onButtonSubmit = (event) => {
-
         event.preventDefault()
         console.log(event.target.dataset.hello)
         let data = {
             email: emailInput.current.value,
             password: passwordInput.current.value
         }
-        return postCreateUserSession(data)
+        setLoginStates(data)
+        // const {
+        //     headers: {
+        //         expiry,
+        //         uid,
+        //         client,
+        //         ...others
+        //     }
+        // }
+        //     = asyncHook()
+        // let accessToken = others["access-token"]
+        // // console.log(accessToken, client, uid, expiry)
+
+        return history.push("/main")
+    }
+    const goToSignUp = () => {
+        return history.push("/signup")
     }
     return (
         <>
             <div className={"LoginMain"}>
-                <div className={"SVG-Photo"} />
+                <div className={"SVG-Photo-Login"} />
                 <div className={"Main-Login"}>
                     <div className={"Wrapper-Main"}>
                         <h1 className={"Header"}>Sign In to Slack API</h1>
@@ -40,13 +75,13 @@ function Login() {
                                 <label>Password</label>
                                 <input type={'password'} ref={passwordInput} placeholder={"Enter Password Here"} required />
                             </div>
-                            <button data-hello={'hello'} disabled={null} onSubmit={(e) => onButtonSubmit(e)}>Sign Up</button>
+                            <button className={"Login-Submit"} data-hello={'hello'} disabled={null} onSubmit={(e) => onButtonSubmit(e)}>Sign In</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div className={"ForwardSignUp"}>
-                <p>Not a Member? <span><a href={"#"}>Sign Up Now</a></span></p>
+                <p>Not a Member? <span onClick={() => goToSignUp()}>Sign Up Now</span></p>
             </div>
         </>
     )
