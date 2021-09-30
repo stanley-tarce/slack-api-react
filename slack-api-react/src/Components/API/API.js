@@ -42,16 +42,23 @@ const apiHooks = () => {
     }
     const getAllUsersMain = async (headers) => {
         const { expiry, uid, accessToken, client } = headers
-        return await axios({
-            method: 'get',
-            url: `http://${BASE_URL}/api/v1/users`,
-            headers: {
-                'access-token': accessToken,
-                'client': client,
-                'expiry': expiry,
-                'uid': uid
-            }
-        }).catch(error => console.log(error))
+        console.log(`access-token: ${accessToken}`)
+        console.log(`uid: ${uid}`)
+        console.log(`expiry: ${expiry}`)
+        console.log(`client: ${client}`)
+        if (Object.values(headers).every(x => typeof x === 'string')) {
+            console.log('All are string!')
+            return await axios({
+                method: 'get',
+                url: `http://${BASE_URL}/api/v1/users`,
+                headers: {
+                    'access-token': accessToken,
+                    'client': client,
+                    'expiry': expiry,
+                    'uid': uid
+                }
+            }).catch(error => console.log(error))
+        }
     }
     const getAllUsers = async (headers) => {
         const { expiry, uid, accessToken, client } = headers
@@ -77,21 +84,16 @@ const apiHooks = () => {
     }
     const getRetrieveAllChannels = async (headers) => {
         const { expiry, uid, accessToken, client } = headers
-        try {
-            const response = await axios({
-                method: 'get',
-                url: `http://${BASE_URL}/api/v1/channels`,
-                headers: {
-                    'access-token': qs.stringify(accessToken),
-                    'client': qs.stringify(client),
-                    'expiry': qs.stringify(expiry),
-                    'uid': qs.stringify(uid)
-                },
-            })
-            return console.log(response.data)
-        } catch (error) {
-            return console.log(error)
-        }
+        return await axios({
+            method: 'get',
+            url: `http://${BASE_URL}/api/v1/channels`,
+            headers: {
+                'access-token': accessToken,
+                'client': client,
+                'expiry': expiry,
+                'uid': uid
+            }
+        }).catch(error => console.log(error))
     }
     const getRetrieveChannel = async (headers, CHANNEL_ID) => {
         const { expiry, uid, accessToken, client } = headers

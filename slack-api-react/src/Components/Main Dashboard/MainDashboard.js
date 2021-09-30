@@ -12,10 +12,13 @@ function MainDashboard({
     header,
     setHeader,
     userList,
-    setUserList
+    setUserList,
+    channelList,
+    setChannelList
 }) {
-    const { getAllUsersMain } = apiHooks()
+    const { getAllUsersMain, getRetrieveAllChannels } = apiHooks()
 
+    // ! USECALLBACKS!
     const updateGetAllUsers = useCallback(async (header) => {
         const result = await getAllUsersMain(header)
         let dataContainer = []
@@ -37,10 +40,32 @@ function MainDashboard({
             client: userClient
         })
     }, [setHeader, userUid, userExpiry, userAccessToken, userClient])
+
+    const updateGetRetrieveAllChannels = useCallback(async (header) => {
+        const result = await getRetrieveAllChannels(header)
+        let dataContainer = []
+        if (result) {
+            result.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name }])
+            dataContainer.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name))
+            setChannelList(dataContainer)
+        }
+        else {
+            console.log('array emptyy')
+        }
+    }, [getRetrieveAllChannels, setChannelList])
+    // ! USECALLBACKS END
+
+    // ? --------------
+    // ? USEEFFECTS
+    // ? --------------
+
+
+    // ? 1
     useEffect(() => {
         updateHeaders()
     }, [updateHeaders])
 
+    // ? 2 
     useEffect(() => {
         if (header && Object.values(header).every(x => x !== '')) {
             updateGetAllUsers(header)
@@ -49,11 +74,22 @@ function MainDashboard({
         else {
             console.log('Missing Headers, No render')
         }
-    }, [header, updateGetAllUsers, userList])
-    console.log(header)
+    }, [header])
+    useEffect(() => {
+        if (header && Object.values(header).every(x => x !== '')) {
+            updateGetRetrieveAllChannels(header)
+            console.log(channelList)
+        }
+        else {
+            console.log('Missing Headers, No render')
+        }
+    }, [header])
+
+
+    console.log(header, userList)
     return (
         <div className={"Main-DashBoard"}>
-            <div className={"sidebarHolder"}><Sidebar /></div>
+            <div className={"sidebarHolder"}><Sidebar channelList={channelList} /></div>
             <div className={"headerbarHolder"}><MainNavBar /></div>
             <div className={"MainBodyHolder"}><MainBody /></div>
         </div>

@@ -14,13 +14,16 @@ function App() {
     header,
     userList,
 
+    channelList,
     // ? Change of State
     setAccessToken,
     setClient,
     setExpiry,
     setUid,
     setHeader,
-    setUserList
+    setUserList,
+
+    setChannelList
   } = MainHooks()
   return (
     <Router>
@@ -46,6 +49,8 @@ function App() {
               setHeader={setHeader}
               userList={userList}
               setUserList={setUserList}
+              channelList={channelList}
+              setChannelList={setChannelList}
             />
           </Route>
         </Switch>

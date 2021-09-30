@@ -2,7 +2,7 @@ import React from 'react'
 import './Sidebar.css'
 import ChannelCard from './ChannelCard/ChannelCard'
 import MessageCard from './MessageCard/MessageCard'
-function Sidebar() {
+function Sidebar({ channelList }) {
 	return (
 		<div className={"Main-Sidebar"}>
 			<div className={'SideBar-Title-Name'}>
@@ -15,12 +15,9 @@ function Sidebar() {
 					<div className={"ViewAll"}></div>
 				</div>
 				<div className={'SideBar-Channel-Lists'}>
-					<ChannelCard />
-					<ChannelCard />
-					<ChannelCard />
-					<ChannelCard />
-					<ChannelCard />
-					<ChannelCard />
+					{channelList.length !== 0 && channelList.map((channel, index) =>
+						<ChannelCard key={index} name={channel.name} channelId={channel.channelId} owner={channel.owner} />
+					)}
 					{/** 
 					Insert Channel Card JS Here
 					 1. Create a card for mapping channel lists with left margin of 10 px 

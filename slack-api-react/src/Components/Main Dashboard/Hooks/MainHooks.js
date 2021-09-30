@@ -36,7 +36,7 @@ function MainHooks() {
     const [userUid, setUid] = useState('')
     const [header, setHeader] = useState({})
     const [userList, setUserList] = useState([])
-
+    const [channelList, setChannelList] = useState([])
     return {
         // ? INITIAL STATE
         userAccessToken,
@@ -45,13 +45,17 @@ function MainHooks() {
         userUid,
         header,
         userList,
+
+        channelList,
         // ? Change of State
         setAccessToken,
         setClient,
         setExpiry,
         setUid,
         setHeader,
-        setUserList
+        setUserList,
+
+        setChannelList
 
     }
 }
