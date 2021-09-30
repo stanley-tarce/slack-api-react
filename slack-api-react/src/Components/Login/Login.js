@@ -22,8 +22,8 @@ function Login({ setAccessToken,
         let accessToken = others["access-token"]
         setAccessToken(accessToken)
         setClient(client)
-        setExpiry(uid)
-        setUid(expiry)
+        setExpiry(expiry)
+        setUid(uid)
     }
     const onButtonSubmit = (event) => {
         event.preventDefault()

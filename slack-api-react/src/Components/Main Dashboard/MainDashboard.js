@@ -15,13 +15,20 @@ function MainDashboard({
     setUserList
 }) {
     const { getAllUsersMain } = apiHooks()
-    const updateGetAllUsers = async (header) => {
+
+    const updateGetAllUsers = useCallback(async (header) => {
         const result = await getAllUsersMain(header)
         let dataContainer = []
-        result.data.map(data2 => dataContainer = [...dataContainer, { id: data2.id, uid: data2.uid }])
-        dataContainer.sort((a, b) => a.id - b.id || a.uid.localeCompare(b.uid))
-        setUserList(dataContainer)
-    }
+        if (result) {
+            result.data.data.map(data2 => dataContainer = [...dataContainer, { id: data2.id, uid: data2.uid }])
+            dataContainer.sort((a, b) => a.id - b.id || a.uid.localeCompare(b.uid))
+            setUserList(dataContainer)
+        }
+        else {
+            console.log('array emptyy')
+        }
+
+    }, [getAllUsersMain, setUserList])
     const updateHeaders = useCallback(() => {
         setHeader({
             expiry: userExpiry,
@@ -36,7 +43,6 @@ function MainDashboard({
 
     useEffect(() => {
         if (header && Object.values(header).every(x => x !== '')) {
-            console.log(header)
             updateGetAllUsers(header)
             console.log(userList)
         }
