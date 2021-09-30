@@ -19,31 +19,31 @@ function App() {
     setChannelList
   } = MainHooks()
   return (
-    // <Router>
-    //   <div className="App">
-    //     <Switch>
-    //       <Route exact path="/">
-    //         <Login
-    //           header={header}
-    //           setHeader={setHeader} />
-    //       </Route>
-    //       <Route path="/signup">
-    //         <Signup />
-    //       </Route>
-    //       <Route path="/main">
-    //         <MainDashboard
-    //           header={header}
-    //           setHeader={setHeader}
-    //           userList={userList}
-    //           setUserList={setUserList}
-    //           channelList={channelList}
-    //           setChannelList={setChannelList}
-    //         />
-    //       </Route>
-    //     </Switch>
-    //   </div>
-    // </Router>
-    <TotalUserListModal />
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Login
+              header={header}
+              setHeader={setHeader} />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/main">
+            <MainDashboard
+              header={header}
+              setHeader={setHeader}
+              userList={userList}
+              setUserList={setUserList}
+              channelList={channelList}
+              setChannelList={setChannelList}
+            />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+
   );
 }
 
