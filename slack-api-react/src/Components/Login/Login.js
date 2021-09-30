@@ -1,12 +1,9 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import apiHooks from '../API/API'
 import './Login.css'
 import { useHistory } from 'react-router-dom'
 
-function Login({ setAccessToken,
-    setClient,
-    setExpiry,
-    setUid }) {
+function Login({ header, setHeader }) {
     const history = useHistory()
     const { postCreateUserSession } = apiHooks()
     const emailInput = useRef()
@@ -20,10 +17,14 @@ function Login({ setAccessToken,
             ...others
         } } = result
         let accessToken = others["access-token"]
-        setAccessToken(accessToken)
-        setClient(client)
-        setExpiry(expiry)
-        setUid(uid)
+
+        setHeader({
+            ...header,
+            expiry: expiry,
+            uid: uid,
+            accessToken: accessToken,
+            client: client
+        })
     }
     const onButtonSubmit = (event) => {
         event.preventDefault()
@@ -33,18 +34,6 @@ function Login({ setAccessToken,
             password: passwordInput.current.value
         }
         setLoginStates(data)
-        // const {
-        //     headers: {
-        //         expiry,
-        //         uid,
-        //         client,
-        //         ...others
-        //     }
-        // }
-        //     = asyncHook()
-        // let accessToken = others["access-token"]
-        // // console.log(accessToken, client, uid, expiry)
-
         return history.push("/main")
     }
     const goToSignUp = () => {

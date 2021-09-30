@@ -1,6 +1,5 @@
 import axios from 'axios'
 import qs from 'qs'
-import MainHooks from '../Main Dashboard/Hooks/MainHooks'
 
 
 
@@ -46,19 +45,19 @@ const apiHooks = () => {
         console.log(`uid: ${uid}`)
         console.log(`expiry: ${expiry}`)
         console.log(`client: ${client}`)
-        if (Object.values(headers).every(x => typeof x === 'string')) {
-            console.log('All are string!')
-            return await axios({
-                method: 'get',
-                url: `http://${BASE_URL}/api/v1/users`,
-                headers: {
-                    'access-token': accessToken,
-                    'client': client,
-                    'expiry': expiry,
-                    'uid': uid
-                }
-            }).catch(error => console.log(error))
-        }
+
+        console.log('All are string!')
+        return await axios({
+            method: 'get',
+            url: `http://${BASE_URL}/api/v1/users`,
+            headers: {
+                'access-token': accessToken,
+                'client': client,
+                'expiry': expiry,
+                'uid': uid
+            }
+        }).catch(error => console.log(error))
+
     }
     const getAllUsers = async (headers) => {
         const { expiry, uid, accessToken, client } = headers

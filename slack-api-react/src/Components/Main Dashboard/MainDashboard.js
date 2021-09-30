@@ -5,12 +5,7 @@ import MainBody from './MainBody/MainBody'
 import './MainDashBoard.css'
 import apiHooks from '../API/API'
 function MainDashboard({
-    userAccessToken,
-    userClient,
-    userExpiry,
-    userUid,
     header,
-    setHeader,
     userList,
     setUserList,
     channelList,
@@ -32,14 +27,7 @@ function MainDashboard({
         }
 
     }, [getAllUsersMain, setUserList])
-    const updateHeaders = useCallback(() => {
-        setHeader({
-            expiry: userExpiry,
-            uid: userUid,
-            accessToken: userAccessToken,
-            client: userClient
-        })
-    }, [setHeader, userUid, userExpiry, userAccessToken, userClient])
+
 
     const updateGetRetrieveAllChannels = useCallback(async (header) => {
         const result = await getRetrieveAllChannels(header)
@@ -59,11 +47,6 @@ function MainDashboard({
     // ? USEEFFECTS
     // ? --------------
 
-
-    // ? 1
-    useEffect(() => {
-        updateHeaders()
-    }, [updateHeaders])
 
     // ? 2 
     useEffect(() => {

@@ -30,28 +30,22 @@ import { useState } from "react";
 
 /** TOP LEVEL HOOKS */
 function MainHooks() {
-    const [userAccessToken, setAccessToken] = useState('')
-    const [userClient, setClient] = useState('')
-    const [userExpiry, setExpiry] = useState('')
-    const [userUid, setUid] = useState('')
-    const [header, setHeader] = useState({})
+    const [header, setHeader] = useState({
+        expiry: '',
+        uid: '',
+        accessToken: '',
+        client: ''
+    })
     const [userList, setUserList] = useState([])
     const [channelList, setChannelList] = useState([])
+
     return {
         // ? INITIAL STATE
-        userAccessToken,
-        userClient,
-        userExpiry,
-        userUid,
         header,
         userList,
 
         channelList,
         // ? Change of State
-        setAccessToken,
-        setClient,
-        setExpiry,
-        setUid,
         setHeader,
         setUserList,
 
