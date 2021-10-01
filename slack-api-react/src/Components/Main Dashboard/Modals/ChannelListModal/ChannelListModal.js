@@ -1,7 +1,7 @@
 import React from 'react'
 import modalLogo from './assets/lock.svg'
 import './ChannelListModal.css'
-import ChannelListCards from '../ChannelListCards/ChannelListCards'
+// import ChannelListCards from '../ChannelListCards/ChannelListCards'
 
 const ChannelListModal = () => {
 
@@ -21,10 +21,10 @@ const ChannelListModal = () => {
                         <input type="search" placeholder="Find members.." className="search" name="search"></input>
                     </div>
                     <div className={"member-list"}>
+                        {/* <ChannelListCards />
                         <ChannelListCards />
                         <ChannelListCards />
-                        <ChannelListCards />
-                        <ChannelListCards />
+                        <ChannelListCards /> */}
                     </div>
                 </div>
             </div>

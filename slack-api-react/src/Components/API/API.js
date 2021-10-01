@@ -118,12 +118,12 @@ const apiHooks = () => {
         try {
             const response = await axios({
                 method: 'post',
-                url: `http://${BASE_URL}/api/v1/channel/$add_member`,
+                url: `http://${BASE_URL}/api/v1/channel/add_member`,
                 headers: {
-                    'access-token': qs.stringify(accessToken),
-                    'client': qs.stringify(client),
-                    'expiry': qs.stringify(expiry),
-                    'uid': qs.stringify(uid)
+                    'access-token': accessToken,
+                    'client': client,
+                    'expiry': expiry,
+                    'uid': uid
                 },
                 data: qs.stringify(dataRef)
             })

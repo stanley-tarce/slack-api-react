@@ -6,6 +6,7 @@ import './MainDashBoard.css'
 import apiHooks from '../API/API'
 import TotalUserListModal from './Modals/TotalUserListModal/TotalUserListModal'
 import UserListModal from './Modals/UserListModal/UserListModal'
+import InviteUserChannel from './Modals/InviteUserChannel/InviteUserChannel'
 function MainDashboard({
     header,
     userList,
@@ -19,10 +20,16 @@ function MainDashboard({
     openUserDataModal,
     setOpenUserDataModal,
     userDetails,
-    setUserDetails }) {
+    setUserDetails,
+    openChannelListModal,
+    setOpenChannelListModal,
+    channelData,
+    setChannelData
+}) {
     // ! START OF FUNCTIONS    
     const { getAllUsersMain, getRetrieveAllChannels } = apiHooks()
     const refModalData = useRef(null)
+    const refModalInviteChannelListData = useRef(null)
 
 
     // ! USECALLBACKS!
@@ -57,7 +64,7 @@ function MainDashboard({
     const CloseUserDataMOdal = (ref) => {
         useEffect(() => {
             const handleCloseUserDataModal = (event) => {
-                if (ref.current && ref.current.contains(event.target)) {
+                if (ref.current && !ref.current.contains(event.target)) {
                     setOpenUserDataModal(false)
                     setUserDetails({
                         ...userDetails,
@@ -98,12 +105,13 @@ function MainDashboard({
     return (
         <>
             <div className={"Main-DashBoard"}>
-                <div className={"sidebarHolder"}><Sidebar channelList={channelList} /></div>
+                <div className={"sidebarHolder"}><Sidebar channelList={channelList} channelData={channelData} setChannelData={setChannelData} /></div>
                 <div className={"headerbarHolder"}><MainNavBar headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} /></div>
                 <div className={"MainBodyHolder"}><MainBody /></div>
             </div>
             {openUserListModal && <TotalUserListModal userList={userList} headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserDataModal={setOpenUserDataModal} setUserDetails={setUserDetails} userDetails={userDetails} />}
-            {openUserDataModal && <UserListModal refModalData={refModalData} userDetails={userDetails} />}
+            {openUserDataModal && <UserListModal refModalData={refModalData} userDetails={userDetails} setOpenUserDataModal={setOpenUserDataModal} setOpenChannelListModal={setOpenChannelListModal} />}
+            {openChannelListModal && <InviteUserChannel channelList={channelList} setChannelData={setChannelData} userDetails={userDetails} channelData={channelData} header={header} />}
         </>
     )
 }

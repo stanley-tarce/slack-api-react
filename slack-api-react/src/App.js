@@ -5,6 +5,7 @@ import MainDashboard from './Components/Main Dashboard/MainDashboard';
 import Signup from './Components/Sign-Up/Signup'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MainHooks from './Components/Main Dashboard/Hooks/MainHooks';
+
 function App() {
   const {
     header,
@@ -16,6 +17,8 @@ function App() {
     headerBarSearch,
     openUserDataModal,
     userDetails,
+    openChannelListModal,
+    channelData,
     // ? Change of State
     setHeader,
     setUserList,
@@ -25,7 +28,9 @@ function App() {
     setOpenUserListModal,
     setHeaderBarSearch,
     setOpenUserDataModal,
-    setUserDetails
+    setUserDetails,
+    setOpenChannelListModal,
+    setChannelData
   } = MainHooks()
   return (
     <Router>
@@ -55,6 +60,10 @@ function App() {
               openUserDataModal={openUserDataModal}
               userDetails={userDetails}
               setUserDetails={setUserDetails}
+              openChannelListModal={openChannelListModal}
+              setOpenChannelListModal={setOpenChannelListModal}
+              channelData={channelData}
+              setChannelData={setChannelData}
             />
           </Route>
         </Switch>

@@ -1,15 +1,19 @@
 import React from 'react'
 import './UserListModal.css'
-function UserListModal({ refModalData, userDetails }) {
+function UserListModal({ refModalData, userDetails, setOpenUserDataModal, setOpenChannelListModal }) {
     const { name, id } = userDetails
+    const sendInviteChannel = (e) => {
+        setOpenChannelListModal(true)
+        setOpenUserDataModal(false)
+    }
     return (
-        <div className={"userListModalBackground"} ref={refModalData}>
-            <div className={"userListModal"}>
+        <div className={"userListModalBackground"}  >
+            <div className={"userListModal"} ref={refModalData} >
                 <div className={"Avatar"} />
                 <p className={"id"}><b>ID: </b>{id}</p>
                 <p className={"uid"}><b>Name: </b>{name}</p>
                 <div className={"buttonContainer"}>
-                    <button className={"inviteChannel"}>Invite to Channel</button>
+                    <button onClick={(e) => sendInviteChannel(e)} className={"inviteChannel"}>Invite to Channel</button>
                     <button className={"sendMessage"}>Send Message</button>
                 </div>
             </div>

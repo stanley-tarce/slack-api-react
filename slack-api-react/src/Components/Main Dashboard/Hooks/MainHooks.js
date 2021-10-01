@@ -45,10 +45,15 @@ function MainHooks() {
         id: '',
         uid: ''
     })
+    const [channelData, setChannelData] = useState({
+        channelId: '',
+        name: '',
+        owner: ''
+    })
     //Channel Function Hooks
     const [openUserListModal, setOpenUserListModal] = useState(false)
     const [openUserDataModal, setOpenUserDataModal] = useState(false)
-
+    const [openChannelListModal, setOpenChannelListModal] = useState(false)
     return {
         // ? INITIAL STATE
         header,
@@ -61,6 +66,8 @@ function MainHooks() {
         openUserDataModal,
 
         userDetails,
+        openChannelListModal,
+        channelData,
         // ? Change of State
         setHeader,
         setUserList,
@@ -70,8 +77,9 @@ function MainHooks() {
         setOpenUserListModal,
         setHeaderBarSearch,
         setOpenUserDataModal,
-        setUserDetails
-
+        setUserDetails,
+        setOpenChannelListModal,
+        setChannelData
     }
 }
 
