@@ -1,22 +1,22 @@
 import React from 'react'
 import ChannelListCards from '../ChannelListCards/ChannelListCards'
 import './TotalUserListModal.css'
-function TotalUserListModal() {
+function TotalUserListModal({ userList, headerBarSearch, setOpenUserListModal, setHeaderBarSearch, setOpenUserDataModal, setUserDetails, userDetails }) {
     return (
-        <div className="background">
-            <div className="boxers" >
-                <ChannelListCards />
-                <ChannelListCards />
-                <ChannelListCards />
-                <ChannelListCards />
-                <ChannelListCards />
-                <ChannelListCards />
-                <ChannelListCards />
-                <ChannelListCards />
-                <ChannelListCards />
-                <ChannelListCards />
-
-            </div>
+        <div className="boxers">
+            {userList.length !== 0 && userList
+                .filter(user => user.uid.toLowerCase().includes(headerBarSearch.toLowerCase()))
+                .map(user =>
+                    <ChannelListCards
+                        key={user.id}
+                        id={user.id}
+                        uid={user.uid}
+                        setOpenUserDataModal={setOpenUserDataModal}
+                        setHeaderBarSearch={setHeaderBarSearch}
+                        setOpenUserListModal={setOpenUserListModal}
+                        userDetails={userDetails}
+                        setUserDetails={setUserDetails}
+                    />)}
         </div>
     )
 }

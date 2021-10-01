@@ -12,7 +12,7 @@ function Sidebar({ channelList }) {
 				<div className={'SideBar-Channel-Title'}>
 					<div className={"DropDown"}></div>
 					<p>Channel</p>
-					<div className={"ViewAll"}></div>
+
 				</div>
 				<div className={'SideBar-Channel-Lists'}>
 					{channelList.length !== 0 && channelList.map((channel, index) =>
@@ -32,20 +32,10 @@ function Sidebar({ channelList }) {
 				<div className={'SideBar-Message-Title'}>
 					<div className={"DropDown"}></div>
 					<p>Message</p>
-					<div className={"ViewAll"}></div>
+
 				</div>
 				<div className={'SideBar-Message-Lists'}>
-					<MessageCard />
-					<MessageCard />
-					<MessageCard />
-					<MessageCard />
-					<MessageCard />
-					<MessageCard />
-					<MessageCard />
-					<MessageCard />
-					<MessageCard />
-					<MessageCard />
-					<MessageCard />
+
 					{/** 
 					 1. Create a card for mapping channel lists with left margin of 10 px 
 					 2. Map the channel list with the API Data  */}

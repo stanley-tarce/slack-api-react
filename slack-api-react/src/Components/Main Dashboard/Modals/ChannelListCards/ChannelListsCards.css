@@ -6,6 +6,10 @@
   align-items: center;
   gap: 10px;
 }
+
+.channel-list-card > * {
+  pointer-events: none;
+}
 .channel-list-card:first-child {
   margin-top: 20px;
 }

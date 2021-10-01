@@ -38,6 +38,16 @@ function MainHooks() {
     })
     const [userList, setUserList] = useState([])
     const [channelList, setChannelList] = useState([])
+    const [headerBarSearch, setHeaderBarSearch] = useState('')
+    //UserDataModal
+    const [userDetails, setUserDetails] = useState({
+        name: '',
+        id: '',
+        uid: ''
+    })
+    //Channel Function Hooks
+    const [openUserListModal, setOpenUserListModal] = useState(false)
+    const [openUserDataModal, setOpenUserDataModal] = useState(false)
 
     return {
         // ? INITIAL STATE
@@ -45,11 +55,22 @@ function MainHooks() {
         userList,
 
         channelList,
+
+        openUserListModal,
+        headerBarSearch,
+        openUserDataModal,
+
+        userDetails,
         // ? Change of State
         setHeader,
         setUserList,
 
-        setChannelList
+        setChannelList,
+
+        setOpenUserListModal,
+        setHeaderBarSearch,
+        setOpenUserDataModal,
+        setUserDetails
 
     }
 }

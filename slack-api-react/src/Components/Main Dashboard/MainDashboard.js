@@ -1,17 +1,29 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import Sidebar from './Sidebar/Sidebar'
 import MainNavBar from './MainNavBar/MainNavBar'
 import MainBody from './MainBody/MainBody'
 import './MainDashBoard.css'
 import apiHooks from '../API/API'
+import TotalUserListModal from './Modals/TotalUserListModal/TotalUserListModal'
+import UserListModal from './Modals/UserListModal/UserListModal'
 function MainDashboard({
     header,
     userList,
     setUserList,
     channelList,
-    setChannelList
-}) {
+    setChannelList,
+    openUserListModal,
+    setOpenUserListModal,
+    headerBarSearch,
+    setHeaderBarSearch,
+    openUserDataModal,
+    setOpenUserDataModal,
+    userDetails,
+    setUserDetails }) {
+    // ! START OF FUNCTIONS    
     const { getAllUsersMain, getRetrieveAllChannels } = apiHooks()
+    const refModalData = useRef(null)
+
 
     // ! USECALLBACKS!
     const updateGetAllUsers = useCallback(async (header) => {
@@ -38,44 +50,61 @@ function MainDashboard({
             setChannelList(dataContainer)
         }
         else {
-            console.log('array emptyy')
+            console.log('Array Empty')
         }
     }, [getRetrieveAllChannels, setChannelList])
+
+    const CloseUserDataMOdal = (ref) => {
+        useEffect(() => {
+            const handleCloseUserDataModal = (event) => {
+                if (ref.current && ref.current.contains(event.target)) {
+                    setOpenUserDataModal(false)
+                    setUserDetails({
+                        ...userDetails,
+                        name: '',
+                        id: '',
+                        uid: ''
+                    })
+                }
+
+
+            }
+            document.addEventListener("mousedown", handleCloseUserDataModal)
+            return () => document.removeEventListener("mousedown", handleCloseUserDataModal)
+        }
+            , [ref])
+    }
+    CloseUserDataMOdal(refModalData)
     // ! USECALLBACKS END
 
     // ? --------------
-    // ? USEEFFECTS
-    // ? --------------
+    // ? USEEFFECTS 
+    //
 
-
-    // ? 2 
     useEffect(() => {
-        if (header && Object.values(header).every(x => x !== '')) {
+        if (Object.values(header).every(x => x !== '')) {
             updateGetAllUsers(header)
-            console.log(userList)
-        }
-        else {
-            console.log('Missing Headers, No render')
         }
     }, [header])
     useEffect(() => {
-        if (header && Object.values(header).every(x => x !== '')) {
+        if (Object.values(header).every(x => x !== '')) {
             updateGetRetrieveAllChannels(header)
-            console.log(channelList)
         }
-        else {
-            console.log('Missing Headers, No render')
-        }
+
     }, [header])
-
-
-    console.log(header, userList)
+    useEffect(() => {
+        headerBarSearch.length !== 0 ? setOpenUserListModal(true) : setOpenUserListModal(false)
+    }, [headerBarSearch])
     return (
-        <div className={"Main-DashBoard"}>
-            <div className={"sidebarHolder"}><Sidebar channelList={channelList} /></div>
-            <div className={"headerbarHolder"}><MainNavBar /></div>
-            <div className={"MainBodyHolder"}><MainBody /></div>
-        </div>
+        <>
+            <div className={"Main-DashBoard"}>
+                <div className={"sidebarHolder"}><Sidebar channelList={channelList} /></div>
+                <div className={"headerbarHolder"}><MainNavBar headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} /></div>
+                <div className={"MainBodyHolder"}><MainBody /></div>
+            </div>
+            {openUserListModal && <TotalUserListModal userList={userList} headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserDataModal={setOpenUserDataModal} setUserDetails={setUserDetails} userDetails={userDetails} />}
+            {openUserDataModal && <UserListModal refModalData={refModalData} userDetails={userDetails} />}
+        </>
     )
 }
 
