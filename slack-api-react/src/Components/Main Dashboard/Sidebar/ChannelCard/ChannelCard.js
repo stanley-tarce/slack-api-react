@@ -1,7 +1,7 @@
 import React from 'react'
 import './ChannelCard.css'
 
-function ChannelCard({ channelId, owner, name, setChannelData, channelData }) {
+function ChannelCard({ channelId, owner, name, setChannelData, channelData, }) {
 
     const retrieveData = (event) => {
         console.log(event)

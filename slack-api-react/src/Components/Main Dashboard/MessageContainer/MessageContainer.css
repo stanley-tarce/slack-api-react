@@ -1,9 +1,9 @@
 .Message-Container {
   width: 100%;
-  height: 555px;
+  height: 530px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
-  overflow-y: scroll;
+  overflow-y: auto;
 }

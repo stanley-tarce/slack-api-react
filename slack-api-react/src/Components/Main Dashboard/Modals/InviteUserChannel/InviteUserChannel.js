@@ -3,7 +3,7 @@ import './InviteUserChannel.css'
 import ChannelCard from '../../Sidebar/ChannelCard/ChannelCard'
 import apiHooks from '../../../API/API'
 
-function InviteUserChannel({ channelList, setChannelData, userDetails, channelData, header }) {
+function InviteUserChannel({ channelList, setChannelData, userDetails, channelData, header, setOpenChannelListModal, refChannelModalSelectionData }) {
     const { channelId } = channelData
     const { id } = userDetails
     const { postInviteUserToChannel } = apiHooks()
@@ -15,10 +15,11 @@ function InviteUserChannel({ channelList, setChannelData, userDetails, channelDa
         }
         console.log(data)
         postInviteUserToChannel(header, data)
+        setOpenChannelListModal(false)
     }
     return (
         <div className={"inviteChannelModalBackground"}>
-            <div className={"inviteChannelContainer"}>
+            <div className={"inviteChannelContainer"} ref={refChannelModalSelectionData}>
                 <p>Select a Channel</p>
                 <div className={"channelContainer"}>
 
