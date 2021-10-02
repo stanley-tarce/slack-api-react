@@ -9,6 +9,7 @@ import TotalUserListModal from './Modals/TotalUserListModal/TotalUserListModal'
 import UserListModal from './Modals/UserListModal/UserListModal'
 import InviteUserChannel from './Modals/InviteUserChannel/InviteUserChannel'
 import MainDisplay from '../Main Display/MainDisplay'
+import Logoutmodal from '../LogOut/Logoutmodal'
 function MainDashboard({
     header,
     userList,
@@ -38,7 +39,9 @@ function MainDashboard({
     userMessageList,
     setUserMessageList,
     userData,
-    setUserData
+    setUserData,
+    openLogoutModal,
+    setOpenLogoutModal,
 }) {
     // ! START OF FUNCTIONS    
     const { getAllUsersMain, getRetrieveAllChannels, getRetrieveAllMessagesFromUser } = apiHooks()
@@ -183,6 +186,7 @@ function MainDashboard({
             {openUserListModal && <TotalUserListModal userList={userList} headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserDataModal={setOpenUserDataModal} setUserDetails={setUserDetails} userDetails={userDetails} />}
             {openUserDataModal && <UserListModal refModalData={refModalData} userDetails={userDetails} setOpenUserDataModal={setOpenUserDataModal} setOpenChannelListModal={setOpenChannelListModal} setRedirectToChannel={setRedirectToChannel} />}
             {openChannelListModal && <InviteUserChannel channelList={channelList} setChannelData={setChannelData} userDetails={userDetails} channelData={channelData} header={header} setOpenChannelListModal={setOpenChannelListModal} refChannelModalSelectionData={refChannelModalSelectionData} setRedirectToChannel={setRedirectToChannel} />}
+            {openLogoutModal && <Logoutmodal openLogoutModal={openLogoutModal}/>}
         </>
     )
 }
