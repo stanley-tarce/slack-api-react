@@ -3,7 +3,16 @@ import './ChannelCard.css'
 import { useHistory } from 'react-router'
 import apiHooks from '../../../API/API'
 
-function ChannelCard({ channelId, setCreateMessageContainer, owner, name, setChannelData, channelData, header, setMode, redirectToChannel }) {
+function ChannelCard({
+    channelId,
+    setCreateMessageContainer,
+    owner,
+    name,
+    setChannelData,
+    channelData,
+    header,
+    setMode,
+    redirectToChannel }) {
     const { getRetrieveChannel } = apiHooks()
     const history = useHistory()
 

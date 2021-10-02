@@ -1,7 +1,14 @@
 import React from 'react'
 import ChannelListCards from '../ChannelListCards/ChannelListCards'
 import './TotalUserListModal.css'
-function TotalUserListModal({ userList, headerBarSearch, setOpenUserListModal, setHeaderBarSearch, setOpenUserDataModal, setUserDetails, userDetails }) {
+function TotalUserListModal({
+    userList,
+    headerBarSearch,
+    setOpenUserListModal,
+    setHeaderBarSearch,
+    setOpenUserDataModal,
+    setUserDetails,
+    userDetails }) {
     return (
         <div className="boxers">
             {userList.length !== 0 && userList

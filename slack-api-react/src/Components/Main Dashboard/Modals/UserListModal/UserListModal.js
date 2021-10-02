@@ -1,6 +1,13 @@
 import React from 'react'
 import './UserListModal.css'
-function UserListModal({ refModalData, userDetails, setOpenUserDataModal, setOpenChannelListModal, setRedirectToChannel }) {
+function UserListModal({
+    refModalData,
+    userDetails,
+    setOpenUserDataModal,
+    setOpenChannelListModal,
+    setRedirectToChannel
+}
+) {
     const { name, id } = userDetails
     const sendInviteChannel = (e) => {
         setOpenChannelListModal(true)
@@ -9,7 +16,9 @@ function UserListModal({ refModalData, userDetails, setOpenUserDataModal, setOpe
     }
     return (
         <div className={"userListModalBackground"}  >
-            <div className={"userListModal"} ref={refModalData} >
+            <div
+                className={"userListModal"}
+                ref={refModalData} >
                 <div className={"Avatar"} />
                 <p className={"id"}><b>ID: </b>{id}</p>
                 <p className={"uid"}><b>Name: </b>{name}</p>

@@ -3,14 +3,26 @@ import './Sidebar.css'
 import ChannelCard from './ChannelCard/ChannelCard'
 import MessageCard from './MessageCard/MessageCard'
 import { useHistory } from 'react-router'
-function Sidebar({ channelList, setChannelData, channelData, header, setMode, redirectToChannel, userMessageList, userData, setUserData, setCreateMessageContainer }) {
+function Sidebar({
+	channelList,
+	setChannelData,
+	channelData,
+	header,
+	setMode,
+	redirectToChannel,
+	userMessageList,
+	userData,
+	setUserData,
+	setCreateMessageContainer }) {
 	const history = useHistory()
 	return (
 		<div className={"Main-Sidebar"}>
 			<div className={'SideBar-Title-Name'}>
 				Avion School
 			</div>
-			<div onClick={(e) => history.push('/main/home')} className={'SideBar-Title-Home'}>
+			<div
+				onClick={(e) => history.push('/main/home')}
+				className={'SideBar-Title-Home'}>
 				Home
 			</div>
 			<div className={'SideBar-Channel-Container'}>
@@ -21,7 +33,17 @@ function Sidebar({ channelList, setChannelData, channelData, header, setMode, re
 				</div>
 				<div className={'SideBar-Channel-Lists'}>
 					{channelList.length !== 0 && channelList.map((channel, index) =>
-						<ChannelCard key={index} channelData={channelData} setMode={setMode} setChannelData={setChannelData} name={channel.name} channelId={channel.channelId} owner={channel.owner} header={header} redirectToChannel={redirectToChannel} setCreateMessageContainer={setCreateMessageContainer} />
+						<ChannelCard
+							key={index}
+							channelData={channelData}
+							setMode={setMode}
+							setChannelData={setChannelData}
+							name={channel.name}
+							channelId={channel.channelId}
+							owner={channel.owner}
+							header={header}
+							redirectToChannel={redirectToChannel}
+							setCreateMessageContainer={setCreateMessageContainer} />
 					)}
 					{/** 
 					Insert Channel Card JS Here
@@ -41,7 +63,15 @@ function Sidebar({ channelList, setChannelData, channelData, header, setMode, re
 				</div>
 				<div className={'SideBar-Message-Lists'}>
 					{userMessageList && userMessageList.length !== 0 && userMessageList.map((user, index) =>
-						<MessageCard key={index} id={user.id} uid={user.uid} setUserData={setUserData} userData={userData} header={header} setMode={setMode} setCreateMessageContainer={setCreateMessageContainer} />)}
+						<MessageCard
+							key={index}
+							id={user.id}
+							uid={user.uid}
+							setUserData={setUserData}
+							userData={userData}
+							header={header}
+							setMode={setMode}
+							setCreateMessageContainer={setCreateMessageContainer} />)}
 
 					{/** 
 					 1. Create a card for mapping channel lists with left margin of 10 px 

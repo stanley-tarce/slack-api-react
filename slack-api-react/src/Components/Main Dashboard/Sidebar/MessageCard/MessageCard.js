@@ -1,9 +1,14 @@
 import React from 'react'
 import './MessageCard.css'
-import apiHooks from '../../../API/API'
 import { useHistory } from 'react-router-dom'
 
-function MessageCard({ id, setCreateMessageContainer, uid, userData, setUserData, setMode }) {
+function MessageCard({
+    id,
+    setCreateMessageContainer,
+    uid,
+    userData,
+    setUserData,
+    setMode }) {
     let name = uid.split('@')[0]
     const history = useHistory()
     const retrieveUserData = (event) => {
