@@ -31,7 +31,7 @@ function MessageInput({ setMessage, message, header, channelData, mode, userData
                 receiver_class: userData.receiver_class,
                 body: body.current.value
             }
-            postCreateMessageInAChannel(header, data)
+            postCreateDirectMessagetoUser(header, data)
         }
     }
 
