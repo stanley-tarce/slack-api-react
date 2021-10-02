@@ -11,7 +11,7 @@
   background: url("./Assets/Usercard.svg") no-repeat center;
   background-color: #fff0d0;
   border: 1px solid #591035;
-
+  pointer-events: none;
   width: 30px;
   height: 30px;
 }
@@ -28,4 +28,9 @@
   height: 30px;
   margin-left: 120px;
   border: 0px;
+  pointer-events: none;
+}
+
+.messageCard p {
+  pointer-events: none;
 }

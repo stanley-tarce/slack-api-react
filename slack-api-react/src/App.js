@@ -21,6 +21,7 @@ function App() {
     userDetails,
     openChannelListModal,
     channelData,
+    userData,
 
 
     mode,
@@ -44,7 +45,8 @@ function App() {
     setMessage,
     redirectToChannel,
     setRedirectToChannel,
-    setUserMessageList
+    setUserMessageList,
+    setUserData
 
   } = MainHooks()
 
@@ -90,6 +92,8 @@ function App() {
               setRedirectToChannel={setRedirectToChannel}
               userMessageList={userMessageList}
               setUserMessageList={setUserMessageList}
+              setUserData={setUserData}
+              userData={userData}
             />
           </Route>
         </Switch>

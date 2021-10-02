@@ -12,8 +12,8 @@ import apiHooks from '../../API/API'
 
 import './MessageInput.css'
 
-function MessageInput({ setMessage, message, header, channelData, mode }) {
-    const { postCreateMessageInAChannel } = apiHooks()
+function MessageInput({ setMessage, message, header, channelData, mode, userData }) {
+    const { postCreateMessageInAChannel, postCreateDirectMessagetoUser } = apiHooks()
     const sendMessage = (event) => {
         event.preventDefault()
         if (mode === 'Channel') {
@@ -24,6 +24,14 @@ function MessageInput({ setMessage, message, header, channelData, mode }) {
             }
             postCreateMessageInAChannel(header, data)
 
+        }
+        else if (mode === 'User') {
+            let data = {
+                receiver_id: userData.id,
+                receiver_class: userData.receiver_class,
+                body: body.current.value
+            }
+            postCreateMessageInAChannel(header, data)
         }
     }
 

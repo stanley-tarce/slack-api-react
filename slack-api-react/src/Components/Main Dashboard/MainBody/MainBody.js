@@ -9,7 +9,7 @@ import ChannelCard from '../Sidebar/ChannelCard/ChannelCard'
 
 
 
-function MainBody({ channelData, mode, createMessageContainer, setMode, setCreateMessageContainer, header, message, setMessage }) {
+function MainBody({ channelData, mode, createMessageContainer, setMode, setCreateMessageContainer, header, message, setMessage, userData }) {
     return (
         <div className={"main-body"}>
             <Switch>
@@ -17,13 +17,13 @@ function MainBody({ channelData, mode, createMessageContainer, setMode, setCreat
                     <TitleBarChannel channelData={channelData} />
                 </Route>
                 <Route path={`/main/messaging/user/:id`}>
-                    <TitleBarUser channelData={channelData} />
+                    <TitleBarUser userData={userData} />
                 </Route>
             </Switch>
 
             <MessageContainer mode={mode} createMessageContainer={createMessageContainer} setMode={setMode} channelData={channelData} header={header}
-                setCreateMessageContainer={setCreateMessageContainer} />
-            <MessageInput mode={mode} channelData={channelData} header={header} message={message} setMessage={setMessage} />
+                setCreateMessageContainer={setCreateMessageContainer} userData={userData} />
+            <MessageInput mode={mode} channelData={channelData} header={header} message={message} userData={userData} setMessage={setMessage} />
         </div>
     )
 }

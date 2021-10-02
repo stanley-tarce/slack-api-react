@@ -19,7 +19,7 @@ function Login({ header, setHeader }) {
         let accessToken = others["access-token"]
 
         setHeader({
-            ...header,
+            // ...header,
             expiry: expiry,
             uid: uid,
             accessToken: accessToken,

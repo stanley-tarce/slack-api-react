@@ -177,7 +177,6 @@ const apiHooks = () => {
     const getRetrieveAllMessagesFromUser = async (headers, USER_ID) => {
         const { expiry, uid, accessToken, client } = headers
         try {
-            console.log('Retrieve Message')
             const response = await axios({
                 method: 'get',
                 url: `http://${BASE_URL}/api/v1/messages?receiver_id=${USER_ID}&receiver_class=User`,
@@ -220,10 +219,10 @@ const apiHooks = () => {
                 method: 'post',
                 url: `http://${BASE_URL}/api/v1/messages`,
                 headers: {
-                    'access-token': qs.stringify(accessToken),
-                    'client': qs.stringify(client),
-                    'expiry': qs.stringify(expiry),
-                    'uid': qs.stringify(uid)
+                    'access-token': accessToken,
+                    'client': client,
+                    'expiry': expiry,
+                    'uid': uid
                 },
                 data: qs.stringify(dataRef)
             })

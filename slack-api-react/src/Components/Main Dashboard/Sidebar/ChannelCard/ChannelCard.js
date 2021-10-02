@@ -3,7 +3,7 @@ import './ChannelCard.css'
 import { useHistory } from 'react-router'
 import apiHooks from '../../../API/API'
 
-function ChannelCard({ channelId, owner, name, setChannelData, channelData, header, setMode, redirectToChannel }) {
+function ChannelCard({ channelId, setCreateMessageContainer, owner, name, setChannelData, channelData, header, setMode, redirectToChannel }) {
     const { getRetrieveChannel } = apiHooks()
     const history = useHistory()
 
@@ -26,6 +26,7 @@ function ChannelCard({ channelId, owner, name, setChannelData, channelData, head
         // console.log(event.target.dataset.names)
         console.log(result)
         if (redirectToChannel) {
+            setCreateMessageContainer([])
             setMode('Channel')
             history.push(`/main/messaging/channel/${event.target.dataset.channelid}`)
         }

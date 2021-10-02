@@ -66,6 +66,11 @@ function MainHooks() {
     const [mode, setMode] = useState('')
     const [message, setMessage] = useState('')
     const [redirectToChannel, setRedirectToChannel] = useState(true)
+
+    const [userData, setUserData] = useState({
+        id: '', uid: '',
+        receiver_class: 'User'
+    })
     return {
         // ? INITIAL STATE
         header,
@@ -80,6 +85,8 @@ function MainHooks() {
 
         userDetails,
         channelData,
+        userData,
+
 
         mode,
         createMessageContainer,
@@ -102,7 +109,8 @@ function MainHooks() {
         setMode,
         setMessage,
         setRedirectToChannel,
-        setUserMessageList
+        setUserMessageList,
+        setUserData
     }
 }
 

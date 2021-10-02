@@ -2,8 +2,10 @@ import React from 'react'
 import './InviteUserChannel.css'
 import ChannelCard from '../../Sidebar/ChannelCard/ChannelCard'
 import apiHooks from '../../../API/API'
+import { useHistory } from 'react-router-dom'
 
-function InviteUserChannel({ channelList, setChannelData, userDetails, channelData, header, setOpenChannelListModal, refChannelModalSelectionData }) {
+function InviteUserChannel({ channelList, setChannelData, userDetails, channelData, header, setOpenChannelListModal, refChannelModalSelectionData, setRedirectToChannel }) {
+    const history = useHistory()
     const { channelId } = channelData
     const { id } = userDetails
     const { postInviteUserToChannel } = apiHooks()
@@ -16,6 +18,8 @@ function InviteUserChannel({ channelList, setChannelData, userDetails, channelDa
         console.log(data)
         postInviteUserToChannel(header, data)
         setOpenChannelListModal(false)
+        setRedirectToChannel(true)
+        history.push('/main/home')
     }
     return (
         <div className={"inviteChannelModalBackground"}>

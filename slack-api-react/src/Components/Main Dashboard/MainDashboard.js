@@ -36,7 +36,9 @@ function MainDashboard({
     redirectToChannel,
     setRedirectToChannel,
     userMessageList,
-    setUserMessageList
+    setUserMessageList,
+    userData,
+    setUserData
 }) {
     // ! START OF FUNCTIONS    
     const { getAllUsersMain, getRetrieveAllChannels, getRetrieveAllMessagesFromUser } = apiHooks()
@@ -76,8 +78,7 @@ function MainDashboard({
     const getListsofUsers = useCallback(async (headers, userContainer) => {
         let container = []
         if (userContainer) {
-            for (let i = userContainer.length - 1; i > 900; i--) {
-                console.log(`Checking for user ${i}`)
+            for (let i = userContainer.length - 1; i > 600; i--) {
                 const result = await getRetrieveAllMessagesFromUser(headers, userContainer[i].id)
                 const { data: { data } } = result
                 if (data.length !== 0) {
@@ -166,7 +167,7 @@ function MainDashboard({
         <>
             <div className={"Main-DashBoard"}>
                 <div
-                    className={"sidebarHolder"}><Sidebar redirectToChannel={redirectToChannel} channelList={channelList} channelData={channelData} setChannelData={setChannelData} setMode={setMode} header={header} /></div>
+                    className={"sidebarHolder"}><Sidebar setCreateMessageContainer={setCreateMessageContainer} redirectToChannel={redirectToChannel} channelList={channelList} channelData={channelData} setChannelData={setChannelData} setMode={setMode} header={header} userMessageList={userMessageList} setUserData={setUserData} userData={userData} /></div>
                 <div className={"headerbarHolder"}><MainNavBar headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} /></div>
                 <div className={"MainBodyHolder"}>
                     <Switch>
@@ -174,14 +175,14 @@ function MainDashboard({
                             <MainDisplay />
                         </Route>
                         <Route path={'/main/messaging'}>
-                            <MainBody mode={mode} createMessageContainer={createMessageContainer} setMode={setMode} setCreateMessageContainer={setCreateMessageContainer} channelData={channelData} header={header} message={message} setMessage={setMessage} />
+                            <MainBody mode={mode} createMessageContainer={createMessageContainer} setMode={setMode} setCreateMessageContainer={setCreateMessageContainer} channelData={channelData} header={header} message={message} setMessage={setMessage} userData={userData} />
                         </Route>
                     </Switch>
                 </div>
             </div>
             {openUserListModal && <TotalUserListModal userList={userList} headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserDataModal={setOpenUserDataModal} setUserDetails={setUserDetails} userDetails={userDetails} />}
             {openUserDataModal && <UserListModal refModalData={refModalData} userDetails={userDetails} setOpenUserDataModal={setOpenUserDataModal} setOpenChannelListModal={setOpenChannelListModal} setRedirectToChannel={setRedirectToChannel} />}
-            {openChannelListModal && <InviteUserChannel channelList={channelList} setChannelData={setChannelData} userDetails={userDetails} channelData={channelData} header={header} setOpenChannelListModal={setOpenChannelListModal} refChannelModalSelectionData={refChannelModalSelectionData} />}
+            {openChannelListModal && <InviteUserChannel channelList={channelList} setChannelData={setChannelData} userDetails={userDetails} channelData={channelData} header={header} setOpenChannelListModal={setOpenChannelListModal} refChannelModalSelectionData={refChannelModalSelectionData} setRedirectToChannel={setRedirectToChannel} />}
         </>
     )
 }

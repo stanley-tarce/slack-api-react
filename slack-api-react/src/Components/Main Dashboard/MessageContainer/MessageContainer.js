@@ -3,12 +3,19 @@ import './MessageContainer.css'
 import MessageBox from '../Message Box/MessageBox'
 import apiHooks from '../../API/API'
 
-function MessageContainer({ mode, createMessageContainer, setMode, setCreateMessageContainer, channelData, header }) {
+function MessageContainer({ mode, createMessageContainer, setMode, setCreateMessageContainer, channelData, header, userData }) {
     const { getRetrieveAllMessagesInsideChannel, getRetrieveAllMessagesFromUser } = apiHooks()
     useEffect(() => {
         if (mode === 'Channel') {
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesInsideChannel(header, channelData.channelId)
+                setCreateMessageContainer(result.data)
+            }
+            retrieveDataAllMessages()
+        }
+        else if (mode === 'User') {
+            const retrieveDataAllMessages = async () => {
+                const result = await getRetrieveAllMessagesFromUser(header, userData.id)
                 setCreateMessageContainer(result.data)
             }
             retrieveDataAllMessages()
