@@ -3,10 +3,12 @@ import Sidebar from './Sidebar/Sidebar'
 import MainNavBar from './MainNavBar/MainNavBar'
 import MainBody from './MainBody/MainBody'
 import './MainDashBoard.css'
+import { Switch, Route } from 'react-router-dom'
 import apiHooks from '../API/API'
 import TotalUserListModal from './Modals/TotalUserListModal/TotalUserListModal'
 import UserListModal from './Modals/UserListModal/UserListModal'
 import InviteUserChannel from './Modals/InviteUserChannel/InviteUserChannel'
+import MainDisplay from '../Main Display/MainDisplay'
 function MainDashboard({
     header,
     userList,
@@ -24,10 +26,20 @@ function MainDashboard({
     openChannelListModal,
     setOpenChannelListModal,
     channelData,
-    setChannelData
+    setChannelData,
+    mode,
+    createMessageContainer,
+    setMode,
+    setCreateMessageContainer,
+    message,
+    setMessage,
+    redirectToChannel,
+    setRedirectToChannel,
+    userMessageList,
+    setUserMessageList
 }) {
     // ! START OF FUNCTIONS    
-    const { getAllUsersMain, getRetrieveAllChannels } = apiHooks()
+    const { getAllUsersMain, getRetrieveAllChannels, getRetrieveAllMessagesFromUser } = apiHooks()
     const refModalData = useRef(null)
     const refChannelModalSelectionData = useRef(null)
 
@@ -37,7 +49,7 @@ function MainDashboard({
         const result = await getAllUsersMain(header)
         let dataContainer = []
         if (result) {
-            result.data.data.map(data2 => dataContainer = [...dataContainer, { id: data2.id, uid: data2.uid }])
+            result.data.data.map(data2 => dataContainer = [...dataContainer, { id: data2.id, uid: data2.uid, receiver_class: 'User' }])
             dataContainer.sort((a, b) => a.id - b.id || a.uid.localeCompare(b.uid))
             setUserList(dataContainer)
         }
@@ -52,7 +64,7 @@ function MainDashboard({
         const result = await getRetrieveAllChannels(header)
         let dataContainer = []
         if (result) {
-            result.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name }])
+            result.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name, receiver_class: 'C' }])
             dataContainer.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name))
             setChannelList(dataContainer)
         }
@@ -60,6 +72,26 @@ function MainDashboard({
             console.log('Array Empty')
         }
     }, [getRetrieveAllChannels, setChannelList])
+
+    const getListsofUsers = useCallback(async (headers, userContainer) => {
+        let container = []
+        if (userContainer) {
+            for (let i = userContainer.length - 1; i > 900; i--) {
+                console.log(`Checking for user ${i}`)
+                const result = await getRetrieveAllMessagesFromUser(headers, userContainer[i].id)
+                const { data: { data } } = result
+                if (data.length !== 0) {
+                    let object = {
+
+                        uid: userContainer[i].uid,
+                        id: userContainer[i].id
+                    }
+                    container = [...container, object]
+                }
+            }
+            setUserMessageList(container)
+        }
+    }, [getRetrieveAllMessagesFromUser, setUserMessageList])
 
     const CloseUserDataMOdal = (ref) => {
         useEffect(() => {
@@ -93,6 +125,7 @@ function MainDashboard({
                         uid: ''
                     })
                     setOpenChannelListModal(false)
+                    setRedirectToChannel(true)
                 }
 
 
@@ -109,7 +142,6 @@ function MainDashboard({
     // ? --------------
     // ? USEEFFECTS 
     //
-
     useEffect(() => {
         if (Object.values(header).every(x => x !== '')) {
             updateGetAllUsers(header)
@@ -117,10 +149,16 @@ function MainDashboard({
     }, [header])
     useEffect(() => {
         if (Object.values(header).every(x => x !== '')) {
+            getListsofUsers(header, userList)
+        }
+    }, [userList])
+    useEffect(() => {
+        if (Object.values(header).every(x => x !== '')) {
             updateGetRetrieveAllChannels(header)
         }
 
     }, [header])
+
     useEffect(() => {
         headerBarSearch.length !== 0 ? setOpenUserListModal(true) : setOpenUserListModal(false)
     }, [headerBarSearch])
@@ -128,12 +166,21 @@ function MainDashboard({
         <>
             <div className={"Main-DashBoard"}>
                 <div
-                    className={"sidebarHolder"}><Sidebar channelList={channelList} channelData={channelData} setChannelData={setChannelData} /></div>
+                    className={"sidebarHolder"}><Sidebar redirectToChannel={redirectToChannel} channelList={channelList} channelData={channelData} setChannelData={setChannelData} setMode={setMode} header={header} /></div>
                 <div className={"headerbarHolder"}><MainNavBar headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} /></div>
-                <div className={"MainBodyHolder"}><MainBody /></div>
+                <div className={"MainBodyHolder"}>
+                    <Switch>
+                        <Route path={'/main/home'}>
+                            <MainDisplay />
+                        </Route>
+                        <Route path={'/main/messaging'}>
+                            <MainBody mode={mode} createMessageContainer={createMessageContainer} setMode={setMode} setCreateMessageContainer={setCreateMessageContainer} channelData={channelData} header={header} message={message} setMessage={setMessage} />
+                        </Route>
+                    </Switch>
+                </div>
             </div>
             {openUserListModal && <TotalUserListModal userList={userList} headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserDataModal={setOpenUserDataModal} setUserDetails={setUserDetails} userDetails={userDetails} />}
-            {openUserDataModal && <UserListModal refModalData={refModalData} userDetails={userDetails} setOpenUserDataModal={setOpenUserDataModal} setOpenChannelListModal={setOpenChannelListModal} />}
+            {openUserDataModal && <UserListModal refModalData={refModalData} userDetails={userDetails} setOpenUserDataModal={setOpenUserDataModal} setOpenChannelListModal={setOpenChannelListModal} setRedirectToChannel={setRedirectToChannel} />}
             {openChannelListModal && <InviteUserChannel channelList={channelList} setChannelData={setChannelData} userDetails={userDetails} channelData={channelData} header={header} setOpenChannelListModal={setOpenChannelListModal} refChannelModalSelectionData={refChannelModalSelectionData} />}
         </>
     )

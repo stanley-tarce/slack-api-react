@@ -34,7 +34,7 @@ function Login({ header, setHeader }) {
             password: passwordInput.current.value
         }
         setLoginStates(data)
-        return history.push("/main")
+        return history.push("/main/home")
     }
     const goToSignUp = () => {
         return history.push("/signup")

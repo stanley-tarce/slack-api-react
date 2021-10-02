@@ -2,11 +2,16 @@ import React from 'react'
 import './Sidebar.css'
 import ChannelCard from './ChannelCard/ChannelCard'
 import MessageCard from './MessageCard/MessageCard'
-function Sidebar({ channelList, setChannelData, channelData }) {
+import { useHistory } from 'react-router'
+function Sidebar({ channelList, setChannelData, channelData, header, setMode, redirectToChannel }) {
+	const history = useHistory()
 	return (
 		<div className={"Main-Sidebar"}>
 			<div className={'SideBar-Title-Name'}>
 				Avion School
+			</div>
+			<div onClick={(e) => history.push('/main/home')} className={'SideBar-Title-Home'}>
+				Home
 			</div>
 			<div className={'SideBar-Channel-Container'}>
 				<div className={'SideBar-Channel-Title'}>
@@ -16,7 +21,7 @@ function Sidebar({ channelList, setChannelData, channelData }) {
 				</div>
 				<div className={'SideBar-Channel-Lists'}>
 					{channelList.length !== 0 && channelList.map((channel, index) =>
-						<ChannelCard key={index} channelData={channelData} setChannelData={setChannelData} name={channel.name} channelId={channel.channelId} owner={channel.owner} />
+						<ChannelCard key={index} channelData={channelData} setMode={setMode} setChannelData={setChannelData} name={channel.name} channelId={channel.channelId} owner={channel.owner} header={header} redirectToChannel={redirectToChannel} />
 					)}
 					{/** 
 					Insert Channel Card JS Here

@@ -27,7 +27,6 @@ import { useState } from "react";
  */
 
 
-
 /** TOP LEVEL HOOKS */
 function MainHooks() {
     const [header, setHeader] = useState({
@@ -38,48 +37,72 @@ function MainHooks() {
     })
     const [userList, setUserList] = useState([])
     const [channelList, setChannelList] = useState([])
+    const [userMessageList, setUserMessageList] = useState([])
+
     const [headerBarSearch, setHeaderBarSearch] = useState('')
     //UserDataModal
     const [userDetails, setUserDetails] = useState({
         name: '',
         id: '',
-        uid: ''
+        uid: '',
+        receiver_class: 'User'
     })
     const [channelData, setChannelData] = useState({
         channelId: '',
         name: '',
-        owner: ''
+        owner: '',
+        channel_members: '',
+        receiver_class: 'Channel'
     })
     //Channel Function Hooks
     const [openUserListModal, setOpenUserListModal] = useState(false)
     const [openUserDataModal, setOpenUserDataModal] = useState(false)
     const [openChannelListModal, setOpenChannelListModal] = useState(false)
+
+    //Create Messages
+    const [createMessageContainer, setCreateMessageContainer] = useState({
+
+    })
+    const [mode, setMode] = useState('')
+    const [message, setMessage] = useState('')
+    const [redirectToChannel, setRedirectToChannel] = useState(true)
     return {
         // ? INITIAL STATE
         header,
         userList,
-
         channelList,
+        userMessageList,
 
         openUserListModal,
         headerBarSearch,
         openUserDataModal,
+        openChannelListModal,
 
         userDetails,
-        openChannelListModal,
         channelData,
+
+        mode,
+        createMessageContainer,
+        message,
+        redirectToChannel,
+
         // ? Change of State
         setHeader,
         setUserList,
-
         setChannelList,
 
         setOpenUserListModal,
         setHeaderBarSearch,
         setOpenUserDataModal,
-        setUserDetails,
         setOpenChannelListModal,
-        setChannelData
+
+        setUserDetails,
+        setChannelData,
+        setCreateMessageContainer,
+        setMode,
+        setMessage,
+        setRedirectToChannel,
+        setUserMessageList
     }
 }
 

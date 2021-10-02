@@ -1,10 +1,11 @@
 import React from 'react'
 import './UserListModal.css'
-function UserListModal({ refModalData, userDetails, setOpenUserDataModal, setOpenChannelListModal }) {
+function UserListModal({ refModalData, userDetails, setOpenUserDataModal, setOpenChannelListModal, setRedirectToChannel }) {
     const { name, id } = userDetails
     const sendInviteChannel = (e) => {
         setOpenChannelListModal(true)
         setOpenUserDataModal(false)
+        setRedirectToChannel(false)
     }
     return (
         <div className={"userListModalBackground"}  >

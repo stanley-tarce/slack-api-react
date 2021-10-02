@@ -101,13 +101,13 @@ const apiHooks = () => {
                 method: 'get',
                 url: `http://${BASE_URL}/api/v1/channels/${CHANNEL_ID}`,
                 headers: {
-                    'access-token': qs.stringify(accessToken),
-                    'client': qs.stringify(client),
-                    'expiry': qs.stringify(expiry),
-                    'uid': qs.stringify(uid)
+                    'access-token': accessToken,
+                    'client': client,
+                    'expiry': expiry,
+                    'uid': uid
                 },
             })
-            return console.log(response.data)
+            return response
         } catch (error) {
             return console.log(error)
         }
@@ -161,31 +161,34 @@ const apiHooks = () => {
                 method: 'get',
                 url: `http://${BASE_URL}/api/v1/messages?receiver_id=${CHANNEL_ID}&receiver_class=Channel`,
                 headers: {
-                    'access-token': qs.stringify(accessToken),
-                    'client': qs.stringify(client),
-                    'expiry': qs.stringify(expiry),
-                    'uid': qs.stringify(uid)
+                    'access-token': accessToken,
+                    'client': client,
+                    'expiry': expiry,
+                    'uid': uid
                 },
             })
-            return console.log(response.data)
+            return response
         } catch (error) {
             return console.log(error)
         }
     }
+
+
     const getRetrieveAllMessagesFromUser = async (headers, USER_ID) => {
         const { expiry, uid, accessToken, client } = headers
         try {
+            console.log('Retrieve Message')
             const response = await axios({
                 method: 'get',
                 url: `http://${BASE_URL}/api/v1/messages?receiver_id=${USER_ID}&receiver_class=User`,
                 headers: {
-                    'access-token': qs.stringify(accessToken),
-                    'client': qs.stringify(client),
-                    'expiry': qs.stringify(expiry),
-                    'uid': qs.stringify(uid)
+                    'access-token': accessToken,
+                    'client': client,
+                    'expiry': expiry,
+                    'uid': uid
                 },
             })
-            return console.log(response.data)
+            return response
         } catch (error) {
             return console.log(error)
         }
@@ -197,14 +200,14 @@ const apiHooks = () => {
                 method: 'post',
                 url: `http://${BASE_URL}/api/v1/messages`,
                 headers: {
-                    'access-token': qs.stringify(accessToken),
-                    'client': qs.stringify(client),
-                    'expiry': qs.stringify(expiry),
-                    'uid': qs.stringify(uid)
+                    'access-token': accessToken,
+                    'client': client,
+                    'expiry': expiry,
+                    'uid': uid
                 },
                 data: qs.stringify(dataRef)
             })
-            return console.log(response)
+            return response
         }
         catch (error) {
             console.log(error)

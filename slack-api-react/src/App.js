@@ -3,14 +3,16 @@ import './App.css';
 import Login from './Components/Login/Login'
 import MainDashboard from './Components/Main Dashboard/MainDashboard';
 import Signup from './Components/Sign-Up/Signup'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom'
 import MainHooks from './Components/Main Dashboard/Hooks/MainHooks';
+import TitleBarChannel from './Components/Main Dashboard/TitleBarChannel/TitleBarChannel'
+import TitleBarUser from './Components/Main Dashboard/TitleBarUser/TitleBarUser';
 
 function App() {
   const {
     header,
     userList,
-
+    userMessageList,
     channelList,
 
     openUserListModal,
@@ -19,6 +21,12 @@ function App() {
     userDetails,
     openChannelListModal,
     channelData,
+
+
+    mode,
+    createMessageContainer,
+    message,
+
     // ? Change of State
     setHeader,
     setUserList,
@@ -30,8 +38,16 @@ function App() {
     setOpenUserDataModal,
     setUserDetails,
     setOpenChannelListModal,
-    setChannelData
+    setChannelData,
+    setCreateMessageContainer,
+    setMode,
+    setMessage,
+    redirectToChannel,
+    setRedirectToChannel,
+    setUserMessageList
+
   } = MainHooks()
+
   return (
     <Router>
       <div className="App">
@@ -64,12 +80,22 @@ function App() {
               setOpenChannelListModal={setOpenChannelListModal}
               channelData={channelData}
               setChannelData={setChannelData}
+              mode={mode}
+              createMessageContainer={createMessageContainer}
+              setCreateMessageContainer={setCreateMessageContainer}
+              setMode={setMode}
+              message={message}
+              setMessage={setMessage}
+              redirectToChannel={redirectToChannel}
+              setRedirectToChannel={setRedirectToChannel}
+              userMessageList={userMessageList}
+              setUserMessageList={setUserMessageList}
             />
           </Route>
         </Switch>
       </div>
     </Router>
-    // <TotalUserListModal />
+    // <TitleBarUser />
   );
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import SendLogo from '../../../assets/svg icons/send_icon.svg'
 import BoldFormat from '../../../assets/svg icons/boldformat_icon.svg'
 import Italicize from '../../../assets/svg icons/italic_icon.svg'
@@ -7,15 +7,31 @@ import FontSize from '../../../assets/svg icons/fontsize_icon.svg'
 import AttachFile from '../../../assets/svg icons/attachfile_icon.svg'
 import Alternate from '../../../assets/svg icons/alternate_icon.svg'
 import EmojiIcon from '../../../assets/svg icons/emoji_icon.svg'
+import apiHooks from '../../API/API'
 
 
 import './MessageInput.css'
 
-function MessageInput() {
+function MessageInput({ setMessage, message, header, channelData, mode }) {
+    const { postCreateMessageInAChannel } = apiHooks()
+    const sendMessage = (event) => {
+        event.preventDefault()
+        if (mode === 'Channel') {
+            let data = {
+                receiver_id: channelData.channelId,
+                receiver_class: channelData.receiver_class,
+                body: body.current.value
+            }
+            postCreateMessageInAChannel(header, data)
+
+        }
+    }
+
+    const body = useRef()
     return (
         <div className={"Message-Input"}>
-            <form className={"Message-Input-Form"}>
-                <input className={"Type-Message"} type="text" placeholder={"Write a Message"} />
+            <form onSubmit={(e) => sendMessage(e)} className={"Message-Input-Form"}>
+                <input ref={body} className={"Type-Message"} type="text" placeholder={"Write a Message"} />
                 <div className={"Command-Icons"}>
                     <span className={"Font-Format"}>
                         <img src={BoldFormat} alt="BoldFormat" />
@@ -28,7 +44,7 @@ function MessageInput() {
                         <img src={Alternate} alt="Alternate" />
                         <img src={EmojiIcon} alt="EmojiIcon" />
                         <img src={AttachFile} alt="AttachFile" />
-                        <button className={"Send-Button"} type="submit">
+                        <button onclick={(e) => sendMessage(e)} className={"Send-Button"} type="submit">
                             <img src={SendLogo} alt="send logo" />
                         </button>
                     </span>

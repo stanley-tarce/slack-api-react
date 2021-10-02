@@ -23,7 +23,7 @@ function InviteUserChannel({ channelList, setChannelData, userDetails, channelDa
                 <p>Select a Channel</p>
                 <div className={"channelContainer"}>
 
-                    {channelList.length !== 0 && channelList.map((channel, index) => <ChannelCard channelData={channelData} setChannelData={setChannelData} key={index} name={channel.name} channelId={channel.channelId} owner={channel.owner} />)}
+                    {channelList.length !== 0 && channelList.map((channel, index) => <ChannelCard channelData={channelData} setChannelData={setChannelData} key={index} name={channel.name} channelId={channel.channelId} owner={channel.owner} header={header} />)}
                 </div>
 
                 <button onClick={(e) => sendInviteChannel(e)}>Send Invite</button>

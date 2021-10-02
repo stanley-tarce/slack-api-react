@@ -16,6 +16,7 @@ function TotalUserListModal({ userList, headerBarSearch, setOpenUserListModal, s
                         setOpenUserListModal={setOpenUserListModal}
                         userDetails={userDetails}
                         setUserDetails={setUserDetails}
+
                     />)}
         </div>
     )
