@@ -1,13 +1,30 @@
-.messageCard {
+.messageCardContainer {
+  width: 100%;
+  height: 40px;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  margin-left: 10px;
+  justify-content: space-between;
+}
+.messageCardContainer:first-child {
+  margin-top: 10px;
+}
+
+.messageCardContainer .messageCard {
+  display: flex;
   width: auto;
+  align-items: center;
   height: 40px;
   gap: 5px;
 }
-.messageCard div {
+
+.messageCardContainer .messageCard .messageWrapper {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.messageCardContainer .messageCard .messageWrapper div {
   background: url("./Assets/Usercard.svg") no-repeat center;
   background-color: #fff0d0;
   border: 1px solid #591035;
@@ -15,22 +32,21 @@
   width: 30px;
   height: 30px;
 }
-.messageCard:hover {
+.messageCardContainer:hover {
   background: rgba(255, 175, 0, 0.7);
 }
-.messageCard:active {
+.messageCardContainer .messageCard:active {
   background: #ffaf00;
 }
 
-.messageCard .Remove {
+.messageCardContainer .Remove {
   background: url("./Assets/Exit.svg") no-repeat center;
+
   width: 30px;
   height: 30px;
-  margin-left: 120px;
   border: 0px;
-  pointer-events: none;
 }
 
-.messageCard p {
+.messageCardContainer .messageCard .messageWrapper p {
   pointer-events: none;
 }

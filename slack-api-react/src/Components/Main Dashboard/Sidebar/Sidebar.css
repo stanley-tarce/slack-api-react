@@ -6,6 +6,7 @@
   height: 100%;
   /*! Not official styile properties*/
   position: absolute;
+  overflow-x: hidden;
 
   /*? End of Line*/
   background-color: #fff0d0;
@@ -17,6 +18,24 @@
 }
 .Main-Sidebar div {
   flex: 0 1 auto;
+}
+.Main-Sidebar .SideBar-Title-Home {
+  color: rgba(89, 16, 53, 1);
+  font-size: 20px;
+  line-height: 28px;
+  width: 100%;
+  height: 5%;
+  /* margin-left: 87px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(161, 161, 161, 35%);
+}
+
+.Main-Sidebar .SideBar-Title-Home p {
+  margin-right: 56%;
+
+  pointer-events: none;
 }
 
 .Main-Sidebar .SideBar-Title-Name {
@@ -48,7 +67,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
-  border-bottom: 1px solid rgba(161, 161, 161, 35%);
+  /* border-bottom: 1px solid rgba(161, 161, 161, 35%); */
 }
 
 .Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title .DropDown {
@@ -75,12 +94,14 @@
 }
 
 .Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-CreateChannel {
+  margin-top: 10px;
   height: 10%;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
 }
 .Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-CreateChannel p {
   font-family: Roboto;
@@ -107,7 +128,7 @@
 }
 /**Side Bar Message */
 .Main-Sidebar .SideBar-Message-Container {
-  border-bottom: 1px solid rgba(161, 161, 161, 35%);
+  /* border-bottom: 1px solid rgba(161, 161, 161, 35%); */
   height: 40%;
   width: 100%;
 }
@@ -119,7 +140,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
-  border-bottom: 1px solid rgba(161, 161, 161, 35%);
+  /* border-bottom: 1px solid rgba(161, 161, 161, 35%); */
 }
 .Main-Sidebar .SideBar-Message-Container .SideBar-Message-Title .DropDown {
   width: 28px;
@@ -146,17 +167,21 @@
 .Main-Sidebar .SideBar-Message-Container .SideBar-Message-Lists {
   max-height: 80%; /**! IMPORTANT TO MAKE THE SIZING RESPONSIVE */
   width: 100%;
+
   overflow-y: auto;
+  overflow: hidden;
 }
 
 .Main-Sidebar .SideBar-Message-Container .SideBar-Message-CreateMessage {
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
   height: 10%;
   width: 100%;
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
 }
 .Main-Sidebar .SideBar-Message-Container .SideBar-Message-CreateMessage div {
   background: url("./Assets/Plus\ Sign\ Vector.svg") no-repeat center;

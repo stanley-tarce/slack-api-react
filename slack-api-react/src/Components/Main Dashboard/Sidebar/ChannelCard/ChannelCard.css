@@ -2,12 +2,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 10px;
   width: auto;
   height: 40px;
   gap: 5px;
-  position: relative;
-  z-index: 1;
 }
 
 .channelCard > * {
@@ -19,6 +16,7 @@
   height: 30px;
   position: relative;
   z-index: 0;
+  margin-left: 10px;
 }
 .channelCard:hover {
   background: rgba(255, 175, 0, 0.7);
@@ -29,5 +27,6 @@
 
 .channelCard p {
   position: relative;
+  margin-left: 10px;
   z-index: 0;
 }

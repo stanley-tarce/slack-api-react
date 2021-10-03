@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import SendLogo from '../../../assets/svg icons/send_icon.svg'
 import BoldFormat from '../../../assets/svg icons/boldformat_icon.svg'
 import Italicize from '../../../assets/svg icons/italic_icon.svg'
@@ -13,7 +13,9 @@ import apiHooks from '../../API/API'
 import './MessageInput.css'
 
 function MessageInput({ setMessage, message, header, channelData, mode, userData }) {
-    const { postCreateMessageInAChannel, postCreateDirectMessagetoUser } = apiHooks()
+    const {
+        postCreateMessageInAChannel,
+        postCreateDirectMessagetoUser } = apiHooks()
     const sendMessage = (event) => {
         event.preventDefault()
         if (mode === 'Channel') {

@@ -6,22 +6,19 @@ import apiHooks from '../../API/API'
 function MessageContainer({ mode, createMessageContainer, setMode, setCreateMessageContainer, channelData, header, userData }) {
     const { getRetrieveAllMessagesInsideChannel, getRetrieveAllMessagesFromUser } = apiHooks()
     useEffect(() => {
-        if (mode === 'Channel') {
+        if (mode === 'Channel' && (Object.values(userData).every(x => x !== '') || Object.values(channelData).every(x => x !== ''))) {
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesInsideChannel(header, channelData.channelId)
                 setCreateMessageContainer(result.data)
             }
             retrieveDataAllMessages()
         }
-        else if (mode === 'User') {
+        else if (mode === 'User' && (Object.values(userData).every(x => x !== '') || Object.values(channelData).every(x => x !== ''))) {
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesFromUser(header, userData.id)
                 setCreateMessageContainer(result.data)
             }
             retrieveDataAllMessages()
-        }
-        else {
-            console.log('no data yet')
         }
     })
     const { data } = createMessageContainer

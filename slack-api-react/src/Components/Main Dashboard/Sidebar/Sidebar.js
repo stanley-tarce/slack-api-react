@@ -13,7 +13,8 @@ function Sidebar({
 	userMessageList,
 	userData,
 	setUserData,
-	setCreateMessageContainer }) {
+	setCreateMessageContainer,
+	setUserMessageList }) {
 	const history = useHistory()
 	return (
 		<div className={"Main-Sidebar"}>
@@ -23,7 +24,7 @@ function Sidebar({
 			<div
 				onClick={(e) => history.push('/main/home')}
 				className={'SideBar-Title-Home'}>
-				Home
+				<p>Home</p>
 			</div>
 			<div className={'SideBar-Channel-Container'}>
 				<div className={'SideBar-Channel-Title'}>
@@ -65,13 +66,17 @@ function Sidebar({
 					{userMessageList && userMessageList.length !== 0 && userMessageList.map((user, index) =>
 						<MessageCard
 							key={index}
+							index={index}
 							id={user.id}
 							uid={user.uid}
 							setUserData={setUserData}
 							userData={userData}
 							header={header}
 							setMode={setMode}
-							setCreateMessageContainer={setCreateMessageContainer} />)}
+							setCreateMessageContainer={setCreateMessageContainer}
+							userMessageList={userMessageList}
+							setUserMessageList={setUserMessageList}
+						/>)}
 
 					{/** 
 					 1. Create a card for mapping channel lists with left margin of 10 px 

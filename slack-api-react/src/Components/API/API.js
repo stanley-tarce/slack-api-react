@@ -59,28 +59,7 @@ const apiHooks = () => {
         }).catch(error => console.log(error))
 
     }
-    const getAllUsers = async (headers) => {
-        const { expiry, uid, accessToken, client } = headers
-        try {
-            const response = await axios({
-                method: 'get',
-                url: `http://${BASE_URL}/api/v1/users`,
-                headers: {
-                    'access-token': qs.stringify(accessToken),
-                    'client': qs.stringify(client),
-                    'expiry': qs.stringify(expiry),
-                    'uid': qs.stringify(uid)
-                },
-            })
-            let dataContainer = []
-            response.data.map(data2 => dataContainer = [...dataContainer, { id: data2.id, uid: data2.uid }])
-            dataContainer.sort((a, b) => a.id - b.id || a.uid.localeCompare(b.uid))
-            return dataContainer
 
-        } catch (error) {
-            return console.log(error)
-        }
-    }
     const getRetrieveAllChannels = async (headers) => {
         const { expiry, uid, accessToken, client } = headers
         return await axios({
@@ -141,14 +120,14 @@ const apiHooks = () => {
                 method: 'post',
                 url: `http://${BASE_URL}/api/v1/channels`,
                 headers: {
-                    'access-token': qs.stringify(accessToken),
-                    'client': qs.stringify(client),
-                    'expiry': qs.stringify(expiry),
-                    'uid': qs.stringify(uid)
+                    'access-token': accessToken,
+                    'client': client,
+                    'expiry': expiry,
+                    'uid': uid
                 },
                 data: qs.stringify(dataRef)
             })
-            return console.log(response)
+            return response
         }
         catch (error) {
             console.log(error)
@@ -226,7 +205,7 @@ const apiHooks = () => {
                 },
                 data: qs.stringify(dataRef)
             })
-            return console.log(response)
+            return response
         }
         catch (error) {
             console.log(error)
@@ -237,7 +216,6 @@ const apiHooks = () => {
         //Registration
         postUserRegistration,
         postCreateUserSession,
-        getAllUsers,
         getAllUsersMain,
         //Channels
         getRetrieveAllChannels,

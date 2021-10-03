@@ -18,10 +18,6 @@ function ChannelCard({
 
     const retrieveData = async (event) => {
         const result = await getRetrieveChannel(header, event.target.dataset.channelid)
-        console.log(event)
-        console.log(`ChannelID: ${event.target.dataset.channelid}`)
-        console.log(`Name: ${event.target.dataset.name}`)
-        console.log(`Owner: ${event.target.dataset.owner}`)
         const { id, name, owner_id, channel_members } = result.data.data
         var channelDataMembers = []
         channel_members.map(member => channelDataMembers = [...channelDataMembers, { user_id: member.user_id }])
@@ -33,8 +29,8 @@ function ChannelCard({
             channel_members: channelDataMembers
         })
         // console.log(event.target.dataset.names)
-        console.log(result)
-        if (redirectToChannel) {
+
+        if (redirectToChannel === true) {
             setCreateMessageContainer([])
             setMode('Channel')
             history.push(`/main/messaging/channel/${event.target.dataset.channelid}`)
