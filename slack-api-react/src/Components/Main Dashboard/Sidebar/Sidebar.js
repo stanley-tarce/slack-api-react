@@ -2,7 +2,8 @@ import React from 'react'
 import './Sidebar.css'
 import ChannelCard from './ChannelCard/ChannelCard'
 import MessageCard from './MessageCard/MessageCard'
-function Sidebar({ channelList, setChannelData, channelData }) {
+
+function Sidebar({ channelList, setChannelData, channelData, openNewChannelModal, setOpenNewChannelModal}) {
 	return (
 		<div className={"Main-Sidebar"}>
 			<div className={'SideBar-Title-Name'}>
@@ -25,7 +26,8 @@ function Sidebar({ channelList, setChannelData, channelData }) {
 				</div>
 				<div className={'SideBar-Channel-CreateChannel'}>
 					<div ></div>
-					<p>Add Channels	</p>
+					<p onClick={()=>{setOpenNewChannelModal(!openNewChannelModal)}}>Add Channels	</p>
+				
 				</div>
 			</div>
 			<div className={'SideBar-Message-Container'}>

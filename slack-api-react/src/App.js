@@ -19,6 +19,7 @@ function App() {
     userDetails,
     openChannelListModal,
     channelData,
+    openNewChannelModal,
     // ? Change of State
     setHeader,
     setUserList,
@@ -30,7 +31,8 @@ function App() {
     setOpenUserDataModal,
     setUserDetails,
     setOpenChannelListModal,
-    setChannelData
+    setChannelData,
+    setOpenNewChannelModal
   } = MainHooks()
   return (
     <Router>
@@ -64,6 +66,8 @@ function App() {
               setOpenChannelListModal={setOpenChannelListModal}
               channelData={channelData}
               setChannelData={setChannelData}
+              openNewChannelModal={openNewChannelModal}
+              setOpenNewChannelModal={setOpenNewChannelModal}
             />
           </Route>
         </Switch>

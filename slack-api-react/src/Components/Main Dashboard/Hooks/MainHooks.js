@@ -54,6 +54,8 @@ function MainHooks() {
     const [openUserListModal, setOpenUserListModal] = useState(false)
     const [openUserDataModal, setOpenUserDataModal] = useState(false)
     const [openChannelListModal, setOpenChannelListModal] = useState(false)
+
+    const [openNewChannelModal,setOpenNewChannelModal] = useState(false);
     return {
         // ? INITIAL STATE
         header,
@@ -68,6 +70,7 @@ function MainHooks() {
         userDetails,
         openChannelListModal,
         channelData,
+        openNewChannelModal,
         // ? Change of State
         setHeader,
         setUserList,
@@ -79,7 +82,8 @@ function MainHooks() {
         setOpenUserDataModal,
         setUserDetails,
         setOpenChannelListModal,
-        setChannelData
+        setChannelData,
+        setOpenNewChannelModal
     }
 }
 

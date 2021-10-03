@@ -136,6 +136,7 @@ const apiHooks = () => {
     const postCreateChannelWithUsers = async (headers, dataRef) => {
         //Data -> Channel_Name & user_ids[]
         const { expiry, uid, accessToken, client } = headers
+        console.log(dataRef)
         try {
             const response = await axios({
                 method: 'post',
@@ -150,6 +151,7 @@ const apiHooks = () => {
             })
             return console.log(response)
         }
+        
         catch (error) {
             console.log(error)
         }
