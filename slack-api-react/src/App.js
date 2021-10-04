@@ -27,6 +27,7 @@ function App() {
     createMessageContainer,
     message,
 
+    openNewChannelModal,
     // ? Change of State
     setHeader,
     setUserList,
@@ -45,8 +46,9 @@ function App() {
     redirectToChannel,
     setRedirectToChannel,
     setUserMessageList,
-    setUserData
+    setUserData,
 
+    setOpenNewChannelModal
   } = MainHooks()
 
   return (
@@ -93,6 +95,8 @@ function App() {
               setUserMessageList={setUserMessageList}
               setUserData={setUserData}
               userData={userData}
+              openNewChannelModal={openNewChannelModal}
+              setOpenNewChannelModal={setOpenNewChannelModal}
             />
           </Route>
         </Switch>

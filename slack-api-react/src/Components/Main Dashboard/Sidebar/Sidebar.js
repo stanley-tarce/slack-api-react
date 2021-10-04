@@ -14,7 +14,9 @@ function Sidebar({
 	userData,
 	setUserData,
 	setCreateMessageContainer,
-	setUserMessageList }) {
+	setUserMessageList,
+	openNewChannelModal,
+	setOpenNewChannelModal }) {
 	const history = useHistory()
 	return (
 		<div className={"Main-Sidebar"}>
@@ -53,7 +55,8 @@ function Sidebar({
 				</div>
 				<div className={'SideBar-Channel-CreateChannel'}>
 					<div ></div>
-					<p>Add Channels	</p>
+					<p onClick={() => { setOpenNewChannelModal(!openNewChannelModal) }}>Add Channels	</p>
+
 				</div>
 			</div>
 			<div className={'SideBar-Message-Container'}>

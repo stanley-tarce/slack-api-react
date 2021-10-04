@@ -1,0 +1,52 @@
+.newchannel-bg{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+.newchannel-cont{
+    position: absolute;
+    width: 25%;
+    height: 40%;
+    top: 10em;
+    right: 35vw;
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 0 1em 0 3em;
+}
+
+.newchannel-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.newchannel-header img{
+    height: 20px;
+    padding-top: 2%;
+    cursor: pointer;
+}
+
+.channelName{
+    margin: 2% 10% 2% 2%;
+}
+
+.newchannel-user-search{
+    margin: 2% 10% 2% 2%;
+}
+
+.inv-mems{
+    height: 30%;
+    width: 80%;
+    border: 1px solid black;
+    margin: 2% 10% 2% 2%;
+}
+
+
+
+
