@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MainHooks from './Components/Main Dashboard/Hooks/MainHooks';
 
 
+
 function App() {
   const {
     header,
@@ -21,6 +22,7 @@ function App() {
     openChannelListModal,
     channelData,
     userData,
+    openLogoutModal,
 
 
     mode,
@@ -40,6 +42,7 @@ function App() {
     setOpenUserDataModal,
     setUserDetails,
     setOpenChannelListModal,
+    setOpenLogoutModal,
     setChannelData,
     setCreateMessageContainer,
     setMode,
@@ -75,6 +78,8 @@ function App() {
               setChannelList={setChannelList}
               openUserListModal={openUserListModal}
               setOpenUserListModal={setOpenUserListModal}
+              setOpenLogoutModal={setOpenLogoutModal}
+              openLogoutModal={openLogoutModal}
               headerBarSearch={headerBarSearch}
               setHeaderBarSearch={setHeaderBarSearch}
               setOpenUserDataModal={setOpenUserDataModal}

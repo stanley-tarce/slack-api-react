@@ -1,7 +1,10 @@
 import React from 'react'
 import './MainNavBar.css'
+
 function MainNavBar({
     setHeaderBarSearch,
+    setOpenLogoutModal,
+    openLogoutModal,
     headerBarSearch }) {
     // const openUserList = (event) => {
     //     event.preventDefault()
@@ -20,7 +23,7 @@ function MainNavBar({
                     value={headerBarSearch} />
                 <i className="fa fa-search searchIcon navBarSearch" />
             </div>
-            <div className={"user-image"} />
+            <div className={"user-image"} onClick={()=> setOpenLogoutModal(!openLogoutModal)}></div>
 
         </div>
     )
