@@ -8,9 +8,16 @@ const Logoutmodal = ({openLogoutModal, setOpenLogoutModal}) => {
     return (
         
         <div className="logoutmodal"> 
-        
+            <div className="logoutCard">
+
+            </div>
+
+            <div className="userLogout">
+            {/* <button onClick={userLogout} type="submit"> Sign Out </button>   */}
+           </div>
+
             <div className="w3-container">
-              <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+              <span onClick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
         <Logout/> 
           
           </div>

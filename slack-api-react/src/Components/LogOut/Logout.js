@@ -2,7 +2,7 @@ import React from 'react'
 
 const Logout = () => {
     return (
-        <div>
+        <div className="userLogout">
           {/* <button onClick={userLogout} type="submit"> Sign Out </button>   */}
         </div>
     )

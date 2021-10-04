@@ -171,7 +171,7 @@ function MainDashboard({
             <div className={"Main-DashBoard"}>
                 <div
                     className={"sidebarHolder"}><Sidebar setCreateMessageContainer={setCreateMessageContainer} redirectToChannel={redirectToChannel} channelList={channelList} channelData={channelData} setChannelData={setChannelData} setMode={setMode} header={header} userMessageList={userMessageList} setUserData={setUserData} userData={userData} /></div>
-                <div className={"headerbarHolder"}><MainNavBar headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} /></div>
+                <div className={"headerbarHolder"}><MainNavBar headerBarSearch={headerBarSearch} setOpenLogoutModal={setOpenLogoutModal} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} /></div>
                 <div className={"MainBodyHolder"}>
                     <Switch>
                         <Route path={'/main/home'}>
