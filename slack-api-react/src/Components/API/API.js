@@ -130,7 +130,7 @@ const apiHooks = () => {
             })
             return response
         }
-        
+
         catch (error) {
             console.log(error)
         }
@@ -168,6 +168,7 @@ const apiHooks = () => {
                     'uid': uid
                 },
             })
+            console.log(response)
             return response
         } catch (error) {
             return console.log(error)

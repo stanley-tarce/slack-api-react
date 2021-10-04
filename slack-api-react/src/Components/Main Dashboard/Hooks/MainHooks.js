@@ -72,6 +72,7 @@ function MainHooks() {
         receiver_class: 'User'
     })
     const [openNewChannelModal, setOpenNewChannelModal] = useState(false);
+    const [openNewChannelLists, setOpenNewChannelLists] = useState([])
     return {
         // ? INITIAL STATE
         header,
@@ -95,6 +96,7 @@ function MainHooks() {
         redirectToChannel,
 
         openNewChannelModal,
+        openNewChannelLists,
         // ? Change of State
         setHeader,
         setUserList,
@@ -113,7 +115,9 @@ function MainHooks() {
         setRedirectToChannel,
         setUserMessageList,
         setUserData,
-        setOpenNewChannelModal
+        setOpenNewChannelModal,
+
+        setOpenNewChannelLists
     }
 }
 

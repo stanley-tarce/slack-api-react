@@ -28,6 +28,7 @@ function App() {
     message,
 
     openNewChannelModal,
+    openNewChannelLists,
     // ? Change of State
     setHeader,
     setUserList,
@@ -47,6 +48,7 @@ function App() {
     setRedirectToChannel,
     setUserMessageList,
     setUserData,
+    setOpenNewChannelLists,
 
     setOpenNewChannelModal
   } = MainHooks()
@@ -97,6 +99,8 @@ function App() {
               userData={userData}
               openNewChannelModal={openNewChannelModal}
               setOpenNewChannelModal={setOpenNewChannelModal}
+              openNewChannelLists={openNewChannelLists}
+              setOpenNewChannelLists={setOpenNewChannelLists}
             />
           </Route>
         </Switch>
