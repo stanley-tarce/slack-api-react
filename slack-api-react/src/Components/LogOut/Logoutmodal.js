@@ -12,7 +12,7 @@ const Logoutmodal = ({openLogoutModal, setOpenLogoutModal}) => {
         <div className="logoutmodal"> 
             <div className="logoutCard">
             <span className="userImage">
-              <img src={usericon} alt="usericon"/>
+              <img src={usericon} className="imageBorder" alt="usericon"/>
             </span>
             <div className="accountName">
                 <h2 className="userName">User</h2>
