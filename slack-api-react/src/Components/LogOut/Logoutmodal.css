@@ -1,9 +1,57 @@
+.logoutmodal {
+    display: flex;
+    justify-content: center;
+}    
+
 .logoutCard {
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     width: 316px;
     height: 428px;
 
     background: #F3F3F4;
     border: 1px solid #000000;
     box-sizing: border-box;
+}
+
+.userImage {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 70px;
+}
+
+.userName {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+}
+
+.userEmail {
+    padding-bottom: 60px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+}
+
+.singoutButton {
+    width: 159px;
+    height: 32px;
+    background: #FFAF00;
+    border-radius: 5px;
+}
+
+.userLogout {
+    padding-bottom: 60px;
 }
