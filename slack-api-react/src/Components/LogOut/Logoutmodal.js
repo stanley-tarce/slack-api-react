@@ -26,13 +26,9 @@ const Logoutmodal = ({openLogoutModal, setOpenLogoutModal}) => {
 
             </div>
 
-            
-
-            <div className="w3-container">
-              <span onClick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
         <Logout/> 
           
-          </div>
+    
        </div> 
             
     )
