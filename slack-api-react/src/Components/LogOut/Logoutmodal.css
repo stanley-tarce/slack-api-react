@@ -28,8 +28,8 @@
 .userName {
     font-family: Roboto;
     font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
+    font-weight: bold;
+    font-size: 36px;
     line-height: 28px;
     text-align: center;
     color: #000000;
@@ -48,6 +48,7 @@
 .singoutButton {
     width: 159px;
     height: 32px;
+    font-weight: bold;
     background: #FFAF00;
     border-radius: 5px;
 }
