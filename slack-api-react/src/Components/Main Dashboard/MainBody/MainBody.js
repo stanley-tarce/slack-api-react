@@ -9,14 +9,14 @@ import { Switch, Route } from 'react-router'
 
 
 
-function MainBody({ channelData, mode, createMessageContainer, setMode, setCreateMessageContainer, header, message, setMessage, userData }) {
+function MainBody({ channelData, mode, createMessageContainer, setMode, setCreateMessageContainer, header, message, setMessage, userData, setOpenChannelListMembers, }) {
     return (
         <div className={"main-body"}>
             <Switch>
                 <Route
                     path={`/main/messaging/channel/:channelID`}>
                     <TitleBarChannel
-                        channelData={channelData} />
+                        channelData={channelData} setOpenChannelListMembers={setOpenChannelListMembers} />
                 </Route>
                 <Route
                     path={`/main/messaging/user/:id`}>

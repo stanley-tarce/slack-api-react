@@ -7,7 +7,8 @@ function CreateNewChannelCard({ index, uid, setOpenNewChannelLists, openNewChann
     const removeData = (event) => {
         event.preventDefault()
         var temp_array = [...openNewChannelLists]
-        temp_array.splice(temp_array.indexOf(event.target.value), 1)
+        console.log(event.target.dataset.index)
+        temp_array.splice(event.target.dataset.index, 1)
         setOpenNewChannelLists(temp_array)
     }
     return (

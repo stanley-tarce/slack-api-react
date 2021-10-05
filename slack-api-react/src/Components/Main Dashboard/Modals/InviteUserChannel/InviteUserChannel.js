@@ -4,8 +4,18 @@ import ChannelCard from '../../Sidebar/ChannelCard/ChannelCard'
 import apiHooks from '../../../API/API'
 import { useHistory } from 'react-router-dom'
 
-function InviteUserChannel({ channelList, setChannelData, userDetails, channelData, header, setOpenChannelListModal, refChannelModalSelectionData, setRedirectToChannel,
-    setToast, setOutcome, setFeedback }) {
+function InviteUserChannel({
+    channelList,
+    setChannelData,
+    userDetails,
+    channelData,
+    header,
+    setOpenChannelListModal,
+    refChannelModalSelectionData,
+    setRedirectToChannel,
+    setToast,
+    setOutcome,
+    setFeedback }) {
     const history = useHistory()
     const { channelId } = channelData
     const { id } = userDetails

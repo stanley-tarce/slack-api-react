@@ -45,6 +45,9 @@
   justify-content: space-evenly;
   align-items: center;
 }
+.channel-list > * {
+  pointer-events: none;
+}
 
 .main-header .channel-list .avatar-count {
   background: url("./Assets/user-male.svg") no-repeat center;
@@ -58,5 +61,4 @@
   width: 42px;
   display: flex;
   justify-content: center;
-  align-items: center;
 }

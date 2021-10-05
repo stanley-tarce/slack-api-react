@@ -10,6 +10,7 @@ import ErrorHandlingContainer from './Components/Main Dashboard/Modals/ErrorHand
 
 
 
+
 function App() {
   const {
     header,
@@ -36,6 +37,7 @@ function App() {
     toast,
     feedback,
     outcome,
+    openChannelListMembers,
     // ? Change of State
     setHeader,
     setUserList,
@@ -64,7 +66,8 @@ function App() {
     setOpenNewChannelModal,
     setToast,
     setFeedback,
-    setOutcome
+    setOutcome,
+    setOpenChannelListMembers
   } = MainHooks()
 
   return (
@@ -79,8 +82,8 @@ function App() {
                 setToast={setToast}
                 setFeedback={setFeedback}
                 setOutcome={setOutcome}
-                  toast={toast}
-                />
+                toast={toast}
+              />
 
             </Route>
             <Route path="/signup">
@@ -89,7 +92,7 @@ function App() {
                 setOutcome={setOutcome}
                 toast={toast}
                 setFeedback={setFeedback}
-                 />
+              />
             </Route>
             <Route path="/main">
               <MainDashboard
@@ -129,12 +132,13 @@ function App() {
                 setOpenNewChannelModal={setOpenNewChannelModal}
                 openNewChannelLists={openNewChannelLists}
                 setOpenNewChannelLists={setOpenNewChannelLists}
-                newChannelListSearch={newChannelListSearch
-                }
+                newChannelListSearch={newChannelListSearch}
                 setNewChannelListSearch={setNewChannelListSearch}
                 setToast={setToast}
                 setFeedback={setFeedback}
                 setOutcome={setOutcome}
+                openChannelListMembers={openChannelListMembers}
+                setOpenChannelListMembers={setOpenChannelListMembers}
               />
             </Route>
           </Switch>

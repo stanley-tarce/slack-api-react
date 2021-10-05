@@ -79,6 +79,7 @@ function MainHooks() {
     const [toast, setToast] = useState(false)
     const [feedback, setFeedback] = useState([])
     const [outcome, setOutcome] = useState('')
+    const [openChannelListMembers, setOpenChannelListMembers] = useState(false)
     return {
         // ? INITIAL STATE
         header,
@@ -110,6 +111,7 @@ function MainHooks() {
         toast,
         feedback,
         outcome,
+        openChannelListMembers,
 
         // ? Change of State
         setHeader,
@@ -135,7 +137,8 @@ function MainHooks() {
         setNewChannelListSearch,
         setToast,
         setFeedback,
-        setOutcome
+        setOutcome,
+        setOpenChannelListMembers
     }
 }
 
