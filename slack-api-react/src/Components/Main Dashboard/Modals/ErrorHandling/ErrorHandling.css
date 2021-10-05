@@ -1,0 +1,97 @@
+.error-toast-main {
+  width: 343px;
+  height: 56px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  background: red;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.error-message-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  width: 90%;
+  margin-left: 8px;
+}
+.error-svg {
+  background: url("./Assets/error.svg") no-repeat center;
+  background-size: cover;
+  width: 10px;
+  height: 10px;
+
+  fill: red;
+  size: 10px;
+}
+
+.error-svg-container {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error-msg {
+  font-size: 10px;
+}
+
+.close-message {
+  background: url("./Assets/closeicon.svg") no-repeat center;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.success-toast-main {
+  width: 343px;
+  height: 56px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  background: #79b321;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.success-message-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  width: 90%;
+  margin-left: 8px;
+}
+.success-svg-container {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.success-svg-container .success-svg {
+  background: url("./Assets/success.svg") no-repeat center;
+  background-size: cover;
+  width: 15px;
+  height: 14px;
+  size: 10px;
+}
+
+.success-msg {
+  font-size: 14px;
+}
+
+.close-message {
+  background: url("./Assets/closeicon.svg") no-repeat center;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}

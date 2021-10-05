@@ -27,15 +27,15 @@ function MessageCard({
         history.push(`/main/messaging/User/${event.target.dataset.id}`)
     }
     const removeUserData = (event) => {
-        event.preventDefault()
         console.log(event)
         console.log(event.target.dataset.index1)
-        let newContainer = userMessageList
-        newContainer.splice(event.target.dataset.index1, 1)
-        console.log(newContainer)
-        setUserMessageList(newContainer)
+        // let newContainer = userMessageList
+        var temp_array = [...userMessageList]
+        temp_array.splice(event.target.dataset.index1, 1)
+        // console.log(newContainer)
+        setUserMessageList(temp_array)
         let new1 = userMessageList
-        console.log(`New State: ${new1}`)
+        console.log(`New container has been uploaded`)
     }
 
     useEffect(() => {
@@ -52,7 +52,7 @@ function MessageCard({
                 </div>
 
             </div>
-            <div className={"Remove"} data-index1={index} onClick={(e) => removeUserData(e)}></div>
+            <div className={"Remove"} data-index1={index} onClick={e => removeUserData(e)}></div>
         </div>
     )
 }

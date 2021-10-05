@@ -9,6 +9,7 @@ function MessageContainer({ mode, createMessageContainer, setMode, setCreateMess
         if (mode === 'Channel' && (Object.values(userData).every(x => x !== '') || Object.values(channelData).every(x => x !== ''))) {
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesInsideChannel(header, channelData.channelId)
+                console.log(result)
                 setCreateMessageContainer(result.data)
             }
             retrieveDataAllMessages()

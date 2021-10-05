@@ -21,6 +21,7 @@ function ChannelCard({
         const { id, name, owner_id, channel_members } = result.data.data
         var channelDataMembers = []
         channel_members.map(member => channelDataMembers = [...channelDataMembers, { user_id: member.user_id }])
+        console.log(result)
         setChannelData({
             ...channelData,
             channelId: id,

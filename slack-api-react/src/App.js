@@ -5,6 +5,8 @@ import MainDashboard from './Components/Main Dashboard/MainDashboard';
 import Signup from './Components/Sign-Up/Signup'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MainHooks from './Components/Main Dashboard/Hooks/MainHooks';
+import ErrorHandling from './Components/Main Dashboard/Modals/ErrorHandling/ErrorHandling';
+import ErrorHandlingContainer from './Components/Main Dashboard/Modals/ErrorHandlingContainer/ErrorHandlingContainer';
 
 
 
@@ -31,6 +33,9 @@ function App() {
 
     openNewChannelModal,
     openNewChannelLists,
+    toast,
+    feedback,
+    outcome,
     // ? Change of State
     setHeader,
     setUserList,
@@ -53,65 +58,92 @@ function App() {
     setUserData,
     setOpenNewChannelLists,
 
-    setOpenNewChannelModal
+    newChannelListSearch,
+    setNewChannelListSearch,
+
+    setOpenNewChannelModal,
+    setToast,
+    setFeedback,
+    setOutcome
   } = MainHooks()
 
   return (
-    <Router>
-      <div className="App">
-        <Switch>
-          <Route exact path="/">
-            <Login
-              header={header}
-              setHeader={setHeader} />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/main">
-            <MainDashboard
-              header={header}
-              setHeader={setHeader}
-              userList={userList}
-              setUserList={setUserList}
-              channelList={channelList}
-              setChannelList={setChannelList}
-              openUserListModal={openUserListModal}
-              setOpenUserListModal={setOpenUserListModal}
-              setOpenLogoutModal={setOpenLogoutModal}
-              openLogoutModal={openLogoutModal}
-              headerBarSearch={headerBarSearch}
-              setHeaderBarSearch={setHeaderBarSearch}
-              setOpenUserDataModal={setOpenUserDataModal}
-              openUserDataModal={openUserDataModal}
-              userDetails={userDetails}
-              setUserDetails={setUserDetails}
-              openChannelListModal={openChannelListModal}
-              setOpenChannelListModal={setOpenChannelListModal}
-              channelData={channelData}
-              setChannelData={setChannelData}
-              mode={mode}
-              createMessageContainer={createMessageContainer}
-              setCreateMessageContainer={setCreateMessageContainer}
-              setMode={setMode}
-              message={message}
-              setMessage={setMessage}
-              redirectToChannel={redirectToChannel}
-              setRedirectToChannel={setRedirectToChannel}
-              userMessageList={userMessageList}
-              setUserMessageList={setUserMessageList}
-              setUserData={setUserData}
-              userData={userData}
-              openNewChannelModal={openNewChannelModal}
-              setOpenNewChannelModal={setOpenNewChannelModal}
-              openNewChannelLists={openNewChannelLists}
-              setOpenNewChannelLists={setOpenNewChannelLists}
-            />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-    // <TitleBarUser />
+    <>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/">
+              <Login
+                header={header}
+                setHeader={setHeader}
+                setToast={setToast}
+                setFeedback={setFeedback}
+                setOutcome={setOutcome}
+                  toast={toast}
+                />
+
+            </Route>
+            <Route path="/signup">
+              <Signup
+                setToast={setToast}
+                setOutcome={setOutcome}
+                toast={toast}
+                setFeedback={setFeedback}
+                 />
+            </Route>
+            <Route path="/main">
+              <MainDashboard
+                header={header}
+                setHeader={setHeader}
+                userList={userList}
+                setUserList={setUserList}
+                channelList={channelList}
+                setChannelList={setChannelList}
+                openUserListModal={openUserListModal}
+                setOpenUserListModal={setOpenUserListModal}
+                setOpenLogoutModal={setOpenLogoutModal}
+                openLogoutModal={openLogoutModal}
+                headerBarSearch={headerBarSearch}
+                setHeaderBarSearch={setHeaderBarSearch}
+                setOpenUserDataModal={setOpenUserDataModal}
+                openUserDataModal={openUserDataModal}
+                userDetails={userDetails}
+                setUserDetails={setUserDetails}
+                openChannelListModal={openChannelListModal}
+                setOpenChannelListModal={setOpenChannelListModal}
+                channelData={channelData}
+                setChannelData={setChannelData}
+                mode={mode}
+                createMessageContainer={createMessageContainer}
+                setCreateMessageContainer={setCreateMessageContainer}
+                setMode={setMode}
+                message={message}
+                setMessage={setMessage}
+                redirectToChannel={redirectToChannel}
+                setRedirectToChannel={setRedirectToChannel}
+                userMessageList={userMessageList}
+                setUserMessageList={setUserMessageList}
+                setUserData={setUserData}
+                userData={userData}
+                openNewChannelModal={openNewChannelModal}
+                setOpenNewChannelModal={setOpenNewChannelModal}
+                openNewChannelLists={openNewChannelLists}
+                setOpenNewChannelLists={setOpenNewChannelLists}
+                newChannelListSearch={newChannelListSearch
+                }
+                setNewChannelListSearch={setNewChannelListSearch}
+                setToast={setToast}
+                setFeedback={setFeedback}
+                setOutcome={setOutcome}
+              />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+      {toast && <ErrorHandlingContainer
+        feedback={feedback}
+        outcome={outcome} />}
+    </>
   );
 }
 

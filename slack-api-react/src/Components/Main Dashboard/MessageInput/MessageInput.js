@@ -49,12 +49,12 @@ function MessageInput({ setMessage, message, header, channelData, mode, userData
                         <img src={Strikethrough} alt="Strikethrough" />
                     </span>
 
-                    <span className={"Other-Commands"} type>
+                    <span className={"Other-Commands"} >
                         <img src={FontSize} alt="FontSize" />
                         <img src={Alternate} alt="Alternate" />
                         <img src={EmojiIcon} alt="EmojiIcon" />
                         <img src={AttachFile} alt="AttachFile" />
-                        <button onclick={(e) => sendMessage(e)} className={"Send-Button"} type="submit">
+                        <button onClick={(e) => sendMessage(e)} className={"Send-Button"} type="submit">
                             <img src={SendLogo} alt="send logo" />
                         </button>
                     </span>

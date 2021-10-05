@@ -122,7 +122,7 @@
 }
 
 .Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Lists {
-  max-height: 80%; /**! IMPORTANT TO MAKE THE SIZING RESPONSIVE */
+  max-height: 70%; /**! IMPORTANT TO MAKE THE SIZING RESPONSIVE */
   width: 100%;
   overflow-y: auto;
 }

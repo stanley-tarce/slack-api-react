@@ -3,7 +3,7 @@ import './Signup.css'
 import apiHooks from '../API/API'
 import { useHistory } from 'react-router-dom'
 
-function Signup() {
+function Signup({ toast, setToast, setOutcome, setFeedback }) {
     const emailInput = useRef()
     const passwordInput = useRef()
     const confirmPasswordInput = useRef()
@@ -23,7 +23,19 @@ function Signup() {
             password_confirmation: confirmPasswordInput.current.value
         }
         postUserRegistration(data)
-        postUserRegistration(data) ? history.push('/') : alert('error') // ! Edit 
+            .then(() => {
+                setOutcome('success')
+                setToast(true)
+                setTimeout(() => setToast(false), 3000)
+                setFeedback(['Sign-up Successful',])
+                return history.push('/')
+            }).catch((error) => {
+                const { data: { errors: { full_messages } } } = error.response
+                setOutcome('error')
+                setToast(true)
+                setTimeout(() => setToast(false), 3000)
+                setFeedback(full_messages)
+            })
 
     }
     const goToLogin = () => {

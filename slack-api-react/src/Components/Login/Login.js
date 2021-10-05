@@ -3,38 +3,93 @@ import apiHooks from '../API/API'
 import './Login.css'
 import { useHistory } from 'react-router-dom'
 
-function Login({ header, setHeader }) {
+function Login({ header, setHeader, setOutcome, setFeedback, setToast, toast }) {
     const history = useHistory()
     const { postCreateUserSession } = apiHooks()
     const emailInput = useRef()
     const passwordInput = useRef()
-    const setLoginStates = async (data) => {
-        const result = await postCreateUserSession(data)
-        const { headers: {
-            expiry,
-            uid,
-            client,
-            ...others
-        } } = result
-        let accessToken = others["access-token"]
+    // const setLoginStates = async (data) => {
 
-        setHeader({
-            // ...header,
-            expiry: expiry,
-            uid: uid,
-            accessToken: accessToken,
-            client: client
-        })
-    }
-    const onButtonSubmit = (event) => {
+    //     const { headers: {
+    //         expiry,
+    //         uid,
+    //         client,
+    //         ...others
+    //     } } = result
+    //     let accessToken = others["access-token"]
+
+    //     setHeader({
+    //         // ...header,
+    //         expiry: expiry,
+    //         uid: uid,
+    //         accessToken: accessToken,
+    //         client: client
+    //     })
+    // }
+    const onButtonSubmit = async (event) => {
         event.preventDefault()
-        console.log(event.target.dataset.hello)
         let data = {
             email: emailInput.current.value,
             password: passwordInput.current.value
         }
-        setLoginStates(data)
-        return history.push("/main/home")
+        postCreateUserSession(data)
+            .then(response => {
+                const { headers: {
+                    expiry,
+                    uid,
+                    client,
+                    ...others
+                } } = response
+                let accessToken = others["access-token"]
+                setHeader({
+                    // ...header,
+                    expiry: expiry,
+                    uid: uid,
+                    accessToken: accessToken,
+                    client: client
+                })
+                setOutcome('success')
+                setToast(true)
+                setTimeout(() => setToast(false), 3000)
+                setFeedback(['Login Successful'])
+                return history.push("/main/home")
+
+            })
+            .catch(error => {
+                const { data: { errors } } = error.response
+                console.log(error.response)
+                setOutcome('error')
+                setToast(true)
+                setTimeout(() => setToast(false), 3000)
+                setFeedback(errors)
+
+            })
+
+        // if (result?.hasOwnProperty('errors')) {
+        //     setOutcome('error')
+        //     setFeedback(result?.errors)
+        //     setToast(true)
+        //     toast ? setTimeout(() => setToast(false), 3000) : setToast(true)
+        // }
+        // else {
+        // const { headers: {
+        //     expiry,
+        //     uid,
+        //     client,
+        //     ...others
+        // } } = result
+        // let accessToken = others["access-token"]
+        // setHeader({
+        //     // ...header,
+        //     expiry: expiry,
+        //     uid: uid,
+        //     accessToken: accessToken,
+        //     client: client
+        // })
+
+
+        // }
+
     }
     const goToSignUp = () => {
         return history.push("/signup")

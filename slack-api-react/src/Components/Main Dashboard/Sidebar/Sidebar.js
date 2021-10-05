@@ -53,9 +53,9 @@ function Sidebar({
 					 1. Create a card for mapping channel lists with left margin of 10 px 
 					 2. Map the channel list with the API Data  */}
 				</div>
-				<div className={'SideBar-Channel-CreateChannel'}>
+				<div className={'SideBar-Channel-CreateChannel'} onClick={() => { setOpenNewChannelModal(!openNewChannelModal) }}>
 					<div ></div>
-					<p onClick={() => { setOpenNewChannelModal(!openNewChannelModal) }}>Add Channels	</p>
+					<p >Add Channels	</p>
 
 				</div>
 			</div>

@@ -14,7 +14,8 @@
   right: 35vw;
   background-color: white;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   border: 1px solid black;
   padding: 0 1em 0 3em;
@@ -22,6 +23,7 @@
 
 .newchannel-header {
   display: flex;
+  width: 80%;
   justify-content: space-between;
 }
 
@@ -32,16 +34,28 @@
 }
 
 .channelName {
-  margin: 2% 10% 2% 2%;
+  /* margin: 2% 10% 2% 2%; */
+  width: 80%;
+  margin-top: 10px;
 }
 
 .newchannel-user-search {
-  margin: 2% 10% 2% 2%;
+  margin-top: 10px;
+  width: 80%;
 }
 
 .inv-mems {
   height: 30%;
   width: 80%;
   border: 1px solid black;
-  margin: 2% 10% 2% 2%;
+  /* margin: 2% 10% 2% 2%; */
+  margin-top: 10px;
+}
+
+.user-containers {
+  overflow: hidden;
+  margin-top: 10px;
+  width: 80%;
+  height: 20px;
+  border: 1px solid black;
 }

@@ -4,7 +4,8 @@ import ChannelCard from '../../Sidebar/ChannelCard/ChannelCard'
 import apiHooks from '../../../API/API'
 import { useHistory } from 'react-router-dom'
 
-function InviteUserChannel({ channelList, setChannelData, userDetails, channelData, header, setOpenChannelListModal, refChannelModalSelectionData, setRedirectToChannel }) {
+function InviteUserChannel({ channelList, setChannelData, userDetails, channelData, header, setOpenChannelListModal, refChannelModalSelectionData, setRedirectToChannel,
+    setToast, setOutcome, setFeedback }) {
     const history = useHistory()
     const { channelId } = channelData
     const { id } = userDetails
@@ -16,10 +17,18 @@ function InviteUserChannel({ channelList, setChannelData, userDetails, channelDa
             member_id: id
         }
         console.log(data)
-        postInviteUserToChannel(header, data)
+        postInviteUserToChannel(header, data).then(() => {
+            setToast(true)
+            setOutcome('success')
+            setFeedback(['Invite user to a channel is successful'])
+            setTimeout(() => setToast(false), 3000)
+            setOpenChannelListModal(false)
+            setRedirectToChannel(true)
+            return history.push('/main/home')
+        })
         setOpenChannelListModal(false)
         setRedirectToChannel(true)
-        history.push('/main/home')
+
     }
     return (
         <div className={"inviteChannelModalBackground"}>
