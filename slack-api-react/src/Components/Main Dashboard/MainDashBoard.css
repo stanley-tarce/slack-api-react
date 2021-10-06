@@ -4,7 +4,7 @@
   position: fixed;
   display: grid;
   grid-template-columns: 0.2fr 0.8fr;
-  grid-template-rows: 0.05fr minmax(min-content, max-content);
+  grid-template-rows: 0.05fr 0.95fr;
   grid-template-areas:
     "search search"
     "sidebar main";
@@ -26,4 +26,10 @@
 
 .headerbarHolder {
   grid-area: search;
+}
+
+@media (screen) and (min-width: 1400px) {
+  .Main-DashBoard {
+    grid-template-columns: 0.1fr 0.8fr;
+  }
 }

@@ -5,9 +5,7 @@ import MainDashboard from './Components/Main Dashboard/MainDashboard';
 import Signup from './Components/Sign-Up/Signup'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MainHooks from './Components/Main Dashboard/Hooks/MainHooks';
-import ErrorHandling from './Components/Main Dashboard/Modals/ErrorHandling/ErrorHandling';
 import ErrorHandlingContainer from './Components/Main Dashboard/Modals/ErrorHandlingContainer/ErrorHandlingContainer';
-
 import Logoutmodal from './Components/LogOut/Logoutmodal';
 
 
@@ -27,7 +25,6 @@ function App() {
     channelData,
     userData,
     openLogoutModal,
-
 
     mode,
     createMessageContainer,

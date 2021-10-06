@@ -27,7 +27,7 @@ const apiHooks = () => {
         })
     }
     const postCreateUserSession = async (dataRef) => {
-        return await axios({
+        return axios({
             method: 'post',
             url: `http://${BASE_URL}/api/v1/auth/sign_in`,
             headers: { ...contentType },
@@ -35,7 +35,7 @@ const apiHooks = () => {
         })
 
     }
-    const getAllUsersMain = async (headers) => {
+    const getAllUsersMain = (headers) => {
         const { expiry, uid, accessToken, client } = headers
         console.log(`access-token: ${accessToken}`)
         console.log(`uid: ${uid}`)
@@ -43,7 +43,7 @@ const apiHooks = () => {
         console.log(`client: ${client}`)
 
         console.log('All are string!')
-        return await axios({
+        return axios({
             method: 'get',
             url: `http://${BASE_URL}/api/v1/users`,
             headers: {

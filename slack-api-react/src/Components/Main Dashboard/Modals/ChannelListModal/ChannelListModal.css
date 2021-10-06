@@ -38,7 +38,7 @@
 
 .modal-title {
   display: flex;
-  width: 33%;
+  max-width: 80%;
   justify-content: space-evenly;
 }
 

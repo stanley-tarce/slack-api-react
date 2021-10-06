@@ -16,7 +16,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   max-height: 100%;
-  width: 30%;
+  min-width: 500px;
   background: #dd9800;
   border: 1px solid #b38d0d;
 }

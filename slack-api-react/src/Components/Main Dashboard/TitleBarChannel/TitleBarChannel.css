@@ -3,7 +3,7 @@
   height: 52px;
   /**Custom */
   border: 1px solid rgba(161, 161, 161, 35%);
-  border-top: 0px;
+  border-left: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,8 +23,8 @@
   background: url("./Assets/lock.svg") no-repeat center;
   background-size: contain;
   color: black;
-  width: 30px;
-  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
 }
 
 .label p {
@@ -42,7 +42,7 @@
   border: 1px solid rgba(161, 161, 161, 0.5);
   border-radius: 9px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 .channel-list > * {
@@ -50,15 +50,50 @@
 }
 
 .main-header .channel-list .avatar-count {
-  background: url("./Assets/user-male.svg") no-repeat center;
+  /* background: url("./Assets/user-male.svg") no-repeat center; */
   background-size: contain;
-  width: 25px;
+  width: 75px;
   height: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .main-header .channel-list .list {
-  height: 100%;
-  width: 42px;
+  height: 25px;
+  width: 25px;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.avatar-image4 {
+  object-fit: cover;
+  width: 25px;
+  height: 25px;
+}
+.avatar-image4:first-child {
+  transform: translateX(10px);
+}
+.avatar-image4:last-child {
+  transform: translateX(-20px);
+}
+
+.avatar-image4:nth-child(3) {
+  transform: translateX(-10px);
+}
+
+.list {
+  width: 20px;
+  height: 100px;
+}
+
+.avatar-image2:last-child {
+  transform: translateX(-10px);
+}
+
+.avatar-image3:first-child {
+  transform: translateX(10px);
+}
+.avatar-image3:last-child {
+  transform: translateX(-10px);
 }
