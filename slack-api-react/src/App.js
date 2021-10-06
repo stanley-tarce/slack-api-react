@@ -8,6 +8,7 @@ import MainHooks from './Components/Main Dashboard/Hooks/MainHooks';
 import ErrorHandling from './Components/Main Dashboard/Modals/ErrorHandling/ErrorHandling';
 import ErrorHandlingContainer from './Components/Main Dashboard/Modals/ErrorHandlingContainer/ErrorHandlingContainer';
 
+import Logoutmodal from './Components/LogOut/Logoutmodal';
 
 
 
