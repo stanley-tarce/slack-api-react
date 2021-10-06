@@ -15,6 +15,15 @@ function MessageBox({ body, uid, id, created }) {
         return finalDate
     }
 
+    const createTime = (time) => {
+        let timeInt = Number(time.slice(0, 2)) + 8
+        let minuteInt = Number(time.slice(3))
+        let finalMinute = minuteInt < 10 ? `0${minuteInt}` : `${minuteInt}`
+        let finalHour = timeInt <= 12 ? timeInt < 10 ? `0${timeInt}` : `${timeInt}` : `${timeInt - 12}`
+        let finalTime = timeInt < 12 ? `${finalHour}:${finalMinute} AM` : `${finalHour}:${finalMinute} PM`
+        return finalTime
+    }
+
     const changeDateToToday = (date, realDate) => {
         if (date === realDate) {
             return 'Today'
@@ -26,7 +35,7 @@ function MessageBox({ body, uid, id, created }) {
     return (
         <div className={"Message-Box"}>
             <div className={"Avatar-and-Image"}>
-                <p className={"Time-Stamp"}>{`${changeDateToToday(date, stringRealDate(realDay, realMonth, realYear))} ${time}`}</p>
+                <p className={"Time-Stamp"}>{`${changeDateToToday(date, stringRealDate(realDay, realMonth, realYear))} ${createTime(time)}`}</p>
                 <p className={"User-Name"}>{name}</p>
                 <div className={"Image-Avatar"} />
 
