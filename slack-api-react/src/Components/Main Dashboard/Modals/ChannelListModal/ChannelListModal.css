@@ -5,13 +5,13 @@
 }
 
 .modal-bg {
-  background-color: rgba(0, 0, 0, 0.4);
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  z-index: 1;
+  position: relative;
 }
 
 .modal-main {
@@ -23,6 +23,9 @@
   align-items: flex-start;
   position: relative;
   border-radius: 2em;
+  border: 1px solid #a1a1a1;
+  position: absolute;
+  z-index: 0;
 }
 
 .modal-header {
@@ -88,8 +91,7 @@
 
 .member-list {
   width: 90%;
-  height: 220px;
-  border: 1px solid #a1a1a1;
+  height: 140px;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: auto;
 }

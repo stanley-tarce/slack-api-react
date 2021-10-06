@@ -1,6 +1,15 @@
 import React from 'react'
 import './ChannelListsCards.css'
-function ChannelListCards({ id, uid, setOpenUserListModal, setHeaderBarSearch, setOpenUserDataModal, setUserDetails, userDetails }) {
+function ChannelListCards({
+    id,
+    uid,
+    setOpenUserListModal,
+    setHeaderBarSearch,
+    setOpenUserDataModal,
+    setUserDetails,
+    userDetails,
+    setOpenChannelListMembers,
+    setChannelListSearch }) {
     let name = uid.split('@')[0]
     const openUserData = (e) => {
         e.preventDefault()
@@ -13,7 +22,8 @@ function ChannelListCards({ id, uid, setOpenUserListModal, setHeaderBarSearch, s
         setOpenUserDataModal(true)
         setOpenUserListModal(false)
         setHeaderBarSearch('')
-
+        setOpenChannelListMembers(false)
+        setChannelListSearch('')
     }
     return (
         <div

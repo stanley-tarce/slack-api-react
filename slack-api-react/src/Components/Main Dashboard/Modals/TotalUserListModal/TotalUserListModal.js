@@ -8,7 +8,9 @@ function TotalUserListModal({
     setHeaderBarSearch,
     setOpenUserDataModal,
     setUserDetails,
-    userDetails }) {
+    userDetails,
+    setOpenChannelListMembers,
+    setChannelListSearch }) {
     return (
         <div className="boxers">
             {userList.length !== 0 && userList
@@ -23,7 +25,8 @@ function TotalUserListModal({
                         setOpenUserListModal={setOpenUserListModal}
                         userDetails={userDetails}
                         setUserDetails={setUserDetails}
-
+                        setOpenChannelListMembers={setOpenChannelListMembers}
+                        setChannelListSearch={setChannelListSearch}
                     />)}
         </div>
     )

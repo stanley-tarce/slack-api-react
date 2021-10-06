@@ -19,6 +19,8 @@
   background: #ffffff;
   border: 1px solid #d8dcd7;
   border-radius: 20px;
+  position: absolute;
+  z-index: 10;
 }
 
 .userListModalBackground .userListModal > * {

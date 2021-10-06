@@ -54,7 +54,9 @@ function MainDashboard({
     setFeedback,
     setOutcome,
     openChannelListMembers,
-    setOpenChannelListMembers
+    setOpenChannelListMembers,
+    channelListSearch,
+    setChannelListSearch
 }) {
     // ! START OF FUNCTIONS    
     const { getAllUsersMain, getRetrieveAllChannels, getRetrieveAllMessagesFromUser } = apiHooks()
@@ -218,7 +220,7 @@ function MainDashboard({
                 </div>
             </div>
 
-            {openUserListModal && <TotalUserListModal userList={userList} headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserDataModal={setOpenUserDataModal} setUserDetails={setUserDetails} userDetails={userDetails} />}
+            {openUserListModal && <TotalUserListModal userList={userList} headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserDataModal={setOpenUserDataModal} setUserDetails={setUserDetails} userDetails={userDetails} setOpenChannelListMembers={setOpenChannelListMembers} setChannelListSearch={setChannelListSearch} />}
 
             {openUserDataModal && <UserListModal refModalData={refModalData} userDetails={userDetails} setOpenUserDataModal={setOpenUserDataModal} setOpenChannelListModal={setOpenChannelListModal} setRedirectToChannel={setRedirectToChannel} userData={userData} setUserData={setUserData} setMode={setMode} userMessageList={userMessageList} setUserMessageList={setUserMessageList} />}
 
@@ -226,7 +228,7 @@ function MainDashboard({
 
             {openNewChannelModal && <CreateNewChannel openNewChannelModal={openNewChannelModal} setOpenNewChannelModal={setOpenNewChannelModal} header={header} openNewChannelLists={openNewChannelLists} setOpenNewChannelLists={setOpenNewChannelLists} userList={userList} newChannelListSearch={newChannelListSearch} setNewChannelListSearch={setNewChannelListSearch} setToast={setToast} setFeedback={setFeedback} setOutcome={setOutcome} />}
             {openLogoutModal && <Logoutmodal openLogoutModal={openLogoutModal} />}
-            {openChannelListMembers && <ChannelListModal userList={userList} channelData={channelData} refChannelListModal={refChannelListModal} setOpenChannelListMembers={setOpenChannelListMembers} setOpenUserDataModal={setOpenUserDataModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserListModal={setOpenUserListModal} userDetails={userDetails} setUserDetails={setUserDetails} />}
+            {openChannelListMembers && <ChannelListModal userList={userList} channelData={channelData} refChannelListModal={refChannelListModal} setOpenChannelListMembers={setOpenChannelListMembers} setOpenUserDataModal={setOpenUserDataModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserListModal={setOpenUserListModal} userDetails={userDetails} setUserDetails={setUserDetails} channelListSearch={channelListSearch} setChannelListSearch={setChannelListSearch} />}
         </>
     )
 }

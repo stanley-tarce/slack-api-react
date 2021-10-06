@@ -38,6 +38,7 @@ function App() {
     feedback,
     outcome,
     openChannelListMembers,
+    channelListSearch,
     // ? Change of State
     setHeader,
     setUserList,
@@ -67,7 +68,8 @@ function App() {
     setToast,
     setFeedback,
     setOutcome,
-    setOpenChannelListMembers
+    setOpenChannelListMembers,
+    setChannelListSearch
   } = MainHooks()
 
   return (
@@ -139,6 +141,8 @@ function App() {
                 setOutcome={setOutcome}
                 openChannelListMembers={openChannelListMembers}
                 setOpenChannelListMembers={setOpenChannelListMembers}
+                channelListSearch={channelListSearch}
+                setChannelListSearch={setChannelListSearch}
               />
             </Route>
           </Switch>
