@@ -11,7 +11,6 @@
   /*? End of Line*/
   background-color: #fff0d0;
   border-right: 1px solid rgba(161, 161, 161, 35%);
-  border-top: 1px solid rgba(161, 161, 161, 35%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,9 +38,8 @@
 }
 
 .Main-Sidebar .SideBar-Title-Name {
-  height: 7.3%;
+  height: 15%;
   width: 100%;
-  border-bottom: 1px solid rgba(161, 161, 161, 35%);
   color: rgba(89, 16, 53, 1);
   font-style: normal;
   font-weight: bold;

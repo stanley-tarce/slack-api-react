@@ -42,23 +42,9 @@ function MessageInput({ setMessage, message, header, channelData, mode, userData
         <div className={"Message-Input"}>
             <form onSubmit={(e) => sendMessage(e)} className={"Message-Input-Form"}>
                 <input ref={body} className={"Type-Message"} type="text" placeholder={"Write a Message"} />
-                <div className={"Command-Icons"}>
-                    <span className={"Font-Format"}>
-                        <img src={BoldFormat} alt="BoldFormat" />
-                        <img src={Italicize} alt="Italicize" />
-                        <img src={Strikethrough} alt="Strikethrough" />
-                    </span>
-
-                    <span className={"Other-Commands"} >
-                        <img src={FontSize} alt="FontSize" />
-                        <img src={Alternate} alt="Alternate" />
-                        <img src={EmojiIcon} alt="EmojiIcon" />
-                        <img src={AttachFile} alt="AttachFile" />
-                        <button onClick={(e) => sendMessage(e)} className={"Send-Button"} type="submit">
-                            <img src={SendLogo} alt="send logo" />
-                        </button>
-                    </span>
-                </div>
+                <button onClick={(e) => sendMessage(e)} className={"Send-Button"} type="submit">
+                    <img src={SendLogo} alt="send logo" />
+                </button>
             </form>
         </div>
     )

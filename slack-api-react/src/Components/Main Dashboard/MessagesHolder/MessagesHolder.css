@@ -12,23 +12,24 @@
 .message-holder-container .date-holder-container .line {
   width: calc(100% - 175px);
   height: 0px;
-  border: 0.1px solid rgba(0, 0, 0, 0.245);
+  border: 0.1px solid rgba(1, 1, 1, 0.1);
 }
 .message-holder-container .date-holder-container .date-holder {
   width: 175px;
   height: 20px;
-  border: 1px solid #000000;
+  border: 0.1px solid rgba(1, 1, 1, 0.1);
   box-sizing: border-box;
   border-radius: 40px;
 
   font-family: Roboto;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 8px;
   line-height: 16px;
+  color: rgba(1, 1, 1, 0.5);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .message-holder-container .messages-holder-container {

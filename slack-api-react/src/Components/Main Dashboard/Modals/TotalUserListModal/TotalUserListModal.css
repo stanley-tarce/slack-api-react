@@ -1,13 +1,13 @@
 .boxers {
   background: #ffffff;
   position: absolute;
-  left: 38vw;
+  left: calc((100vw - 20vw) - 36.5vw);
   top: 70px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  width: 381.5px;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  border: 1px solid rgba(161, 161, 161, 0.1);
+  width: 499px;
   min-height: 70px;
-  max-height: 300px;
+  max-height: 200px;
   overflow-x: hidden;
 }
 

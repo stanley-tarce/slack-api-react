@@ -38,8 +38,11 @@
 
 .modal-title {
   display: flex;
-  max-width: 80%;
-  justify-content: space-evenly;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  font-family: "Roboto", sans-serif;
 }
 
 .modal-title img {
@@ -70,7 +73,7 @@
 .search-container {
   display: flex;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   margin-top: 5%;
   width: 80%;
 }
@@ -91,7 +94,6 @@
 
 .member-list {
   width: 90%;
-  height: 140px;
-  border-radius: 10px;
+  height: 50%;
   overflow: auto;
 }

@@ -35,7 +35,7 @@ function MessageBox({ body, uid, id, created }) {
     return (
         <div className={"Message-Box"}>
             <div className={"Avatar-and-Image"}>
-                <p className={"Time-Stamp"}>{`${changeDateToToday(date, stringRealDate(realDay, realMonth, realYear))} ${createTime(time)}`}</p>
+                <p className={"Time-Stamp"}>{`${createTime(time)}`}</p>
                 <p className={"User-Name"}>{name}</p>
                 <div className={"Image-Avatar"} />
 

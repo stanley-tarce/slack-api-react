@@ -20,13 +20,9 @@ function Sidebar({
 	const history = useHistory()
 	return (
 		<div className={"Main-Sidebar"}>
-			<div className={'SideBar-Title-Name'}>
+			<div className={'SideBar-Title-Name'}
+				onClick={(e) => history.push('/main/home')}>
 				Avion School
-			</div>
-			<div
-				onClick={(e) => history.push('/main/home')}
-				className={'SideBar-Title-Home'}>
-				<p>Home</p>
 			</div>
 			<div className={'SideBar-Channel-Container'}>
 				<div className={'SideBar-Channel-Title'}>

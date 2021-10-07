@@ -1,7 +1,6 @@
 import React from 'react'
 import './MessagesHolder.css'
 import MessageBox from '../Message Box/MessageBox'
-import dateConverter from './DateConverter'
 function MessagesHolder({ date, data }) {
     // let finalDate = dateConverter(date)
     let realDay = new Date().getDate()
