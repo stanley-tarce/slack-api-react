@@ -62,7 +62,7 @@ function MessageContainer({ mode, createMessageContainer, setMode, setCreateMess
         <div className={"Message-Container"}>
             {finalSortDate && finalSortDate.length !== 0 && finalSortDate.map((message, index) => {
                 const { date, data } = message
-                return (<MessagesHolder key={index} date={date} data={data} />)
+                return (<MessagesHolder key={index} date={date} data={data} index={index} />)
             })}
         </div>
 
