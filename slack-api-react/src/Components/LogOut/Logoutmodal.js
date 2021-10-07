@@ -20,13 +20,13 @@ const Logoutmodal = ({openLogoutModal, setOpenLogoutModal}) => {
             </div>
 
             <div className="userLogout">
-            <button type="button" className="singoutButton" onclick="">Sign Out</button>
+            <button type="button" className="singoutButton" onClick={() => setOpenLogoutModal(true)}>Sign Out</button>
             {/* { <button onClick={userLogout} type="submit"> Sign Out </button>} */}
            </div>
 
             </div>
 
-        <Logout/> 
+        {/* <Logout/>  */}
           
     
        </div> 

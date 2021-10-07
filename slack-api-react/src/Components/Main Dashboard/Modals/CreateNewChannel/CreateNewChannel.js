@@ -71,7 +71,7 @@ const CreateNewChannel = (
     return (
         <div className="newchannel-bg">
             <div className="newchannel-cont">
-                <div className="newchannel-header">
+                <div className="newchannel-header" >
                     <h2>Create New Channel</h2>
                     <img onClick={(e) => closeModal(e)} src={close}></img>
                 </div>

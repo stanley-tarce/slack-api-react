@@ -3,12 +3,12 @@
   width: 100vw;
   display: flex;
   justify-content: center;
-  z-index: 0;
+  z-index: 1;
 }
 
 .newchannel-cont {
   position: absolute;
-  width: 25%;
+  width: 20%;
   height: 40%;
   top: 10em;
   right: 35vw;
@@ -18,7 +18,7 @@
   align-items: center;
   flex-direction: column;
   border: 1px solid black;
-  padding: 0 1em 0 3em;
+  padding: 0 1em 0 2em;
 }
 
 .newchannel-header {
