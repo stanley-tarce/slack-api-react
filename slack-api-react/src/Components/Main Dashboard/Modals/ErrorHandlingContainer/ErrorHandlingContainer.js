@@ -3,14 +3,13 @@ import './ErrorHandlingContainer.css'
 import ErrorHandling from '../ErrorHandling/ErrorHandling'
 function ErrorHandlingContainer({
     outcome,
-    feedback,
-    setFeedback
+    feedback
 }) {
     return (
         <div className={'errorhandlingcontainer'} >
-
+            
             {feedback?.length !== 0 && feedback
-                .map((array, index) => <ErrorHandling key={index} index={index} outcome={outcome} message={array} setFeedback={setFeedback} feedback={feedback} />)}
+            .map((array, index) => <ErrorHandling key={index} outcome={outcome} message={array} />)}
         </div>
     )
 }
