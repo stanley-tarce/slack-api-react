@@ -11,8 +11,8 @@ function MessageContainer({ mode, createMessageContainer, setMode, setCreateMess
         if (mode === 'Channel' && (Object.values(userData).every(x => x !== '') || Object.values(channelData).every(x => x !== ''))) {
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesInsideChannel(header, channelData.channelId)
-                let fetchTimeout = setTimeout(() => setCreateMessageContainer(result.data), 3000)
-                return clearTimeout(() => fetchTimeout)
+                let temp = { ...result }
+                setTimeout(() => setCreateMessageContainer(temp.data), 1000)
             }
             retrieveDataAllMessages()
         }

@@ -12,7 +12,7 @@
 .message-holder-container .date-holder-container .line {
   width: calc(100% - 175px);
   height: 0px;
-  border: 0.1px solid black;
+  border: 0.1px solid rgba(0, 0, 0, 0.245);
 }
 .message-holder-container .date-holder-container .date-holder {
   width: 175px;
