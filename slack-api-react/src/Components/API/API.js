@@ -4,7 +4,7 @@ import qs from 'qs'
 
 
 const apiHooks = () => {
-
+    let source = axios.CancelToken.source()
     /** PARAMETERS 
      * * DEFAULT STATIC HEADERS
      *  1. BASE_URL 
@@ -140,9 +140,13 @@ const apiHooks = () => {
                     'expiry': expiry,
                     'uid': uid
                 },
+                cancelToken: source.token
             })
             return response
         } catch (error) {
+            if (axios.isCancel(error)) {
+                console.log('caught cancel')
+            }
             return console.log(error)
         }
     }
