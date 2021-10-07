@@ -1,0 +1,35 @@
+.message-holder-container {
+  width: 100%;
+  height: auto;
+}
+.message-holder-container .date-holder-container {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message-holder-container .date-holder-container .line {
+  width: calc(100% - 175px);
+  height: 0px;
+  border: 0.1px solid black;
+}
+.message-holder-container .date-holder-container .date-holder {
+  width: 175px;
+  height: 20px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 40px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-holder-container .messages-holder-container {
+}

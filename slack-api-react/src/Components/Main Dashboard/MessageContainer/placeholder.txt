@@ -11,8 +11,7 @@ function MessageContainer({ mode, createMessageContainer, setMode, setCreateMess
         if (mode === 'Channel' && (Object.values(userData).every(x => x !== '') || Object.values(channelData).every(x => x !== ''))) {
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesInsideChannel(header, channelData.channelId)
-                let fetchTimeout = setTimeout(() => setCreateMessageContainer(result.data), 3000)
-                return clearTimeout(() => fetchTimeout)
+                setCreateMessageContainer(result.data)
             }
             retrieveDataAllMessages()
         }
@@ -54,17 +53,17 @@ function MessageContainer({ mode, createMessageContainer, setMode, setCreateMess
         }
     }
 
-    let finalSortDate = sortDataByDate(data)
+    console.log(sortDataByDate(data))
     return (
-
         <div className={"Message-Container"}>
-            {finalSortDate && finalSortDate.length !== 0 && finalSortDate.map((message, index) => {
-                const { date, data } = message
-                return (<MessagesHolder key={index} date={date} data={data} />)
-            })}
+            {data && data.length !== 0 && data.map((message, index) => {
+                const { body, created_at, sender: { id, uid } } = message
+                return (<MessageBox key={index} body={body} uid={uid} id={id} created={created_at} />)
+            }
+            )
+            }
+
         </div>
-
-
 
     )
 

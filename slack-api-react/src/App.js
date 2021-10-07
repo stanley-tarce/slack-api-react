@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MainHooks from './Components/Main Dashboard/Hooks/MainHooks';
 import ErrorHandlingContainer from './Components/Main Dashboard/Modals/ErrorHandlingContainer/ErrorHandlingContainer';
 import Logoutmodal from './Components/LogOut/Logoutmodal';
+import MessagesHolder from './Components/Main Dashboard/MessagesHolder/MessagesHolder';
+
 
 
 
@@ -149,7 +151,11 @@ function App() {
       </Router>
       {toast && <ErrorHandlingContainer
         feedback={feedback}
-        outcome={outcome} />}
+        outcome={outcome}
+        setFeedback={setFeedback}
+      />
+
+      }
     </>
   );
 }
