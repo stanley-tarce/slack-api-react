@@ -23,7 +23,10 @@ function MainNavBar({
                     value={headerBarSearch} />
                 <i className="fa fa-search searchIcon navBarSearch" />
             </div>
-            <div className={"user-image"} onClick={() => setOpenLogoutModal(!openLogoutModal)}></div>
+            <div className={"user-image"} onClick={() => {
+                console.log('logout clicked')
+                setOpenLogoutModal(!openLogoutModal)
+            }}></div>
 
         </div>
     )
