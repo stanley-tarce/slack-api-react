@@ -14,6 +14,7 @@ import Logoutmodal from '../LogOut/Logoutmodal'
 import ChannelListModal from '../Main Dashboard/Modals/ChannelListModal/ChannelListModal'
 function MainDashboard({
     header,
+    setHeader,
     userList,
     setUserList,
     channelList,
@@ -84,7 +85,7 @@ function MainDashboard({
     const updateGetRetrieveAllChannels = useCallback(async (header) => {
         const result = await getRetrieveAllChannels(header)
         let dataContainer = []
-        if (result) {
+        if (result && result?.data.length !== 0) {
             result.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name, receiver_class: 'C' }])
             dataContainer.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name))
             setChannelList(dataContainer)
@@ -229,7 +230,7 @@ function MainDashboard({
             {openNewChannelModal && <CreateNewChannel openNewChannelModal={openNewChannelModal} setOpenNewChannelModal={setOpenNewChannelModal} header={header} openNewChannelLists={openNewChannelLists} setOpenNewChannelLists={setOpenNewChannelLists} userList={userList} newChannelListSearch={newChannelListSearch} setNewChannelListSearch={setNewChannelListSearch} setToast={setToast} setFeedback={setFeedback} setOutcome={setOutcome} />}
 
 
-            {openLogoutModal && <Logoutmodal openLogoutModal={openLogoutModal} setOpenLogoutModal={setOpenLogoutModal} />}
+            {openLogoutModal && <Logoutmodal openLogoutModal={openLogoutModal} setOpenLogoutModal={setOpenLogoutModal} header={header} setHeader={setHeader}/>}
 
 
             {openChannelListMembers && <ChannelListModal userList={userList} channelData={channelData} refChannelListModal={refChannelListModal} setOpenChannelListMembers=

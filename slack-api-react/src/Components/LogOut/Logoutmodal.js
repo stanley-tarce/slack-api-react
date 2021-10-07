@@ -4,9 +4,28 @@ import "../Main Dashboard/MainNavBar/MainNavBar.css"
 import "../Main Dashboard/Hooks/MainHooks"
 import './Logoutmodal.css'
 import usericon from "../LogOut/usericon/usericon.svg"
+import { useHistory } from 'react-router'
 
-const Logoutmodal = ({ openLogoutModal, setOpenLogoutModal }) => {
+const Logoutmodal = ({ openLogoutModal, setOpenLogoutModal, header, setHeader }) => {
+    const {uid} = header
+    const name = uid.split('@')[0]
+    
+    let history = useHistory();
+    const signOutButton = () => {
+        // setHeader({
+        //     ...header,
+        //     expiry: '',
+        //     uid: '',
+        //     accessToken: '',
+        //     client: ''
+        // })
 
+        setHeader(null)
+        
+        history.push('/');
+        console.log(header)
+    }
+    
     return (
 
         <div className="logoutmodal">
@@ -15,12 +34,12 @@ const Logoutmodal = ({ openLogoutModal, setOpenLogoutModal }) => {
                     <img src={usericon} className="imageBorder" alt="usericon" />
                 </span>
                 <div className="accountName">
-                    <h2 className="userName">User</h2>
-                    <h5 className="userEmail">anonymous@company.com</h5>
+                    <h2 className="userName">{name}</h2>
+                    <h5 className="userEmail">{uid}</h5>
                 </div>
 
                 <div className="userLogout">
-                    <button type="button" className="singoutButton" onClick={() => setOpenLogoutModal(true)}>Sign Out</button>
+                    <button type="button" className="singoutButton" onClick={signOutButton}>Sign Out</button>
                     {/* { <button onClick={userLogout} type="submit"> Sign Out </button>} */}
                 </div>
 
