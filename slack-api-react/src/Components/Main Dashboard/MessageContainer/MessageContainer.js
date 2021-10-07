@@ -9,7 +9,6 @@ function MessageContainer({ mode, createMessageContainer, setMode, setCreateMess
         if (mode === 'Channel' && (Object.values(userData).every(x => x !== '') || Object.values(channelData).every(x => x !== ''))) {
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesInsideChannel(header, channelData.channelId)
-                console.log(result)
                 setCreateMessageContainer(result.data)
             }
             retrieveDataAllMessages()
@@ -23,6 +22,8 @@ function MessageContainer({ mode, createMessageContainer, setMode, setCreateMess
         }
     })
     const { data } = createMessageContainer
+
+    console.log(createMessageContainer)
     return (
         <div className={"Message-Container"}>
             {data && data.length !== 0 && data.map((message, index) => {

@@ -50,6 +50,10 @@
   border: 1px solid black;
   /* margin: 2% 10% 2% 2%; */
   margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-y: auto;
 }
 
 .user-containers {

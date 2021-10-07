@@ -83,11 +83,18 @@ function MainDashboard({
 
     const updateGetRetrieveAllChannels = useCallback(async (header) => {
         const result = await getRetrieveAllChannels(header)
+        console.log(result)
         let dataContainer = []
-        if (result) {
-            result.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name, receiver_class: 'C' }])
+        if (result.data?.data) {
+            result.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name, receiver_class: 'Channel' }])
             dataContainer.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name))
             setChannelList(dataContainer)
+        }
+        if (result.data?.errors) {
+            setOutcome('error')
+            setFeedback([result.data.errors])
+            setToast(true)
+            setInterval(() => setToast(false), 3000)
         }
         else {
             console.log('Array Empty')

@@ -10,6 +10,7 @@ import Logoutmodal from './Components/LogOut/Logoutmodal';
 
 
 
+
 function App() {
   const {
     header,
@@ -148,7 +149,11 @@ function App() {
       </Router>
       {toast && <ErrorHandlingContainer
         feedback={feedback}
-        outcome={outcome} />}
+        outcome={outcome}
+        setFeedback={setFeedback}
+      />
+
+      }
     </>
   );
 }
