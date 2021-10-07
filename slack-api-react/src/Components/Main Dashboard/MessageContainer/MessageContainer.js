@@ -12,6 +12,7 @@ function MessageContainer({ mode, createMessageContainer, setMode, setCreateMess
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesInsideChannel(header, channelData.channelId)
                 let temp = { ...result }
+                console.log(data)
                 setTimeout(() => setCreateMessageContainer(temp.data), 1000)
             }
             retrieveDataAllMessages()
@@ -30,13 +31,14 @@ function MessageContainer({ mode, createMessageContainer, setMode, setCreateMess
         let dateContainer = []
         let sortedDataByDate = []
         let container = []
+        console.log(data)
         if (data) {
             data.forEach((message) => {
                 const { created_at } = message
                 let date = created_at.split('T')[0]
                 dateContainer = [...dateContainer, date]
             })
-            let dateContainerUnique = [...new Set(dateContainer)]
+            let dateContainerUnique = [...new Set(dateContainer)] //3 items
             dateContainerUnique.forEach((uniqueD) => {
                 container = []
                 data.forEach(dates => {

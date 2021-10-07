@@ -28,7 +28,7 @@
   line-height: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .message-holder-container .messages-holder-container {

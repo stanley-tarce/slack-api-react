@@ -16,6 +16,7 @@ function MessagesHolder({ date, data }) {
     }
     const changeDateToToday = (date, realDate) => {
         if (date === realDate) {
+            console.log('Same Date!')
             return 'Today'
         }
         else {
