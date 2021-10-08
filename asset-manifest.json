@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/slack-api-react/static/css/main.89f44571.chunk.css",
-    "main.js": "/slack-api-react/static/js/main.663c4094.chunk.js",
-    "main.js.map": "/slack-api-react/static/js/main.663c4094.chunk.js.map",
+    "main.js": "/slack-api-react/static/js/main.a0363a34.chunk.js",
+    "main.js.map": "/slack-api-react/static/js/main.a0363a34.chunk.js.map",
     "runtime-main.js": "/slack-api-react/static/js/runtime-main.2e861b0e.js",
     "runtime-main.js.map": "/slack-api-react/static/js/runtime-main.2e861b0e.js.map",
-    "static/js/2.f298eabb.chunk.js": "/slack-api-react/static/js/2.f298eabb.chunk.js",
-    "static/js/2.f298eabb.chunk.js.map": "/slack-api-react/static/js/2.f298eabb.chunk.js.map",
+    "static/js/2.33b4a484.chunk.js": "/slack-api-react/static/js/2.33b4a484.chunk.js",
+    "static/js/2.33b4a484.chunk.js.map": "/slack-api-react/static/js/2.33b4a484.chunk.js.map",
     "index.html": "/slack-api-react/index.html",
     "static/css/main.89f44571.chunk.css.map": "/slack-api-react/static/css/main.89f44571.chunk.css.map",
-    "static/js/2.f298eabb.chunk.js.LICENSE.txt": "/slack-api-react/static/js/2.f298eabb.chunk.js.LICENSE.txt",
+    "static/js/2.33b4a484.chunk.js.LICENSE.txt": "/slack-api-react/static/js/2.33b4a484.chunk.js.LICENSE.txt",
     "static/media/UserListModal.css": "/slack-api-react/static/media/Avatar.85ca24a2.svg",
     "static/media/ChannelListsCards.css": "/slack-api-react/static/media/Avatar.feb39a57.svg",
     "static/media/ResultListOfUser.css": "/slack-api-react/static/media/Close.96c57025.svg",
@@ -37,8 +37,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2e861b0e.js",
-    "static/js/2.f298eabb.chunk.js",
+    "static/js/2.33b4a484.chunk.js",
     "static/css/main.89f44571.chunk.css",
-    "static/js/main.663c4094.chunk.js"
+    "static/js/main.a0363a34.chunk.js"
   ]
 }
