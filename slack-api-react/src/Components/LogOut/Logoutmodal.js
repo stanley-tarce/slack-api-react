@@ -5,6 +5,7 @@ import "../Main Dashboard/Hooks/MainHooks"
 import './Logoutmodal.css'
 import usericon from "../LogOut/usericon/usericon.svg"
 import { useHistory } from 'react-router'
+import close from "../LogOut/usericon/close.png"
 
 const Logoutmodal = ({ openLogoutModal, setOpenLogoutModal, header, setHeader }) => {
     const { uid } = header
@@ -26,10 +27,17 @@ const Logoutmodal = ({ openLogoutModal, setOpenLogoutModal, header, setHeader })
         console.log(header)
     }
 
+    const closeModal = (event) => {
+        event.preventDefault()
+        setOpenLogoutModal(false)
+    }
     return (
 
         <div className="logoutmodal">
             <div className="logoutCard">
+                <div className="logout-close-container">
+                    <img src={close} className="logout-close" onClick={closeModal}></img>
+                </div>
                 <span className="userImage">
                     <img src={usericon} className="imageBorder" alt="usericon" />
                 </span>

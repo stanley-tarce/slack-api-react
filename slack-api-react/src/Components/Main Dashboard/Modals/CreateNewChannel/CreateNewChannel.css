@@ -1,3 +1,7 @@
+*{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .newchannel-bg {
   height: 100vh;
   width: 100vw;
@@ -8,28 +12,33 @@
 
 .newchannel-cont {
   position: absolute;
-  width: 20%;
-  height: 40%;
+  width: 25%;
+  height: 50%;
   top: 10em;
   right: 35vw;
-  background-color: white;
+  background-color: #fff0d0;
   display: flex;
-  justify-content: center;
+
   align-items: center;
   flex-direction: column;
   border: 1px solid black;
-  padding: 0 1em 0 2em;
+  padding: 0 1em 0 1em;
+  border-radius: 2em;
 }
 
 .newchannel-header {
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
+  padding-top: 1em;
+}
+
+.newchannel-header h2 {
+  margin-left: 10%;
 }
 
 .newchannel-header img {
   height: 20px;
-  padding-top: 2%;
   cursor: pointer;
 }
 
@@ -37,25 +46,56 @@
   /* margin: 2% 10% 2% 2%; */
   width: 80%;
   margin-top: 10px;
+  font-size: 1em;
+  padding: 0.5em;
 }
 
 .newchannel-user-search {
   margin-top: 10px;
   width: 80%;
+  font-size: 1em;
+  padding: 0.5em;
 }
 
 .inv-mems {
-  height: 30%;
+  height: 35%;
   width: 80%;
   border: 1px solid black;
   /* margin: 2% 10% 2% 2%; */
   margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+  gap: 2px;
+  overflow-y:scroll;
+  align-content: flex-start;
+  
 }
 
 .user-containers {
   overflow: hidden;
-  margin-top: 10px;
-  width: 80%;
-  height: 20px;
+  margin-top: 0;
+  width: 75%;
+  height: 30%;
   border: 1px solid black;
+  z-index: 5;
+  position: absolute;
+  top: 40%;
+  background-color: white;
+  border-radius: 0.2em;
+}
+
+
+.newchannel-submit{
+  font-size: 1em;
+  padding: 0.5em;
+  background-color: #ffaf00;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.channelcard{
+  height: 20%;
+  margin: 0.3em;
+  background-color: #ffaf00;
 }
