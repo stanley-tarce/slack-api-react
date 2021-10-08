@@ -1,6 +1,6 @@
 import React from 'react'
 import './MainDisplay.css'
-import Coverphoto from '../Main Display/assets/front2.svg'
+import Coverphoto from '../Main Display/assets/front4.png'
 
 function MainDisplay({ header }) {
     const { uid } = header
