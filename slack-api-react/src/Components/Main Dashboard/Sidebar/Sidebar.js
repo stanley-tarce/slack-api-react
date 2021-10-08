@@ -16,7 +16,9 @@ function Sidebar({
 	setCreateMessageContainer,
 	setUserMessageList,
 	openNewChannelModal,
-	setOpenNewChannelModal }) {
+	setOpenNewChannelModal,
+
+	setOpenMessageModal }) {
 	const [closeChannel, setCloseChannel] = useState(false)
 	const [closeMessage, setCloseMessage] = useState(false)
 	const history = useHistory()
@@ -79,7 +81,7 @@ function Sidebar({
 					 1. Create a card for mapping channel lists with left margin of 10 px 
 					 2. Map the channel list with the API Data  */}
 				</div>
-				<div className={'SideBar-Message-CreateMessage'}>
+				<div onClick={() => setOpenMessageModal(true)} className={'SideBar-Message-CreateMessage'}>
 					<div></div>
 					<p>Send Message </p>
 				</div>

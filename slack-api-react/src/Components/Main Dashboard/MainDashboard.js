@@ -12,6 +12,7 @@ import MainDisplay from '../Main Display/MainDisplay'
 import CreateNewChannel from './Modals/CreateNewChannel/CreateNewChannel'
 import Logoutmodal from '../LogOut/Logoutmodal'
 import ChannelListModal from '../Main Dashboard/Modals/ChannelListModal/ChannelListModal'
+import NewMessageModal from './Modals/NewMessageModal/NewMessageModal'
 function MainDashboard({
     header,
     setHeader,
@@ -57,7 +58,13 @@ function MainDashboard({
     openChannelListMembers,
     setOpenChannelListMembers,
     channelListSearch,
-    setChannelListSearch
+    setChannelListSearch,
+    openMessageModal,
+    setOpenMessageModal,
+    messageSearchResult,
+    setMessageSearchResult,
+    userContainer,
+    setUserContainer
 }) {
     // ! START OF FUNCTIONS    
     const { getAllUsersMain, getRetrieveAllChannels, getRetrieveAllMessagesFromUser } = apiHooks()
@@ -205,8 +212,7 @@ function MainDashboard({
             <div className={"Main-DashBoard"}>
                 <div
                     className={"sidebarHolder"}><Sidebar setCreateMessageContainer={setCreateMessageContainer} redirectToChannel={redirectToChannel} channelList={channelList} channelData={channelData} setChannelData={setChannelData} setMode={setMode} header={header} userMessageList={userMessageList} setUserData={setUserData} userData={userData} setUserMessageList={setUserMessageList} openNewChannelModal={openNewChannelModal} setOpenNewChannelModal={setOpenNewChannelModal}
-
-                        headerBarSearch={headerBarSearch}
+                        headerBarSearch={headerBarSearch} setOpenMessageModal={setOpenMessageModal}
                     /></div>
                 <div className={"headerbarHolder"}><MainNavBar headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} setOpenChannelListMembers={setOpenChannelListMembers} openLogoutModal={openLogoutModal} setOpenLogoutModal={setOpenLogoutModal} /></div>
                 <div className={"MainBodyHolder"}>
@@ -230,13 +236,15 @@ function MainDashboard({
             {openNewChannelModal && <CreateNewChannel openNewChannelModal={openNewChannelModal} setOpenNewChannelModal={setOpenNewChannelModal} header={header} openNewChannelLists={openNewChannelLists} setOpenNewChannelLists={setOpenNewChannelLists} userList={userList} newChannelListSearch={newChannelListSearch} setNewChannelListSearch={setNewChannelListSearch} setToast={setToast} setFeedback={setFeedback} setOutcome={setOutcome} />}
 
 
-            {openLogoutModal && <Logoutmodal openLogoutModal={openLogoutModal} setOpenLogoutModal={setOpenLogoutModal} header={header} setHeader={setHeader}/>}
+            {openLogoutModal && <Logoutmodal openLogoutModal={openLogoutModal} setOpenLogoutModal={setOpenLogoutModal} header={header} setHeader={setHeader} />}
 
 
-            {openChannelListMembers && <ChannelListModal userList={userList} channelData={channelData} refChannelListModal={refChannelListModal} setOpenChannelListMembers=
+            {openChannelListMembers && <ChannelListModal userList={userList} channelData={channelData} refChannelListModal={refChannelListModal} setOpenChannelListMembers={setOpenChannelListMembers} setOpenUserDataModal={setOpenUserDataModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserListModal={setOpenUserListModal} userDetails={userDetails} setUserDetails={setUserDetails} channelListSearch={channelListSearch} setChannelListSearch={setChannelListSearch} />}
+
+            {openMessageModal && <NewMessageModal setOpenMessageModal={setOpenMessageModal} userList={userList} setMode={setMode} setUserData={setUserData} userData={userData} setUserMessageList={setUserMessageList} userMessageList={userMessageList} messageSearchResult={messageSearchResult} setMessageSearchResult={setMessageSearchResult} userContainer={userContainer}
+                setUserContainer={setUserContainer} header={header} />}
 
 
-                {setOpenChannelListMembers} setOpenUserDataModal={setOpenUserDataModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserListModal={setOpenUserListModal} userDetails={userDetails} setUserDetails={setUserDetails} channelListSearch={channelListSearch} setChannelListSearch={setChannelListSearch} />}
         </>
     )
 }

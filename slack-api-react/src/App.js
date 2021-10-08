@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MainHooks from './Components/Main Dashboard/Hooks/MainHooks';
 import ErrorHandlingContainer from './Components/Main Dashboard/Modals/ErrorHandlingContainer/ErrorHandlingContainer';
 import Logoutmodal from './Components/LogOut/Logoutmodal';
+import NewMessageModal from './Components/Main Dashboard/Modals/NewMessageModal/NewMessageModal';
 
 
 
@@ -38,6 +39,9 @@ function App() {
     outcome,
     openChannelListMembers,
     channelListSearch,
+    openMessageModal,
+    messageSearchResult,
+    userContainer,
     // ? Change of State
     setHeader,
     setUserList,
@@ -68,7 +72,11 @@ function App() {
     setFeedback,
     setOutcome,
     setOpenChannelListMembers,
-    setChannelListSearch
+    setChannelListSearch,
+    setOpenMessageModal,
+    setMessageSearchResult,
+    setUserContainer
+
   } = MainHooks()
 
   return (
@@ -142,6 +150,12 @@ function App() {
                 setOpenChannelListMembers={setOpenChannelListMembers}
                 channelListSearch={channelListSearch}
                 setChannelListSearch={setChannelListSearch}
+                openMessageModal={openMessageModal}
+                setOpenMessageModal={setOpenMessageModal}
+                messageSearchResult={messageSearchResult}
+                setMessageSearchResult={setMessageSearchResult}
+                userContainer={userContainer}
+                setUserContainer={setUserContainer}
               />
             </Route>
           </Switch>

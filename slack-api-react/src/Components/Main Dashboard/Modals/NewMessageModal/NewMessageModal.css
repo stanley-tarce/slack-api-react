@@ -1,0 +1,57 @@
+.createMessage-container-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.createMessage-container {
+  width: 400px;
+  height: 300px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+  gap: 10px;
+}
+
+.createMessage-container > * {
+  margin-left: 10%;
+}
+
+.createMessage-container .title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.createMessage-container .searchResults {
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+}
+.ResultContainer {
+  width: 80%;
+  height: auto;
+  border: 1px solid black;
+  max-height: 40px;
+  overflow-y: hidden;
+}
+.listOfUsers {
+  width: 80%;
+  min-height: 10%;
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.messageBody {
+  width: 80%;
+  min-height: 10%;
+  border: 1px solid black;
+}

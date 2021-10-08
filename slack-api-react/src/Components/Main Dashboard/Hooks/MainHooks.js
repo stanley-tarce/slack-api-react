@@ -59,7 +59,7 @@ function MainHooks() {
     const [openUserDataModal, setOpenUserDataModal] = useState(false)
     const [openChannelListModal, setOpenChannelListModal] = useState(false)
     const [openLogoutModal, setOpenLogoutModal] = useState(false)
-   
+
 
 
     //Create Messages
@@ -82,6 +82,9 @@ function MainHooks() {
     const [outcome, setOutcome] = useState('')
     const [openChannelListMembers, setOpenChannelListMembers] = useState(false)
     const [channelListSearch, setChannelListSearch] = useState('')
+    const [openMessageModal, setOpenMessageModal] = useState(false)
+    const [messageSearchResult, setMessageSearchResult] = useState('')
+    const [userContainer, setUserContainer] = useState([])
     return {
         // ? INITIAL STATE
         header,
@@ -115,6 +118,9 @@ function MainHooks() {
         outcome,
         openChannelListMembers,
         channelListSearch,
+        openMessageModal,
+        messageSearchResult,
+        userContainer,
 
         // ? Change of State
         setHeader,
@@ -142,7 +148,13 @@ function MainHooks() {
         setFeedback,
         setOutcome,
         setOpenChannelListMembers,
-        setChannelListSearch
+        setChannelListSearch,
+        setOpenMessageModal,
+        setMessageSearchResult,
+        setUserContainer
+
+
+
     }
 }
 
