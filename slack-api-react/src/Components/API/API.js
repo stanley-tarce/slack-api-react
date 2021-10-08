@@ -67,7 +67,7 @@ const apiHooks = () => {
                 'expiry': expiry,
                 'uid': uid
             }
-        }).catch(error => console.log(error))
+        })
     }
     const getRetrieveChannel = async (headers, CHANNEL_ID) => {
         const { expiry, uid, accessToken, client } = headers

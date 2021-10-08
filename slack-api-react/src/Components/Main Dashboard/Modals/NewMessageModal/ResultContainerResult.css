@@ -1,3 +1,16 @@
 .result-container-wrapper > * {
   pointer-events: none;
+  width: 100%;
+  height: 5%;
+  padding: 1px;
+}
+
+.result-container-wrapper p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.result-container-wrapper:hover {
+  background-color: #fff0d0c4;
 }

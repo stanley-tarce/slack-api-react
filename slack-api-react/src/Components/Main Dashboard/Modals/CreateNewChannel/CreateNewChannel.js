@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './CreateNewChannel.css'
 import close from './assets/close.png'
 import apiHooks from '../../../API/API'
@@ -17,22 +17,36 @@ const CreateNewChannel = (
         setNewChannelListSearch,
         setToast,
         setFeedback,
-        setOutcome
+        setOutcome,
+        setChannelList
     }) => {
 
-    const { postCreateChannelWithUsers } = apiHooks()
+    const { postCreateChannelWithUsers, getRetrieveAllChannels } = apiHooks()
     const channelName = useRef();
-    const history = useHistory()
+    const handleCLoseRef = useRef(null)
+
     const closeModal = (event) => {
         event.preventDefault()
         setOpenNewChannelModal(false)
     }
 
+    const CloseRefChannelModal = (ref) => {
+        useEffect(() => {
+            const handleCloseRefChannelModal = (event) => {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    setOpenNewChannelModal(false)
+                }
 
 
-    // const handleNameChange = (e) => {
-    //     setChannelName(e.target.value);
-    // }
+            }
+            document.addEventListener("mousedown", handleCloseRefChannelModal)
+            return () => document.removeEventListener("mousedown", handleCloseRefChannelModal)
+        }
+            , [ref])
+    }
+    CloseRefChannelModal(handleCLoseRef)
+
+
     const onButtonSubmit = async (event) => {
         event.preventDefault()
         let temp_array = [...openNewChannelLists]
@@ -47,6 +61,7 @@ const CreateNewChannel = (
         console.log(data)
         postCreateChannelWithUsers(header, data).then((response) => {
             if (response.data.hasOwnProperty('errors')) {
+                channelName.current.value = ''
                 setToast(true)
                 setOutcome('error')
                 setFeedback(response.data.errors)
@@ -59,6 +74,15 @@ const CreateNewChannel = (
                 setFeedback(['Create channel successful!'])
                 setTimeout(() => setToast(false), 3000)
                 setOpenNewChannelModal(false)
+                getRetrieveAllChannels(header).then(response => {
+                    console.log(response)
+                    let dataContainer = []
+                    if (response && response?.data.data.length !== 0) {
+                        response.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name, receiver_class: 'Class' }])
+                        dataContainer.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name))
+                        setChannelList(dataContainer)
+                    }
+                })
             }
 
         })
@@ -71,19 +95,19 @@ const CreateNewChannel = (
 
     return (
         <div className="newchannel-bg">
-            <div className="newchannel-cont">
+            <div ref={handleCLoseRef} className="newchannel-cont">
                 <div className="newchannel-header" >
                     <h2>Create New Channel</h2>
                     <img onClick={(e) => closeModal(e)} src={close}></img>
                 </div>
                 <input type="text" placeholder="Channel Name" className="channelName" ref={channelName}></input>
                 <input type="text" placeholder="Search users..." className="newchannel-user-search" value={newChannelListSearch} onChange={(e) => setNewChannelListSearch(e.target.value)}></input>
-                <div className="user-containers" style={{display: newChannelListSearch.length !== 0? "block": "none"}}>
+                <div className="user-containers" style={{ display: newChannelListSearch.length !== 0 ? "block" : "none" }}>
                     {newChannelListSearch.length !== 0 && userList
                         .filter(user => user.uid.toLowerCase().includes(newChannelListSearch.toLowerCase()))
                         .map((account, index) =>
                             <ChannelUserContainer key={index} id={account.id} uid={account.uid} openNewChannelLists={openNewChannelLists} setOpenNewChannelLists={setOpenNewChannelLists}
-                            setNewChannelListSearch={setNewChannelListSearch}/>
+                                setNewChannelListSearch={setNewChannelListSearch} setFeedback={setFeedback} setOutcome={setOutcome} setToast={setToast} />
                         )}
                 </div>
                 <div className="inv-mems">

@@ -1,10 +1,13 @@
 .channelcard {
-  width: fit-content;
   height: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row-reverse;
   align-items: center;
+  background-color: #fff0d0c4;
+  width: auto;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .closebutton {
@@ -13,8 +16,10 @@
 }
 
 .add-name {
-  width: fit-content;
-  height: 100%;
-  font-size: 10px;
+  height: 20px;
+  width: auto;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.612);
   pointer-events: none;
+  font-family: "Roboto", sans-serif;
 }

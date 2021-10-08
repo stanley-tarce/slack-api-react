@@ -20,6 +20,7 @@
 }
 .Main-Sidebar .SideBar-Title-Home {
   color: rgba(89, 16, 53, 1);
+
   font-size: 20px;
   line-height: 28px;
   width: 100%;
@@ -38,6 +39,7 @@
 }
 
 .Main-Sidebar .SideBar-Title-Name {
+  cursor: pointer;
   height: 15%;
   width: 100%;
   color: rgba(89, 16, 53, 1);
@@ -59,6 +61,7 @@
 
 .Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title {
   display: flex;
+
   flex-direction: row;
   height: 10%;
   width: 100%;
@@ -76,6 +79,7 @@
   height: 28px;
   margin-left: 10px;
   background: url("./Assets/Vector.svg") no-repeat center;
+  cursor: pointer;
 }
 
 .Main-Sidebar
@@ -87,6 +91,7 @@
   margin-left: 10px;
   background: url("./Assets/Vector.svg") no-repeat center;
   transform: rotate(-90deg);
+  cursor: pointer;
 }
 .Main-Sidebar
   .SideBar-Message-Container
@@ -96,6 +101,7 @@
   height: 28px;
   margin-left: 10px;
   background: url("./Assets/Vector.svg") no-repeat center;
+  cursor: pointer;
 }
 .Main-Sidebar
   .SideBar-Message-Container
@@ -106,6 +112,7 @@
   margin-left: 10px;
   background: url("./Assets/Vector.svg") no-repeat center;
   transform: rotate(-90deg);
+  cursor: pointer;
 }
 
 .Main-Sidebar .SideBar-Channel-Container .SideBar-Channel-Title .ViewAll {

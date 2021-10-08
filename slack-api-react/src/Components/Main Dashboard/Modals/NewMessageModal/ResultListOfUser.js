@@ -13,7 +13,7 @@ function ResultListOfUser({ id, uid, setUserContainer, index, userContainer }) {
     return (
         <div className="result-container">
             <p>{name}</p>
-            <div className="close-button" data-index={index} onClick={(e) => removeData(e)}>X</div>
+            <div className="close-button" data-index={index} onClick={(e) => removeData(e)}></div>
         </div>
     )
 }

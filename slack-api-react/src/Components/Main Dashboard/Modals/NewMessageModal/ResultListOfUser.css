@@ -1,7 +1,23 @@
 .result-container {
-  width: 100px;
+  width: auto;
   height: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  background-color: #fff0d0c4;
+  color: rgba(0, 0, 0, 0.612);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.result-container p {
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+.result-container .close-button {
+  background: url("./Assets/Close.svg") no-repeat center;
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
 }

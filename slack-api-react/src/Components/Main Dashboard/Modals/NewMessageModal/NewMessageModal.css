@@ -11,47 +11,117 @@
 .createMessage-container {
   width: 400px;
   height: 300px;
-  border: 1px solid black;
   display: flex;
+  border: 1px solid rgba(161, 161, 161, 35%);
+  border-radius: 16px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   position: relative;
   gap: 10px;
+  background-color: white;
 }
-
-.createMessage-container > * {
-  margin-left: 10%;
-}
-
-.createMessage-container .title {
+.createMessage-Header {
   width: 100%;
+  border-bottom: 1px solid #f2f3f7;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.createMessage-Header .title {
+  width: fit-content;
   display: flex;
   justify-content: flex-start;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 33px;
+  margin-left: 10px;
+  font-family: "Roboto", sans-serif;
+}
+.createMessage-container .close-container {
+  width: 13px;
+  height: 13px;
+  background: url("./Assets/Close.svg");
+  margin-right: 18px;
+  margin-bottom: 50px;
 }
 
 .createMessage-container .searchResults {
-  width: 60%;
+  width: 80%;
+  height: 10%;
+  border-radius: 5px;
+  outline: none;
+  border: 0px;
+  background-color: #f2f3f7;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 23px;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+}
+
+.ResultContainer {
+  position: absolute;
+  z-index: 4;
+  top: 120px;
+  width: 75%;
+  height: 80px;
+  overflow-y: auto;
+  background-color: white;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
 }
-.ResultContainer {
-  width: 80%;
-  height: auto;
-  border: 1px solid black;
-  max-height: 40px;
-  overflow-y: hidden;
+
+.createMessage-container .searchResults:active {
+  outline: none;
 }
 .listOfUsers {
+  position: relative;
+  z-index: 2;
   width: 80%;
-  min-height: 10%;
-  border: 1px solid black;
+  min-height: 20%;
+  border-radius: 5px;
+  background-color: #f2f3f7;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  color: black;
+  gap: 5px;
 }
 .messageBody {
+  outline: none;
+  border: 0px;
+  background-color: #f2f3f7;
+  border-radius: 5px;
   width: 80%;
   min-height: 10%;
-  border: 1px solid black;
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+}
+.messageBody:active {
+  outline: none;
+}
+
+.buttonSubmit {
+  border: 0px;
+  outline: none;
+  background-color: #fff0d0c4;
+  border: 1px solid #fff0d000;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  margin-right: 51%;
+}
+
+.buttonSubmit:hover {
+  background-color: white;
+  border: 1px solid #fff0d0c4;
+  color: #fff0d0c4;
 }

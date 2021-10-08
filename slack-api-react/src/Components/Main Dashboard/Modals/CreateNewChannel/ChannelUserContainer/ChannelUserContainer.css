@@ -11,3 +11,6 @@
   pointer-events: none;
 }
 
+.channel-user-container:hover {
+  background-color: #fff0d0c3;
+}

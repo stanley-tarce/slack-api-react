@@ -233,7 +233,7 @@ function MainDashboard({
 
             {openChannelListModal && <InviteUserChannel channelList={channelList} setChannelData={setChannelData} userDetails={userDetails} channelData={channelData} header={header} setOpenChannelListModal={setOpenChannelListModal} refChannelModalSelectionData={refChannelModalSelectionData} setRedirectToChannel={setRedirectToChannel} setToast={setToast} setFeedback={setFeedback} setOutcome={setOutcome} />}
 
-            {openNewChannelModal && <CreateNewChannel openNewChannelModal={openNewChannelModal} setOpenNewChannelModal={setOpenNewChannelModal} header={header} openNewChannelLists={openNewChannelLists} setOpenNewChannelLists={setOpenNewChannelLists} userList={userList} newChannelListSearch={newChannelListSearch} setNewChannelListSearch={setNewChannelListSearch} setToast={setToast} setFeedback={setFeedback} setOutcome={setOutcome} />}
+            {openNewChannelModal && <CreateNewChannel openNewChannelModal={openNewChannelModal} setOpenNewChannelModal={setOpenNewChannelModal} header={header} openNewChannelLists={openNewChannelLists} setOpenNewChannelLists={setOpenNewChannelLists} userList={userList} newChannelListSearch={newChannelListSearch} setNewChannelListSearch={setNewChannelListSearch} setToast={setToast} setFeedback={setFeedback} setOutcome={setOutcome} setChannelList={setChannelList} />}
 
 
             {openLogoutModal && <Logoutmodal openLogoutModal={openLogoutModal} setOpenLogoutModal={setOpenLogoutModal} header={header} setHeader={setHeader} />}
@@ -242,7 +242,7 @@ function MainDashboard({
             {openChannelListMembers && <ChannelListModal userList={userList} channelData={channelData} refChannelListModal={refChannelListModal} setOpenChannelListMembers={setOpenChannelListMembers} setOpenUserDataModal={setOpenUserDataModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserListModal={setOpenUserListModal} userDetails={userDetails} setUserDetails={setUserDetails} channelListSearch={channelListSearch} setChannelListSearch={setChannelListSearch} />}
 
             {openMessageModal && <NewMessageModal setOpenMessageModal={setOpenMessageModal} userList={userList} setMode={setMode} setUserData={setUserData} userData={userData} setUserMessageList={setUserMessageList} userMessageList={userMessageList} messageSearchResult={messageSearchResult} setMessageSearchResult={setMessageSearchResult} userContainer={userContainer}
-                setUserContainer={setUserContainer} header={header} />}
+                setUserContainer={setUserContainer} header={header} setToast={setToast} setOutcome={setOutcome} setFeedback={setFeedback} />}
 
 
         </>
