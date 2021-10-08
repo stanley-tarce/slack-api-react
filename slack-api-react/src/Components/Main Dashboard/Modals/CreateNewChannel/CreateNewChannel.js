@@ -4,7 +4,7 @@ import close from './assets/close.png'
 import apiHooks from '../../../API/API'
 
 import CreateNewChannelCard from './CreateNewChannelCard'
-import ChannelUserContainer from './ChannelUserContainer/channelContainer'
+import ChannelUserContainer from './userContainer/channelContainer'
 
 const CreateNewChannel = (
     {
