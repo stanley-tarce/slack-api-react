@@ -72,7 +72,7 @@ function Signup({ toast, setToast, setOutcome, setFeedback }) {
                             </div>
                             <div className={"CheckBox"}>
                                 <input type="checkbox" id="checkbox" name="vehicle1" defaultChecked={checked} onChange={() => setChecked(!checked)} required />
-                                <label>Creating an account meants you’re okay with our <span id={"anchor"}>Terms of Service, Privacy Policy,</span> and our <span id={"anchor"}>default Notification Settings</span></label>
+                                <label>Creating an account means you’re okay with our <span id={"anchor"}>Terms of Service, Privacy Policy,</span> and our <span id={"anchor"}>default Notification Settings</span></label>
                             </div>
                             <button disabled={button} className={`${style}-button`} onSubmit={(e) => onButtonSubmit(e)}>Sign Up</button>
                         </form>
