@@ -15,13 +15,13 @@ const apiHooks = () => {
      *  3. token ID 
      *  4. uid -> Email of User
     */
-    let BASE_URL = 'https://slackapi.avionschool.com/'
+    let BASE_URL = 'slackapi.avionschool.com/'
     let contentType = { 'Content-Type': 'application/x-www-form-urlencoded' }
     const postUserRegistration = async (dataRef) => {
 
         return await axios({
             method: 'POST',
-            url: `http://${BASE_URL}/api/v1/auth`,
+            url: `https://${BASE_URL}/api/v1/auth`,
             headers: { ...contentType },
             data: qs.stringify(dataRef)
         })
@@ -29,7 +29,7 @@ const apiHooks = () => {
     const postCreateUserSession = async (dataRef) => {
         return axios({
             method: 'post',
-            url: `http://${BASE_URL}/api/v1/auth/sign_in`,
+            url: `https://${BASE_URL}/api/v1/auth/sign_in`,
             headers: { ...contentType },
             data: qs.stringify(dataRef)
         })
@@ -45,7 +45,7 @@ const apiHooks = () => {
         console.log('All are string!')
         return axios({
             method: 'get',
-            url: `http://${BASE_URL}/api/v1/users`,
+            url: `https://${BASE_URL}/api/v1/users`,
             headers: {
                 'access-token': accessToken,
                 'client': client,
@@ -60,7 +60,7 @@ const apiHooks = () => {
         const { expiry, uid, accessToken, client } = headers
         return await axios({
             method: 'get',
-            url: `http://${BASE_URL}/api/v1/channels`,
+            url: `https://${BASE_URL}/api/v1/channels`,
             headers: {
                 'access-token': accessToken,
                 'client': client,
@@ -74,7 +74,7 @@ const apiHooks = () => {
         try {
             const response = await axios({
                 method: 'get',
-                url: `http://${BASE_URL}/api/v1/channels/${CHANNEL_ID}`,
+                url: `https://${BASE_URL}/api/v1/channels/${CHANNEL_ID}`,
                 headers: {
                     'access-token': accessToken,
                     'client': client,
@@ -93,7 +93,7 @@ const apiHooks = () => {
         try {
             const response = await axios({
                 method: 'post',
-                url: `http://${BASE_URL}/api/v1/channel/add_member`,
+                url: `https://${BASE_URL}/api/v1/channel/add_member`,
                 headers: {
                     'access-token': accessToken,
                     'client': client,
@@ -114,7 +114,7 @@ const apiHooks = () => {
         console.log(dataRef)
         return await axios({
             method: 'post',
-            url: `http://${BASE_URL}/api/v1/channels`,
+            url: `https://${BASE_URL}/api/v1/channels`,
             headers: {
                 'access-token': accessToken,
                 'client': client,
@@ -133,7 +133,7 @@ const apiHooks = () => {
         try {
             const response = await axios({
                 method: 'get',
-                url: `http://${BASE_URL}/api/v1/messages?receiver_id=${CHANNEL_ID}&receiver_class=Channel`,
+                url: `https://${BASE_URL}/api/v1/messages?receiver_id=${CHANNEL_ID}&receiver_class=Channel`,
                 headers: {
                     'access-token': accessToken,
                     'client': client,
@@ -157,7 +157,7 @@ const apiHooks = () => {
         try {
             const response = await axios({
                 method: 'get',
-                url: `http://${BASE_URL}/api/v1/messages?receiver_id=${USER_ID}&receiver_class=User`,
+                url: `https://${BASE_URL}/api/v1/messages?receiver_id=${USER_ID}&receiver_class=User`,
                 headers: {
                     'access-token': accessToken,
                     'client': client,
@@ -176,7 +176,7 @@ const apiHooks = () => {
         try {
             const response = await axios({
                 method: 'post',
-                url: `http://${BASE_URL}/api/v1/messages`,
+                url: `https://${BASE_URL}/api/v1/messages`,
                 headers: {
                     'access-token': accessToken,
                     'client': client,
@@ -196,7 +196,7 @@ const apiHooks = () => {
         try {
             const response = await axios({
                 method: 'post',
-                url: `http://${BASE_URL}/api/v1/messages`,
+                url: `https://${BASE_URL}/api/v1/messages`,
                 headers: {
                     'access-token': accessToken,
                     'client': client,
