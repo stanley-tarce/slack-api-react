@@ -1,6 +1,6 @@
 import React from 'react'
 import './MainDisplay.css'
-import Coverphoto from '../Main Display/assets/front.svg'
+import Coverphoto from '../Main Display/assets/yellow2.svg'
 
 function MainDisplay() {
     return (
