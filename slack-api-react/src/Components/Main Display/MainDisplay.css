@@ -3,3 +3,60 @@
   height: 700px;
   border-top: 1px solid rgba(161, 161, 161, 35%);
 }
+
+.front-display {
+  background: url(./assets/yellow.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.cover-photo {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+ 
+}
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 40px;
+ 
+}
+
+.user-greeting {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 35px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.message-greeting {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.quotes {
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+}
+
+.list-of-quotes {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: #000000;
+}
