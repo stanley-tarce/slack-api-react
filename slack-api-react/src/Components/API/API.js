@@ -15,7 +15,7 @@ const apiHooks = () => {
      *  3. token ID 
      *  4. uid -> Email of User
     */
-    let BASE_URL = '206.189.91.54'
+    let BASE_URL = 'https://slackapi.avionschool.com/'
     let contentType = { 'Content-Type': 'application/x-www-form-urlencoded' }
     const postUserRegistration = async (dataRef) => {
 
