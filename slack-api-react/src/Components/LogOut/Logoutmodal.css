@@ -25,14 +25,14 @@
   right: 10px;
 }
 
-.logout-close-container{
+.logout-close-container {
   width: 100%;
   top: 20px;
   display: flex;
   justify-content: flex-end;
 }
 
-.logout-close{
+.logout-close {
   cursor: pointer;
 }
 
@@ -76,8 +76,17 @@
   height: 32px;
   font-weight: bold;
   background: #ffaf00;
-  border-radius: 10px;
+  border-radius: 5px;
+  color: white;
   font-family: "Roboto", sans-serif;
+  border: 1px solid #fff0d000;
+}
+
+.singoutButton:hover {
+  transition: 0.5s ease;
+  border: 1px solid #ffaf00;
+  color: #ffaf00;
+  background-color: white;
 }
 
 .userLogout {

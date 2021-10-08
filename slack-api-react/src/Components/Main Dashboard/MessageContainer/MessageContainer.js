@@ -1,26 +1,34 @@
 import React, { useEffect } from 'react'
 import './MessageContainer.css'
-import MessageBox from '../Message Box/MessageBox'
 import apiHooks from '../../API/API'
-
 import MessagesHolder from '../MessagesHolder/MessagesHolder'
 
-function MessageContainer({ mode, createMessageContainer, setMode, setCreateMessageContainer, channelData, header, userData }) {
-    const { getRetrieveAllMessagesInsideChannel, getRetrieveAllMessagesFromUser } = apiHooks()
+function MessageContainer({
+    mode,
+    createMessageContainer,
+    setCreateMessageContainer,
+    channelData,
+    header,
+    userData }) {
+    const {
+        getRetrieveAllMessagesInsideChannel,
+        getRetrieveAllMessagesFromUser } = apiHooks()
     useEffect(() => {
         if (mode === 'Channel' && (Object.values(userData).every(x => x !== '') || Object.values(channelData).every(x => x !== ''))) {
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesInsideChannel(header, channelData.channelId)
                 let temp = { ...result }
                 console.log(data)
-                setTimeout(() => setCreateMessageContainer(temp.data), 1000)
+                setTimeout(() => setCreateMessageContainer(temp.data), 7000)
+                return () => clearTimeout(setTimeout(() => setCreateMessageContainer(result.data), 7000))
             }
             retrieveDataAllMessages()
         }
         else if (mode === 'User' && (Object.values(userData).every(x => x !== '') || Object.values(channelData).every(x => x !== ''))) {
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesFromUser(header, userData.id)
-                setCreateMessageContainer(result.data)
+                setTimeout(() => setCreateMessageContainer(result.data), 7000)
+                return () => clearTimeout(setTimeout(() => setCreateMessageContainer(result.data), 7000))
             }
             retrieveDataAllMessages()
         }

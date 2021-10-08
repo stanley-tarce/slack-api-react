@@ -24,7 +24,7 @@
 .createMessage-Header {
   width: 100%;
   border-bottom: 1px solid #f2f3f7;
-  height: 20%;
+  height: 24%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -109,7 +109,7 @@
 .buttonSubmit {
   border: 0px;
   outline: none;
-  background-color: #fff0d0c4;
+  background-color: #ffaf00;
   border: 1px solid #fff0d000;
   padding: 10px;
   border-radius: 10px;
@@ -122,6 +122,7 @@
 
 .buttonSubmit:hover {
   background-color: white;
-  border: 1px solid #fff0d0c4;
-  color: #fff0d0c4;
+  border: 1px solid #ffaf00;
+  color: #ffaf00;
+  transition: 0.5s ease;
 }

@@ -67,7 +67,10 @@ function MainDashboard({
     setUserContainer
 }) {
     // ! START OF FUNCTIONS    
-    const { getAllUsersMain, getRetrieveAllChannels, getRetrieveAllMessagesFromUser } = apiHooks()
+    const {
+        getAllUsersMain,
+        getRetrieveAllChannels,
+        getRetrieveAllMessagesFromUser } = apiHooks()
     const refModalData = useRef(null)
     const refChannelModalSelectionData = useRef(null)
     const refChannelListModal = useRef(null)
@@ -90,16 +93,25 @@ function MainDashboard({
 
 
     const updateGetRetrieveAllChannels = useCallback(async (header) => {
-        const result = await getRetrieveAllChannels(header)
+        const result = await getRetrieveAllChannels(header).catch(error => console.log(error.response))
         let dataContainer = []
-        if (result && result?.data.length !== 0) {
-            result.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name, receiver_class: 'C' }])
-            dataContainer.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name))
-            setChannelList(dataContainer)
+        if (result.data.hasOwnProperty('errors')) {
+            setToast(true)
+            setFeedback([result.data.errors])
+            setOutcome('error')
+            setTimeout(() => setToast(false), 3000)
         }
         else {
-            console.log('Array Empty')
+            if (result && result?.data.length !== 0) {
+                result.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name, receiver_class: 'C' }])
+                dataContainer.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name))
+                setChannelList(dataContainer)
+            }
+            else {
+                console.log('Array Empty')
+            }
         }
+
     }, [getRetrieveAllChannels, setChannelList, openNewChannelLists])
 
     const getListsofUsers = useCallback(async (headers, userContainer) => {
@@ -210,39 +222,141 @@ function MainDashboard({
     return (
         <>
             <div className={"Main-DashBoard"}>
-                <div
-                    className={"sidebarHolder"}><Sidebar setCreateMessageContainer={setCreateMessageContainer} redirectToChannel={redirectToChannel} channelList={channelList} channelData={channelData} setChannelData={setChannelData} setMode={setMode} header={header} userMessageList={userMessageList} setUserData={setUserData} userData={userData} setUserMessageList={setUserMessageList} openNewChannelModal={openNewChannelModal} setOpenNewChannelModal={setOpenNewChannelModal}
-                        headerBarSearch={headerBarSearch} setOpenMessageModal={setOpenMessageModal}
-                    /></div>
-                <div className={"headerbarHolder"}><MainNavBar headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} setOpenChannelListMembers={setOpenChannelListMembers} openLogoutModal={openLogoutModal} setOpenLogoutModal={setOpenLogoutModal} /></div>
+                <div className={"sidebarHolder"}><Sidebar
+                    setCreateMessageContainer={setCreateMessageContainer}
+                    redirectToChannel={redirectToChannel}
+                    channelList={channelList}
+                    channelData={channelData}
+                    setChannelData={setChannelData}
+                    setMode={setMode}
+                    header={header}
+                    userMessageList={userMessageList}
+                    setUserData={setUserData}
+                    userData={userData}
+                    setUserMessageList={setUserMessageList}
+                    openNewChannelModal={openNewChannelModal}
+                    setOpenNewChannelModal={setOpenNewChannelModal}
+                    headerBarSearch={headerBarSearch}
+                    setOpenMessageModal={setOpenMessageModal}
+                /></div>
+                <div className={"headerbarHolder"}><MainNavBar
+                    headerBarSearch={headerBarSearch}
+                    setOpenUserListModal={setOpenUserListModal}
+                    setHeaderBarSearch={setHeaderBarSearch}
+                    setOpenChannelListMembers={setOpenChannelListMembers}
+                    openLogoutModal={openLogoutModal}
+                    setOpenLogoutModal={setOpenLogoutModal} /></div>
                 <div className={"MainBodyHolder"}>
                     <Switch>
                         <Route path={'/main/home'}>
-                            <MainDisplay header={header} />
+                            <MainDisplay
+                                header={header} />
                         </Route>
                         <Route path={'/main/messaging'}>
-                            <MainBody mode={mode} createMessageContainer={createMessageContainer} setMode={setMode} setCreateMessageContainer={setCreateMessageContainer} channelData={channelData} header={header} message={message} setMessage={setMessage} userData={userData} setOpenChannelListMembers={setOpenChannelListMembers} userList={userList} />
+                            <MainBody
+                                mode={mode}
+                                createMessageContainer={createMessageContainer}
+                                setMode={setMode}
+                                setCreateMessageContainer={setCreateMessageContainer}
+                                channelData={channelData}
+                                header={header}
+                                message={message}
+                                setMessage={setMessage}
+                                userData={userData}
+                                setOpenChannelListMembers={setOpenChannelListMembers}
+                                userList={userList} />
                         </Route>
                     </Switch>
                 </div>
             </div>
 
-            {openUserListModal && <TotalUserListModal userList={userList} headerBarSearch={headerBarSearch} setOpenUserListModal={setOpenUserListModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserDataModal={setOpenUserDataModal} setUserDetails={setUserDetails} userDetails={userDetails} setOpenChannelListMembers={setOpenChannelListMembers} setChannelListSearch={setChannelListSearch} />}
+            {openUserListModal && <TotalUserListModal
+                userList={userList}
+                headerBarSearch={headerBarSearch}
+                setOpenUserListModal={setOpenUserListModal}
+                setHeaderBarSearch={setHeaderBarSearch}
+                setOpenUserDataModal={setOpenUserDataModal}
+                setUserDetails={setUserDetails}
+                userDetails={userDetails}
+                setOpenChannelListMembers={setOpenChannelListMembers}
+                setChannelListSearch={setChannelListSearch} />}
 
-            {openUserDataModal && <UserListModal refModalData={refModalData} userDetails={userDetails} setOpenUserDataModal={setOpenUserDataModal} setOpenChannelListModal={setOpenChannelListModal} setRedirectToChannel={setRedirectToChannel} userData={userData} setUserData={setUserData} setMode={setMode} userMessageList={userMessageList} setUserMessageList={setUserMessageList} />}
+            {openUserDataModal && <UserListModal
+                refModalData={refModalData}
+                userDetails={userDetails}
+                setOpenUserDataModal={setOpenUserDataModal}
+                setOpenChannelListModal={setOpenChannelListModal}
+                setRedirectToChannel={setRedirectToChannel}
+                userData={userData}
+                setUserData={setUserData}
+                setMode={setMode}
+                userMessageList={userMessageList}
+                setUserMessageList={setUserMessageList} />}
 
-            {openChannelListModal && <InviteUserChannel channelList={channelList} setChannelData={setChannelData} userDetails={userDetails} channelData={channelData} header={header} setOpenChannelListModal={setOpenChannelListModal} refChannelModalSelectionData={refChannelModalSelectionData} setRedirectToChannel={setRedirectToChannel} setToast={setToast} setFeedback={setFeedback} setOutcome={setOutcome} />}
+            {openChannelListModal && <InviteUserChannel
+                channelList={channelList}
+                setChannelData={setChannelData}
+                userDetails={userDetails}
+                channelData={channelData}
+                header={header}
+                setOpenChannelListModal={setOpenChannelListModal}
+                refChannelModalSelectionData={refChannelModalSelectionData}
+                setRedirectToChannel={setRedirectToChannel}
+                setToast={setToast}
+                setFeedback={setFeedback}
+                setOutcome={setOutcome} />}
 
-            {openNewChannelModal && <CreateNewChannel openNewChannelModal={openNewChannelModal} setOpenNewChannelModal={setOpenNewChannelModal} header={header} openNewChannelLists={openNewChannelLists} setOpenNewChannelLists={setOpenNewChannelLists} userList={userList} newChannelListSearch={newChannelListSearch} setNewChannelListSearch={setNewChannelListSearch} setToast={setToast} setFeedback={setFeedback} setOutcome={setOutcome} setChannelList={setChannelList} />}
+            {openNewChannelModal && <CreateNewChannel
+                openNewChannelModal={openNewChannelModal}
+                setOpenNewChannelModal={setOpenNewChannelModal}
+                header={header}
+                openNewChannelLists={openNewChannelLists}
+                setOpenNewChannelLists={setOpenNewChannelLists}
+                userList={userList}
+                newChannelListSearch={newChannelListSearch}
+                setNewChannelListSearch={setNewChannelListSearch}
+                setToast={setToast}
+                setFeedback={setFeedback}
+                setOutcome={setOutcome}
+                setChannelList={setChannelList} />}
 
 
-            {openLogoutModal && <Logoutmodal openLogoutModal={openLogoutModal} setOpenLogoutModal={setOpenLogoutModal} header={header} setHeader={setHeader} />}
+            {openLogoutModal && <Logoutmodal
+                openLogoutModal={openLogoutModal}
+                setOpenLogoutModal={setOpenLogoutModal}
+                header={header}
+                setHeader={setHeader} />}
 
 
-            {openChannelListMembers && <ChannelListModal userList={userList} channelData={channelData} refChannelListModal={refChannelListModal} setOpenChannelListMembers={setOpenChannelListMembers} setOpenUserDataModal={setOpenUserDataModal} setHeaderBarSearch={setHeaderBarSearch} setOpenUserListModal={setOpenUserListModal} userDetails={userDetails} setUserDetails={setUserDetails} channelListSearch={channelListSearch} setChannelListSearch={setChannelListSearch} />}
+            {openChannelListMembers && <ChannelListModal
+                userList={userList}
+                channelData={channelData}
+                refChannelListModal={refChannelListModal}
+                setOpenChannelListMembers={setOpenChannelListMembers}
+                setOpenUserDataModal={setOpenUserDataModal}
+                setHeaderBarSearch={setHeaderBarSearch}
+                setOpenUserListModal={setOpenUserListModal}
+                userDetails={userDetails}
+                setUserDetails={setUserDetails}
+                channelListSearch={channelListSearch}
+                setChannelListSearch={setChannelListSearch} />}
 
-            {openMessageModal && <NewMessageModal setOpenMessageModal={setOpenMessageModal} userList={userList} setMode={setMode} setUserData={setUserData} userData={userData} setUserMessageList={setUserMessageList} userMessageList={userMessageList} messageSearchResult={messageSearchResult} setMessageSearchResult={setMessageSearchResult} userContainer={userContainer}
-                setUserContainer={setUserContainer} header={header} setToast={setToast} setOutcome={setOutcome} setFeedback={setFeedback} />}
+            {openMessageModal && <NewMessageModal
+                setOpenMessageModal={setOpenMessageModal}
+                userList={userList}
+                setMode={setMode}
+                setUserData={setUserData}
+                userData={userData}
+                setUserMessageList={setUserMessageList}
+                userMessageList={userMessageList}
+                messageSearchResult={messageSearchResult}
+                setMessageSearchResult={setMessageSearchResult}
+                userContainer={userContainer}
+                setUserContainer={setUserContainer}
+                header={header}
+                setToast={setToast}
+                setOutcome={setOutcome}
+                setFeedback={setFeedback} />}
 
 
         </>

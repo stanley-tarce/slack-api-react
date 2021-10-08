@@ -52,7 +52,16 @@
   font-weight: normal;
   font-size: 10px;
   line-height: 12px;
-  background: #fff0d0;
+  background: #ffaf00;
   border-radius: 5px;
   border: 0px;
+  color: white;
+  border: 1px solid #fff0d000;
+}
+
+.buttonContainer > *:hover {
+  transition: 0.5s ease;
+  background: white;
+  color: #ffaf00;
+  border: 1px solid #ffaf00;
 }

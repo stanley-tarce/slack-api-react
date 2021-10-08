@@ -81,86 +81,85 @@ function App() {
 
   return (
     <>
-      <Router>
-        <div className="App">
-          <Switch>
-            <Route exact path="/">
-              <Login
-                header={header}
-                setHeader={setHeader}
-                setToast={setToast}
-                setFeedback={setFeedback}
-                setOutcome={setOutcome}
-                toast={toast}
-              />
 
-            </Route>
-            <Route path="/signup">
-              <Signup
-                setToast={setToast}
-                setOutcome={setOutcome}
-                toast={toast}
-                setFeedback={setFeedback}
-              />
-            </Route>
-            <Route path="/main">
-              <MainDashboard
-                header={header}
-                setHeader={setHeader}
-                userList={userList}
-                setUserList={setUserList}
-                channelList={channelList}
-                setChannelList={setChannelList}
-                openUserListModal={openUserListModal}
-                setOpenUserListModal={setOpenUserListModal}
-                setOpenLogoutModal={setOpenLogoutModal}
-                openLogoutModal={openLogoutModal}
-                headerBarSearch={headerBarSearch}
-                setHeaderBarSearch={setHeaderBarSearch}
-                setOpenUserDataModal={setOpenUserDataModal}
-                openUserDataModal={openUserDataModal}
-                userDetails={userDetails}
-                setUserDetails={setUserDetails}
-                openChannelListModal={openChannelListModal}
-                setOpenChannelListModal={setOpenChannelListModal}
-                channelData={channelData}
-                setChannelData={setChannelData}
-                mode={mode}
-                createMessageContainer={createMessageContainer}
-                setCreateMessageContainer={setCreateMessageContainer}
-                setMode={setMode}
-                message={message}
-                setMessage={setMessage}
-                redirectToChannel={redirectToChannel}
-                setRedirectToChannel={setRedirectToChannel}
-                userMessageList={userMessageList}
-                setUserMessageList={setUserMessageList}
-                setUserData={setUserData}
-                userData={userData}
-                openNewChannelModal={openNewChannelModal}
-                setOpenNewChannelModal={setOpenNewChannelModal}
-                openNewChannelLists={openNewChannelLists}
-                setOpenNewChannelLists={setOpenNewChannelLists}
-                newChannelListSearch={newChannelListSearch}
-                setNewChannelListSearch={setNewChannelListSearch}
-                setToast={setToast}
-                setFeedback={setFeedback}
-                setOutcome={setOutcome}
-                openChannelListMembers={openChannelListMembers}
-                setOpenChannelListMembers={setOpenChannelListMembers}
-                channelListSearch={channelListSearch}
-                setChannelListSearch={setChannelListSearch}
-                openMessageModal={openMessageModal}
-                setOpenMessageModal={setOpenMessageModal}
-                messageSearchResult={messageSearchResult}
-                setMessageSearchResult={setMessageSearchResult}
-                userContainer={userContainer}
-                setUserContainer={setUserContainer}
-              />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Login
+              header={header}
+              setHeader={setHeader}
+              setToast={setToast}
+              setFeedback={setFeedback}
+              setOutcome={setOutcome}
+              toast={toast}
+            />
+
+          </Route>
+          <Route path="/signup">
+            <Signup
+              setToast={setToast}
+              setOutcome={setOutcome}
+              toast={toast}
+              setFeedback={setFeedback}
+            />
+          </Route>
+          <Route path="/main">
+            <MainDashboard
+              header={header}
+              setHeader={setHeader}
+              userList={userList}
+              setUserList={setUserList}
+              channelList={channelList}
+              setChannelList={setChannelList}
+              openUserListModal={openUserListModal}
+              setOpenUserListModal={setOpenUserListModal}
+              setOpenLogoutModal={setOpenLogoutModal}
+              openLogoutModal={openLogoutModal}
+              headerBarSearch={headerBarSearch}
+              setHeaderBarSearch={setHeaderBarSearch}
+              setOpenUserDataModal={setOpenUserDataModal}
+              openUserDataModal={openUserDataModal}
+              userDetails={userDetails}
+              setUserDetails={setUserDetails}
+              openChannelListModal={openChannelListModal}
+              setOpenChannelListModal={setOpenChannelListModal}
+              channelData={channelData}
+              setChannelData={setChannelData}
+              mode={mode}
+              createMessageContainer={createMessageContainer}
+              setCreateMessageContainer={setCreateMessageContainer}
+              setMode={setMode}
+              message={message}
+              setMessage={setMessage}
+              redirectToChannel={redirectToChannel}
+              setRedirectToChannel={setRedirectToChannel}
+              userMessageList={userMessageList}
+              setUserMessageList={setUserMessageList}
+              setUserData={setUserData}
+              userData={userData}
+              openNewChannelModal={openNewChannelModal}
+              setOpenNewChannelModal={setOpenNewChannelModal}
+              openNewChannelLists={openNewChannelLists}
+              setOpenNewChannelLists={setOpenNewChannelLists}
+              newChannelListSearch={newChannelListSearch}
+              setNewChannelListSearch={setNewChannelListSearch}
+              setToast={setToast}
+              setFeedback={setFeedback}
+              setOutcome={setOutcome}
+              openChannelListMembers={openChannelListMembers}
+              setOpenChannelListMembers={setOpenChannelListMembers}
+              channelListSearch={channelListSearch}
+              setChannelListSearch={setChannelListSearch}
+              openMessageModal={openMessageModal}
+              setOpenMessageModal={setOpenMessageModal}
+              messageSearchResult={messageSearchResult}
+              setMessageSearchResult={setMessageSearchResult}
+              userContainer={userContainer}
+              setUserContainer={setUserContainer}
+            />
+          </Route>
+        </Switch>
+      </div>
       {toast && <ErrorHandlingContainer
         feedback={feedback}
         outcome={outcome}

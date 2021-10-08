@@ -56,6 +56,7 @@ function Login({ header, setHeader, setOutcome, setFeedback, setToast, toast }) 
 
             })
             .catch(error => {
+                console.log(error.response)
                 const { data: { errors } } = error.response
                 console.log(error.response)
                 setOutcome('error')

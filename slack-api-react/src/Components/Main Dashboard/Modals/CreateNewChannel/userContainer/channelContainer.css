@@ -1,0 +1,16 @@
+.channel-user-container {
+  width: 100%;
+  height: fit-content;
+}
+
+.channel-user-container p {
+  width: 100%;
+  font-size: 12px;
+  margin-top: 0px;
+  margin-left: 20px;
+  pointer-events: none;
+}
+
+.channel-user-container:hover {
+  background-color: #fff0d0c3;
+}
