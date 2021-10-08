@@ -35,6 +35,7 @@ function MessageInput({ setMessage, message, header, channelData, mode, userData
             }
             postCreateDirectMessagetoUser(header, data)
         }
+        body.current.value = ""
     }
 
     const body = useRef()

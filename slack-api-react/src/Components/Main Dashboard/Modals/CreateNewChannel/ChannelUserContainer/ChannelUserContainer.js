@@ -1,7 +1,15 @@
 import React from 'react'
 import './ChannelUserContainer.css'
 
-function ChannelUserContainer({ id, uid, openNewChannelLists, setOpenNewChannelLists, setNewChannelListSearch, setFeedback, setToast, setOutcome }) {
+function ChannelUserContainer({
+    id,
+    uid,
+    openNewChannelLists,
+    setOpenNewChannelLists,
+    setNewChannelListSearch,
+    setFeedback,
+    setToast,
+    setOutcome }) {
     const name = uid.split('@')[0]
 
     const sendData = (event) => {

@@ -1,13 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import './CreateNewChannel.css'
 import close from './assets/close.png'
 import apiHooks from '../../../API/API'
-import { useHistory } from 'react-router-dom'
+
 import CreateNewChannelCard from './CreateNewChannelCard'
 import ChannelUserContainer from './ChannelUserContainer/ChannelUserContainer'
 
 const CreateNewChannel = (
-    { openNewChannelModal,
+    {
         setOpenNewChannelModal,
         header,
         openNewChannelLists,

@@ -13,14 +13,6 @@ const Logoutmodal = ({ openLogoutModal, setOpenLogoutModal, header, setHeader })
 
     let history = useHistory();
     const signOutButton = () => {
-        // setHeader({
-        //     ...header,
-        //     expiry: '',
-        //     uid: '',
-        //     accessToken: '',
-        //     client: ''
-        // })
-
         setHeader(null)
         setOpenLogoutModal(false)
         history.push('/');
