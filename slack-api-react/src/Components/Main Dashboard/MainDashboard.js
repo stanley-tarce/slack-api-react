@@ -218,7 +218,7 @@ function MainDashboard({
                 <div className={"MainBodyHolder"}>
                     <Switch>
                         <Route path={'/main/home'}>
-                            <MainDisplay />
+                            <MainDisplay header={header} />
                         </Route>
                         <Route path={'/main/messaging'}>
                             <MainBody mode={mode} createMessageContainer={createMessageContainer} setMode={setMode} setCreateMessageContainer={setCreateMessageContainer} channelData={channelData} header={header} message={message} setMessage={setMessage} userData={userData} setOpenChannelListMembers={setOpenChannelListMembers} userList={userList} />

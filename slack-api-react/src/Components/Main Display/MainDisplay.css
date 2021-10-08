@@ -8,13 +8,11 @@
   background: url(./assets/yellow.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
 .cover-photo {
   display: flex;
   justify-content: center;
   padding-top: 50px;
- 
 }
 
 .welcome-message {
@@ -22,14 +20,13 @@
   flex-direction: column;
   justify-content: space-around;
   padding-left: 40px;
- 
 }
 
 .user-greeting {
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 50px;
   line-height: 35px;
   display: flex;
   align-items: center;
@@ -37,7 +34,7 @@
 }
 
 .message-greeting {
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
