@@ -16,7 +16,7 @@
   height: 50%;
   top: 10em;
   right: 35vw;
-  background-color: white;
+  background-color: #fff0d0;
   display: flex;
 
   align-items: center;
@@ -85,10 +85,11 @@
   border-radius: 0.2em;
 }
 
+
 .newchannel-submit{
   font-size: 1em;
   padding: 0.5em;
-  background-color: #fff0d0;
+  background-color: #ffaf00;
   border-radius: 0.5em;
   cursor: pointer;
 }
@@ -96,5 +97,5 @@
 .channelcard{
   height: 20%;
   margin: 0.3em;
-  background-color: #fff0d0;
+  background-color: #ffaf00;
 }
