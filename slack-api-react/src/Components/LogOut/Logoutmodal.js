@@ -7,9 +7,9 @@ import usericon from "../LogOut/usericon/usericon.svg"
 import { useHistory } from 'react-router'
 
 const Logoutmodal = ({ openLogoutModal, setOpenLogoutModal, header, setHeader }) => {
-    const {uid} = header
+    const { uid } = header
     const name = uid.split('@')[0]
-    
+
     let history = useHistory();
     const signOutButton = () => {
         // setHeader({
@@ -21,11 +21,11 @@ const Logoutmodal = ({ openLogoutModal, setOpenLogoutModal, header, setHeader })
         // })
 
         setHeader(null)
-        
+        setOpenLogoutModal(false)
         history.push('/');
         console.log(header)
     }
-    
+
     return (
 
         <div className="logoutmodal">

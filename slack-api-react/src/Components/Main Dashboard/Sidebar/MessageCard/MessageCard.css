@@ -1,9 +1,11 @@
 .messageCardContainer {
-  width: 100%;
+  width: 90%;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  border-radius: 10px;
+  cursor: pointer;
 }
 .messageCardContainer:first-child {
   margin-top: 10px;
@@ -36,10 +38,14 @@
   height: 30px;
 }
 .messageCardContainer:hover {
-  background: rgba(255, 175, 0, 0.7);
+  background: rgba(255, 175, 0, 0.4);
 }
 .messageCardContainer .messageCard:active {
   background: #ffaf00;
+}
+
+.focus {
+  background: rgba(255, 175, 0, 0.4);
 }
 
 .messageCardContainer .Remove {
@@ -52,4 +58,8 @@
 
 .messageCardContainer .messageCard .messageWrapper p {
   pointer-events: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #591035;
 }

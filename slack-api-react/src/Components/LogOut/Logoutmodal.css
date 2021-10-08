@@ -2,10 +2,11 @@
   height: 100vh;
   width: 100vw;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 0;
   left: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 .logoutCard {
@@ -16,13 +17,12 @@
   width: 316px;
   height: 428px;
   position: absolute;
-  top: 80px;
-  margin-right: 80px;
-  background: #f3f3f4;
-  border: 1px solid #000000;
+  top: 50px;
+  background: #fff0d0;
+  border: 1px solid rgba(161, 161, 161, 35%);
   box-sizing: border-box;
   z-index: 1;
-  right: 0;
+  right: 10px;
 }
 
 .userImage {
@@ -46,6 +46,7 @@
   line-height: 28px;
   text-align: center;
   color: #000000;
+  font-family: "Roboto", sans-serif;
 }
 
 .userEmail {
@@ -56,6 +57,7 @@
   font-size: 14px;
   line-height: 16px;
   color: #000000;
+  font-family: "Roboto", sans-serif;
 }
 
 .singoutButton {
@@ -64,6 +66,7 @@
   font-weight: bold;
   background: #ffaf00;
   border-radius: 10px;
+  font-family: "Roboto", sans-serif;
 }
 
 .userLogout {

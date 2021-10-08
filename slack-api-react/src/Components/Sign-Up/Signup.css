@@ -5,7 +5,7 @@
   display: flex;
 }
 .SVG-Photo {
-  width: 30%;
+  width: 90%;
   height: 100vh;
   background: url("./Assets/SignupVector.svg");
   background-position: center;
@@ -61,8 +61,8 @@ form input {
 }
 
 /*Button Edit*/
-form button {
-  background: #ffaf00;
+form .active-button {
+  background: #ffae00b3;
   border-radius: 8px;
   width: 220px;
   height: 45px;
@@ -76,11 +76,39 @@ form button {
   cursor: pointer;
 }
 
-form button:hover {
+form .active-button:hover {
   transition: 0.5s;
   border: 1px solid #ffaf00;
   color: #ffaf00;
   background: white;
+}
+
+form .active-button {
+  background: #ffaf00;
+  border-radius: 8px;
+  width: 220px;
+  height: 45px;
+  color: white;
+  border: 0px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  cursor: pointer;
+}
+form .disabled-button {
+  background: #f3f3f3;
+  border-radius: 8px;
+  width: 220px;
+  height: 45px;
+  color: white;
+  border: 0px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
 }
 
 /*Forward to Sign in*/

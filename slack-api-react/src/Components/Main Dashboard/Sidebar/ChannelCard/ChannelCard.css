@@ -2,9 +2,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: auto;
+  width: 90%;
   height: 40px;
   gap: 5px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .channelCard > * {
@@ -19,14 +21,18 @@
   margin-left: 10px;
 }
 .channelCard:hover {
-  background: rgba(255, 175, 0, 0.7);
+  background: rgba(255, 175, 0, 0.4);
 }
-.channelCard:active {
-  background: #ffaf00;
+.focus {
+  background: rgba(255, 175, 0, 0.4);
 }
 
 .channelCard p {
   position: relative;
   margin-left: 10px;
   z-index: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #591035;
 }

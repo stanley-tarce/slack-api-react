@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Sidebar.css'
 import ChannelCard from './ChannelCard/ChannelCard'
 import MessageCard from './MessageCard/MessageCard'
@@ -17,6 +17,8 @@ function Sidebar({
 	setUserMessageList,
 	openNewChannelModal,
 	setOpenNewChannelModal }) {
+	const [closeChannel, setCloseChannel] = useState(false)
+	const [closeMessage, setCloseMessage] = useState(false)
 	const history = useHistory()
 	return (
 		<div className={"Main-Sidebar"}>
@@ -26,11 +28,11 @@ function Sidebar({
 			</div>
 			<div className={'SideBar-Channel-Container'}>
 				<div className={'SideBar-Channel-Title'}>
-					<div className={"DropDown"}></div>
-					<p>Channel</p>
+					<div onClick={(e) => setCloseChannel(!closeChannel)} className={closeChannel ? "DropDownChannel-Closed " : "DropDownChannel"}></div>
+					<p>CHANNEL</p>
 
 				</div>
-				<div className={'SideBar-Channel-Lists'}>
+				<div className={closeChannel ? 'SideBar-Channel-Lists-Closed' : 'SideBar-Channel-Lists'}>
 					{channelList.length !== 0 && channelList.map((channel, index) =>
 						<ChannelCard
 							key={index}
@@ -44,10 +46,6 @@ function Sidebar({
 							redirectToChannel={redirectToChannel}
 							setCreateMessageContainer={setCreateMessageContainer} />
 					)}
-					{/** 
-					Insert Channel Card JS Here
-					 1. Create a card for mapping channel lists with left margin of 10 px 
-					 2. Map the channel list with the API Data  */}
 				</div>
 				<div className={'SideBar-Channel-CreateChannel'} onClick={() => { setOpenNewChannelModal(!openNewChannelModal) }}>
 					<div ></div>
@@ -57,11 +55,11 @@ function Sidebar({
 			</div>
 			<div className={'SideBar-Message-Container'}>
 				<div className={'SideBar-Message-Title'}>
-					<div className={"DropDown"}></div>
-					<p>Message</p>
+					<div onClick={(e) => setCloseMessage(!closeMessage)} className={closeMessage ? "DropDownMessage-Closed " : "DropDownMessage"}></div>
+					<p>MESSAGE</p>
 
 				</div>
-				<div className={'SideBar-Message-Lists'}>
+				<div className={closeMessage ? 'SideBar-Message-Lists-Closed' : 'SideBar-Message-Lists'}>
 					{userMessageList && userMessageList.length !== 0 && userMessageList.map((user, index) =>
 						<MessageCard
 							key={index}

@@ -149,7 +149,8 @@ function App() {
       </Router>
       {toast && <ErrorHandlingContainer
         feedback={feedback}
-        outcome={outcome} />}
+        outcome={outcome}
+        setFeedback={setFeedback} />}
     </>
   );
 }

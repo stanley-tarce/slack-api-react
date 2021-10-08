@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './MessageCard.css'
 import { useHistory } from 'react-router-dom'
 
@@ -14,7 +14,10 @@ function MessageCard({
     userMessageList }) {
     let name = uid.split('@')[0]
     const history = useHistory()
+    const refDiv2 = useRef(null)
+    const [focus, setFocus] = useState('null')
     const retrieveUserData = (event) => {
+        setFocus('focus')
         event.preventDefault()
         setUserData({
             ...userData,
@@ -26,7 +29,24 @@ function MessageCard({
         setMode('User')
         history.push(`/main/messaging/User/${event.target.dataset.id}`)
     }
+    const CloseRefDiv = (ref) => {
+        useEffect(() => {
+            const handleCloseRefDiv = (event) => {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    setFocus('null')
+
+                }
+
+
+            }
+            document.addEventListener("mousedown", handleCloseRefDiv)
+            return () => document.removeEventListener("mousedown", handleCloseRefDiv)
+        }
+            , [ref])
+    }
+    CloseRefDiv(refDiv2)
     const removeUserData = (event) => {
+
         console.log(event)
         console.log(event.target.dataset.index1)
         // let newContainer = userMessageList
@@ -44,8 +64,8 @@ function MessageCard({
 
 
     return (
-        <div className={'messageCardContainer'}>
-            <div className={"messageCard"} onClick={(e) => retrieveUserData(e)} data-uid={uid} data-id={id}>
+        <div ref={refDiv2} className={`messageCardContainer ${focus}`}>
+            <div className={`messageCard`} onClick={(e) => retrieveUserData(e)} data-uid={uid} data-id={id}>
                 <div className={"messageWrapper"}>
                     <div></div>
                     <p>{name}</p>

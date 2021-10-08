@@ -38,6 +38,8 @@
   width: 40px;
   height: 40px;
   background: transparent;
+  border: 0px;
+  cursor: pointer;
 }
 
 .Command-Icons {

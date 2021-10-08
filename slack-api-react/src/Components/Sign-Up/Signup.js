@@ -6,12 +6,21 @@ import { useHistory } from 'react-router-dom'
 function Signup({ toast, setToast, setOutcome, setFeedback }) {
     const emailInput = useRef()
     const passwordInput = useRef()
+    const [style, setStyle] = useState('disabled')
     const confirmPasswordInput = useRef()
     const { postUserRegistration } = apiHooks()
     const [checked, setChecked] = useState(false)
     const [button, setButton] = useState(true)
     const history = useHistory()
     useEffect(() => {
+        if (checked === true) {
+            setButton(false)
+            setStyle('active')
+        }
+        else {
+            setButton(true)
+            setStyle('disabled')
+        }
         checked ? setButton(false) : setButton(true)
     }, [checked])
 
@@ -65,7 +74,7 @@ function Signup({ toast, setToast, setOutcome, setFeedback }) {
                                 <input type="checkbox" id="checkbox" name="vehicle1" defaultChecked={checked} onChange={() => setChecked(!checked)} required />
                                 <label>Creating an account meants you’re okay with our <span id={"anchor"}>Terms of Service, Privacy Policy,</span> and our <span id={"anchor"}>default Notification Settings</span></label>
                             </div>
-                            <button disabled={button} onSubmit={(e) => onButtonSubmit(e)}>Sign Up</button>
+                            <button disabled={button} className={`${style}-button`} onSubmit={(e) => onButtonSubmit(e)}>Sign Up</button>
                         </form>
                     </div>
                 </div>

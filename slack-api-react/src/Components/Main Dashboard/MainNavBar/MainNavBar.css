@@ -55,7 +55,7 @@
 
 .user-image {
   background: url("./Assets/UserAvatar.svg") no-repeat center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   position: absolute;
   margin-right: 10px;
