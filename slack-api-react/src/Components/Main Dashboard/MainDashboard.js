@@ -90,16 +90,25 @@ function MainDashboard({
 
 
     const updateGetRetrieveAllChannels = useCallback(async (header) => {
-        const result = await getRetrieveAllChannels(header)
+        const result = await getRetrieveAllChannels(header).catch(error => console.log(error.response))
         let dataContainer = []
-        if (result && result?.data.length !== 0) {
-            result.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name, receiver_class: 'C' }])
-            dataContainer.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name))
-            setChannelList(dataContainer)
+        if (result.data.hasOwnProperty('errors')) {
+            setToast(true)
+            setFeedback([result.data.errors])
+            setOutcome('error')
+            setTimeout(() => setToast(false), 3000)
         }
         else {
-            console.log('Array Empty')
+            if (result && result?.data.length !== 0) {
+                result.data.data.map(data2 => dataContainer = [...dataContainer, { channelId: data2.id, owner: data2['owner_id'], name: data2.name, receiver_class: 'C' }])
+                dataContainer.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name))
+                setChannelList(dataContainer)
+            }
+            else {
+                console.log('Array Empty')
+            }
         }
+
     }, [getRetrieveAllChannels, setChannelList, openNewChannelLists])
 
     const getListsofUsers = useCallback(async (headers, userContainer) => {

@@ -13,14 +13,16 @@ function MessageContainer({ mode, createMessageContainer, setMode, setCreateMess
                 const result = await getRetrieveAllMessagesInsideChannel(header, channelData.channelId)
                 let temp = { ...result }
                 console.log(data)
-                setTimeout(() => setCreateMessageContainer(temp.data), 1000)
+                setTimeout(() => setCreateMessageContainer(temp.data), 20000)
+                return () => clearTimeout(setTimeout(() => setCreateMessageContainer(result.data), 20000))
             }
             retrieveDataAllMessages()
         }
         else if (mode === 'User' && (Object.values(userData).every(x => x !== '') || Object.values(channelData).every(x => x !== ''))) {
             const retrieveDataAllMessages = async () => {
                 const result = await getRetrieveAllMessagesFromUser(header, userData.id)
-                setCreateMessageContainer(result.data)
+                setTimeout(() => setCreateMessageContainer(result.data), 20000)
+                return () => clearTimeout(setTimeout(() => setCreateMessageContainer(result.data), 20000))
             }
             retrieveDataAllMessages()
         }
