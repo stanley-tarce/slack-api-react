@@ -26,6 +26,10 @@ const Logoutmodal = ({ openLogoutModal, setOpenLogoutModal, header, setHeader })
         console.log(header)
     }
     
+    // const closeModal = (event) => {
+    //     event.preventDefault()
+    //     setOpenLogoutModal(false)
+    // }
     return (
 
         <div className="logoutmodal">

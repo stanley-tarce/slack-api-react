@@ -29,6 +29,7 @@ const CreateNewChannel = (
     }
 
 
+
     // const handleNameChange = (e) => {
     //     setChannelName(e.target.value);
     // }
@@ -76,13 +77,13 @@ const CreateNewChannel = (
                     <img onClick={(e) => closeModal(e)} src={close}></img>
                 </div>
                 <input type="text" placeholder="Channel Name" className="channelName" ref={channelName}></input>
-                <input type="text" placeholder="Search users..." className="newchannel-user-search" onChange={(e) => setNewChannelListSearch(e.target.value)}></input>
-                <div className="user-containers">
-                    {userList.length !== 0 && userList
+                <input type="text" placeholder="Search users..." className="newchannel-user-search" value={newChannelListSearch} onChange={(e) => setNewChannelListSearch(e.target.value)}></input>
+                <div className="user-containers" style={{display: newChannelListSearch.length !== 0? "block": "none"}}>
+                    {newChannelListSearch.length !== 0 && userList
                         .filter(user => user.uid.toLowerCase().includes(newChannelListSearch.toLowerCase()))
                         .map((account, index) =>
                             <ChannelUserContainer key={index} id={account.id} uid={account.uid} openNewChannelLists={openNewChannelLists} setOpenNewChannelLists={setOpenNewChannelLists}
-                            />
+                            setNewChannelListSearch={setNewChannelListSearch}/>
                         )}
                 </div>
                 <div className="inv-mems">
