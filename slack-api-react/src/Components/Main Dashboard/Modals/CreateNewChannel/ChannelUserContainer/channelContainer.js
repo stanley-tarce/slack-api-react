@@ -1,5 +1,5 @@
 import React from 'react'
-import './ChannelUserContainer.css'
+import './channelContainer.css'
 
 function ChannelUserContainer({
     id,
