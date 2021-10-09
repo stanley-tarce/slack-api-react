@@ -58,7 +58,6 @@ function MessageCard({
                 uid: temp_array[temp_array.length - 1].uid
             }
             )
-            setCreateMessageContainer([])
             setMode('User')
             history.push(`/main/messaging/User/${temp_array[temp_array.length - 1].id}`)
 
