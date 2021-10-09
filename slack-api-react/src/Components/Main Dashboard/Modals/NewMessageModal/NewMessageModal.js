@@ -31,6 +31,7 @@ function NewMessageModal({ userList, setOpenMessageModal, setUserData, setMode, 
         e.preventDefault()
         let container = []
         let checkDuplicateContainer = [...userMessageList]
+        console.log(checkDuplicateContainer)
         if (bodyRef.current.value.length === 0 || !bodyRef.current.value) {
             setToast(true)
             setFeedback(['Message Body is empty'])
@@ -49,7 +50,7 @@ function NewMessageModal({ userList, setOpenMessageModal, setUserData, setMode, 
                 checkDuplicateContainer.forEach(duplicate => {
                     console.log(duplicate.id)
                     console.log(user.id)
-                    if ((duplicate.id === user.id) && (duplicate.uid === user.uid)) {
+                    if ((duplicate.id.toString() === user.id) && (duplicate.uid.toString() === user.uid)) {
                         console.log('Found one match')
                         counts = counts + 1
                         console.log(counts)
