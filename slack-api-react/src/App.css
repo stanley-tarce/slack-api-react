@@ -2,7 +2,7 @@
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 175, 0, 0.4) #fff0d0;
+  scrollbar-color: rgba(255, 175, 0, 0.4) transparent;
   font-family: "Roboto", sans-serif;
 }
 
@@ -12,7 +12,7 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: #fff0d0;
+  background: transparent;
 }
 
 *::-webkit-scrollbar-thumb {

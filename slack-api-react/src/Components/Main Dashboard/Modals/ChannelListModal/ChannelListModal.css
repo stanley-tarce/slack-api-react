@@ -22,10 +22,11 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  border-radius: 2em;
-  border: 1px solid #a1a1a1;
+  border-radius: 30px;
+  border: 1px solid rgba(161, 161, 161, 35%);
   position: absolute;
   z-index: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 .modal-header {
@@ -34,7 +35,7 @@
   align-items: center;
   position: relative;
   width: 100%;
-  border-bottom: 1px solid #a1a1a1;
+  border-bottom: 1px solid rgba(161, 161, 161, 35%);
 }
 
 .modal-title {
@@ -80,10 +81,11 @@
 
 .search-container {
   display: flex;
-  border: 1px solid #ccc;
+  background-color: #f2f3f7;
   /* border-radius: 5px; */
   margin-top: 5%;
   width: 80%;
+  border-radius: 5px;
 }
 
 .searchIcon {
@@ -91,7 +93,9 @@
 }
 
 .search {
-  padding: 0.5rem;
+  background-color: #f2f3f7;
+  outline: 0;
+  background-color: transparent;
   flex: 1;
   size: 80%;
   border: 0px;
@@ -101,6 +105,7 @@
 }
 
 .member-list {
+  border: 1px solid rgba(161, 161, 161, 50%);
   width: 90%;
   height: 50%;
   overflow: auto;
