@@ -47,6 +47,7 @@
   background: url("./Assets/Close.svg");
   margin-right: 18px;
   margin-bottom: 50px;
+  cursor: pointer;
 }
 
 .createMessage-container .searchResults {
