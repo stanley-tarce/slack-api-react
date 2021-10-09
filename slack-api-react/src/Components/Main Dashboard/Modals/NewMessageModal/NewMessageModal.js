@@ -33,6 +33,7 @@ function NewMessageModal({ userList, setOpenMessageModal, setUserData, setMode, 
         let checkDuplicateContainer = [...userMessageList]
         console.log(checkDuplicateContainer)
         if (bodyRef.current.value.length === 0 || !bodyRef.current.value) {
+            console.log('Error!!!!!!!!!!!!!!!!!!!!!!!!!!')
             setToast(true)
             setFeedback(['Message Body is empty'])
             setOutcome('error')
