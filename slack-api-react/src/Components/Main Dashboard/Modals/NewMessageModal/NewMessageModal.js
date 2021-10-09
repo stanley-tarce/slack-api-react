@@ -38,6 +38,12 @@ function NewMessageModal({ userList, setOpenMessageModal, setUserData, setMode, 
             setOutcome('error')
             setTimeout(() => setToast(false), 3000)
         }
+        else if (userContainer.length === 0) {
+            setToast(true)
+            setFeedback(['No User/s selected'])
+            setOutcome('error')
+            setTimeout(() => setToast(false), 3000)
+        }
         else {
             userContainer.forEach((user) => {
                 let { id, uid } = user
