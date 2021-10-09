@@ -21,20 +21,33 @@ function InviteUserChannel({
     const { id } = userDetails
     const { postInviteUserToChannel } = apiHooks()
     const sendInviteChannel = (event) => {
+
+
         event.preventDefault()
         let data = {
             id: channelId,
             member_id: id
         }
+
         console.log(data)
-        postInviteUserToChannel(header, data).then(() => {
-            setToast(true)
-            setOutcome('success')
-            setFeedback(['Invite user to a channel is successful'])
-            setTimeout(() => setToast(false), 3000)
-            setOpenChannelListModal(false)
-            setRedirectToChannel(true)
-            return history.push('/main/home')
+        postInviteUserToChannel(header, data).then((response) => {
+            console.log(response)
+            if (response.data.hasOwnProperty('errors')) {
+                setToast(true)
+                setOutcome('error')
+                setFeedback(response?.data?.errors)
+                setTimeout(() => setToast(false), 3000)
+                return history.push(`/main/home`)
+            }
+            else {
+                setToast(true)
+                setOutcome('success')
+                setFeedback(['Invite user to a channel is successful'])
+                setTimeout(() => setToast(false), 3000)
+                setOpenChannelListModal(false)
+                setRedirectToChannel(true)
+                return history.push('/main/home')
+            }
         })
         setOpenChannelListModal(false)
         setRedirectToChannel(true)

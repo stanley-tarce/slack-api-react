@@ -92,7 +92,7 @@ const apiHooks = () => {
                 },
                 data: qs.stringify(dataRef)
             })
-            return console.log(response)
+            return response
         }
         catch (error) {
             console.log(error)
