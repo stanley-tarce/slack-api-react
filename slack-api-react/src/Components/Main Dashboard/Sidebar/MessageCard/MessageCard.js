@@ -34,10 +34,7 @@ function MessageCard({
             const handleCloseRefDiv = (event) => {
                 if (ref.current && !ref.current.contains(event.target)) {
                     setFocus('null')
-
                 }
-
-
             }
             document.addEventListener("mousedown", handleCloseRefDiv)
             return () => document.removeEventListener("mousedown", handleCloseRefDiv)
@@ -46,16 +43,26 @@ function MessageCard({
     }
     CloseRefDiv(refDiv2)
     const removeUserData = (event) => {
-
         console.log(event)
         console.log(event.target.dataset.index1)
-        // let newContainer = userMessageList
         var temp_array = [...userMessageList]
         temp_array.splice(event.target.dataset.index1, 1)
-        // console.log(newContainer)
         setUserMessageList(temp_array)
-        let new1 = userMessageList
-        console.log(`New container has been uploaded`)
+        if (temp_array.length === 0) {
+            history.push(`/main/home`)
+        }
+        else {
+            setUserData({
+                ...userData,
+                id: temp_array[temp_array.length - 1].id,
+                uid: temp_array[temp_array.length - 1].uid
+            }
+            )
+            setCreateMessageContainer([])
+            setMode('User')
+            history.push(`/main/messaging/User/${temp_array[temp_array.length - 1].id}`)
+
+        }
     }
 
     useEffect(() => {

@@ -5,16 +5,6 @@ import qs from 'qs'
 
 const apiHooks = () => {
     let source = axios.CancelToken.source()
-    /** PARAMETERS 
-     * * DEFAULT STATIC HEADERS
-     *  1. BASE_URL 
-     *  2. contentType
-     * ! HEADERS REQUIRED AFTER USER LOG-IN
-     *  1. client
-     *  2. expiry
-     *  3. token ID 
-     *  4. uid -> Email of User
-    */
     let BASE_URL = 'slackapi.avionschool.com/'
     let contentType = { 'Content-Type': 'application/x-www-form-urlencoded' }
     const postUserRegistration = async (dataRef) => {
@@ -150,8 +140,6 @@ const apiHooks = () => {
             return console.log(error)
         }
     }
-
-
     const getRetrieveAllMessagesFromUser = async (headers, USER_ID) => {
         const { expiry, uid, accessToken, client } = headers
         try {
@@ -164,8 +152,8 @@ const apiHooks = () => {
                     'expiry': expiry,
                     'uid': uid
                 },
+                cancelToken: source.token
             })
-            console.log(response)
             return response
         } catch (error) {
             return console.log(error)
