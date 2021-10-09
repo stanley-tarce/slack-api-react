@@ -54,25 +54,33 @@ function NewMessageModal({ userList, setOpenMessageModal, setUserData, setMode, 
                     body: bodyRef.current.value
                 }
                 let counts = 0
-                checkDuplicateContainer.forEach(duplicate => {
-                    console.log(duplicate.id)
-                    console.log(user.id)
-                    if ((duplicate.id.toString() === user.id) || (duplicate.uid.toString() === user.uid)) {
-                        console.log('Found one match')
-                        counts = counts + 1
-                        console.log(counts)
 
+                if (checkDuplicateContainer.length !== 0) {
+                    checkDuplicateContainer.forEach(duplicate => {
+                        console.log(duplicate.id)
+                        console.log(user.id)
+                        if ((duplicate.id.toString() === user.id) || (duplicate.uid.toString() === user.uid)) {
+                            console.log('Found one match')
+                            counts = counts + 1
+                            console.log(counts)
+
+                        }
+                    })
+                    if (counts !== 0) {
+                        console.log('Matchss!!')
+                        postCreateDirectMessagetoUser(header, data)
                     }
-                })
-                if (counts !== 0) {
-                    console.log('Matchss!!')
-                    postCreateDirectMessagetoUser(header, data)
+                    else {
+                        console.log('No match')
+                        container = [...container, { id: id, uid: uid }]
+                        postCreateDirectMessagetoUser(header, data)
+                    }
                 }
                 else {
-                    console.log('No match')
                     container = [...container, { id: id, uid: uid }]
                     postCreateDirectMessagetoUser(header, data)
                 }
+
             }
 
             )
