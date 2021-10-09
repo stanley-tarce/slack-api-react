@@ -50,7 +50,7 @@ function NewMessageModal({ userList, setOpenMessageModal, setUserData, setMode, 
                 checkDuplicateContainer.forEach(duplicate => {
                     console.log(duplicate.id)
                     console.log(user.id)
-                    if ((duplicate.id.toString() === user.id) && (duplicate.uid.toString() === user.uid)) {
+                    if ((duplicate.id.toString() === user.id) || (duplicate.uid.toString() === user.uid)) {
                         console.log('Found one match')
                         counts = counts + 1
                         console.log(counts)
