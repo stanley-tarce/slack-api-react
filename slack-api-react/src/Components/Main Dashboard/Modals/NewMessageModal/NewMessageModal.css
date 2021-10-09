@@ -119,6 +119,7 @@
   font-weight: bold;
   color: rgb(255, 255, 255);
   margin-right: 51%;
+  cursor: pointer;
 }
 
 .buttonSubmit:hover {
