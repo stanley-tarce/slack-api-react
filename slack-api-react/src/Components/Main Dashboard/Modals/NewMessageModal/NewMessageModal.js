@@ -81,9 +81,7 @@ function NewMessageModal({ userList, setOpenMessageModal, setUserData, setMode, 
                     postCreateDirectMessagetoUser(header, data)
                 }
 
-            }
-
-            )
+            })
             let final_container_users = [...userMessageList, ...container]
             setUserMessageList(final_container_users)
             setUserData({ ...userData, id: userContainer[0].id, uid: userContainer[0].uid, receiver_class: 'User' })

@@ -325,7 +325,9 @@ function MainDashboard({
                 openLogoutModal={openLogoutModal}
                 setOpenLogoutModal={setOpenLogoutModal}
                 header={header}
-                setHeader={setHeader} />}
+                setHeader={setHeader}
+                setChannelList={setChannelList}
+                setUserMessageList={setUserMessageList} />}
 
 
             {openChannelListMembers && <ChannelListModal
